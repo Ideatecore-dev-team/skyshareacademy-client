@@ -41,20 +41,20 @@ function App() {
   const location = useLocation();
 
   const hideNavbarAndFooterPaths = [
-    // "/cms",
-    // "/cms/kelolaakun",
-    // "/cms/add/admin",
-    // "/cms/edit/admin/:id",
-    // "/cms/talentacademy",
-    // "/cms/mentoracademy",
-    // "/cms/parentsacademy",
-    // "/cms/talent/editschool/:id",
-    // "/cms/talent/addschool",
-    // "/cms/talent/editgroup/:id",
-    // "/cms/talent/addgroup",
-    // "/cms/article",
-    // "/cms/article/edit/:id",
-    // "/cms/article/add",
+    "/cms",
+    "/cms/kelolaakun",
+    "/cms/add/admin",
+    "/cms/edit/admin/:id",
+    "/cms/talentacademy",
+    "/cms/mentoracademy",
+    "/cms/parentsacademy",
+    "/cms/talent/editschool/:id",
+    "/cms/talent/addschool",
+    "/cms/talent/editgroup/:id",
+    "/cms/talent/addgroup",
+    "/cms/article",
+    "/cms/article/edit/:id",
+    "/cms/article/add",
   ];
 
   const shouldHideNavbarAndFooter = hideNavbarAndFooterPaths.some((path) => {
@@ -96,7 +96,7 @@ function App() {
         <Route path="/cms" element={<CmsLoginRoute />}>
           <Route path="/cms" element={<CmsLogin />} />
         </Route>
-        {/* <Route element={<CmsPrivateRoute />}>
+        <Route element={<CmsPrivateRoute />}>
           <Route path="/cms/kelolaakun" element={<CmsKelolaAkun />} />
           <Route path="/cms/add/admin" element={<CmsAddAdmin />} />
           <Route path="/cms/edit/admin/:id" element={<CmsEditAdmin />} />
@@ -119,7 +119,7 @@ function App() {
             element={<CmsTalentEditGroup />}
           />
           <Route path="/cms/talent/addgroup" element={<CmsTalentAddGroups />} />
-        </Route> */}
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       {!shouldHideNavbarAndFooter && <Footer />}

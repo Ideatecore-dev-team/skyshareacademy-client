@@ -579,10 +579,10 @@ function CmsArticleEditForm() {
                   }}
                 />
                 </div>
-                <div className=" mt-4">
-                  <label className=" font-bold mb-1 flex gap-2" htmlFor="cta">
-                    <img className=" w-6" src={Chain} alt="" />
-                    Link <span className="text-orange-400">(Opsional) *</span>
+                <div className="mt-4">
+                  <label className="font-bold mb-1 flex gap-2" htmlFor="cta">
+                    <img className="w-6" src={Chain} alt="" />
+                    Link<span className="text-orange-400">*</span>
                   </label>
                   <input
                     onChange={(e) =>
@@ -591,10 +591,10 @@ function CmsArticleEditForm() {
                         link: e.target.value,
                       })
                     }
-                    placeholder="https://belajarmentorship.co.id/pembelajaran"
+                    placeholder="https://skyshareacademy.id"
                     type="text"
                     className="w-full px-4 py-2 border-gray-300 border-2 rounded-lg outline-none"
-                    defaultValue={articleById.link}
+                    value={articleForm.link || ""}
                   />
                 </div>
                 <div className="mt-4 flex gap-5 justify-end">
