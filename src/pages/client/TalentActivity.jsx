@@ -1,12 +1,13 @@
 import React from "react";
-import SkyshareActivitiesHero from "../components/ActivitiesHeroTalent";
-import SkyshareActivitiesCarousel from "../components/ActivitiesCarouselTalent";
+import SkyshareActivitiesHero from "../../components/ActivitiesHeroTalent";
+import SkyshareActivitiesCarousel from "../../components/ActivitiesCarouselTalent";
 
 function SkyshareActivity() {
   return (
     <>
       <SkyshareActivitiesHero />
       <SkyshareActivitiesCarousel />
+
     </>
   );
 }

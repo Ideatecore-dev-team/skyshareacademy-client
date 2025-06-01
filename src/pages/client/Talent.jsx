@@ -1,13 +1,13 @@
 import React from "react";
-import skyshareApi from "../utilities/skyshareApi";
+import skyshareApi from "../../utilities/skyshareApi";
 import { useState, useEffect } from "react";
-import TalentCta from "../components/CtaTalents";
-import Skyshareabout from "../components/AboutTalent";
-import BenefitSkyshare from "../components/BenefitTalent";
-import AlurAcara from "../components/AlurAcara";
-import TimelineSkyshare from "../components/TimelineSkyshare";
-import CurrentGroupTalent from "../components/CurrentGroupTalent";
-import AllActivitiesSkyShare from "../components/AllActivitiesTalent";
+import TalentCta from "../../components/CtaTalents";
+import Skyshareabout from "../../components/AboutTalent";
+import BenefitSkyshare from "../../components/BenefitTalent";
+import AlurAcara from "../../components/AlurAcara";
+import TimelineSkyshare from "../../components/TimelineSkyshare";
+import CurrentGroupTalent from "../../components/CurrentGroupTalent";
+import AllActivitiesSkyShare from "../../components/AllActivitiesTalent";
 
 function Skyshare() {
   const [talent, setTalent] = useState([]);

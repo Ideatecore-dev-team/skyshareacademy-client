@@ -496,7 +496,7 @@ function CmsArticleAddForm() {
                     onEditorChange={(content) =>
                       setArticleForm({ ...articleForm, content })
                     }
-                    apiKey="gemyn0v2v0dyeaicn1p0fm8bje0jldn312dh4cz45rnzg68q"
+                    apiKey="6tl5tifchc48dqu40vcan97ogm0iavsuezuoygext3jeifqu"
                     init={{
                       menubar: false,
                       resize: false,

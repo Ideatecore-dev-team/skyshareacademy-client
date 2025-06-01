@@ -1,5 +1,5 @@
 import React from "react";
-import CmsLoginForm from "../components/CmsLoginForm";
+import CmsLoginForm from "../../components/CmsLoginForm";
 
 function CmsLogin() {
   return (

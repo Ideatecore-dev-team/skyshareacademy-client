@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import TalentLogo from "../../public/images/Talent-logo.png";
-import MentorLogo from "../../public/images/Mentor-logo.png";
-import ParentsLogo from "../../public/images/Parents-logo.png";
-import Button from "../components/Button";
-import "../components/OurProgram.css";
+import TalentLogo from "../../../public/images/Talent-logo.png";
+import MentorLogo from "../../../public/images/Mentor-logo.png";
+import ParentsLogo from "../../../public/images/Parents-logo.png";
+import Button from "../../components/Button";
+import "../../components/OurProgram.css";
 
 function OurProgram() {
   const navigate = useNavigate();

@@ -1,14 +1,14 @@
 import React from "react";
 // import axios from "axios";
-import skyshareApi from "../utilities/skyshareApi";
+import skyshareApi from "../../utilities/skyshareApi";
 import { useEffect } from "react";
 import { useState } from "react";
-import ParentsCta from "../components/CtaParents";
-import ParentsAbout from "../components/AboutParents";
-import BenefitParents from "../components/BenefitParents";
-import AlurAcara from "../components/AlurAcara";
-import TimelineSkyshare from "../components/TimelineSkyshare";
-import AllActivitiesParents from "../components/AllActivitiesParents";
+import ParentsCta from "../../components/CtaParents";
+import ParentsAbout from "../../components/AboutParents";
+import BenefitParents from "../../components/BenefitParents";
+import AlurAcara from "../../components/AlurAcara";
+import TimelineSkyshare from "../../components/TimelineSkyshare";
+import AllActivitiesParents from "../../components/AllActivitiesParents";
 
 function Parents() {
   const [parents, setParents] = useState([]);
