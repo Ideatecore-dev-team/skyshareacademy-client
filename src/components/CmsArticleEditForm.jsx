@@ -591,7 +591,7 @@ function CmsArticleEditForm() {
                         link: e.target.value,
                       })
                     }
-                    placeholder="https://skyshareacademy.id"
+                    placeholder="skyshareacademy.id (tanpa https://)"
                     type="text"
                     className="w-full px-4 py-2 border-gray-300 border-2 rounded-lg outline-none"
                     value={articleForm.link || ""}
