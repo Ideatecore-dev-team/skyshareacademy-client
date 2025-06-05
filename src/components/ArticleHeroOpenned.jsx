@@ -22,7 +22,7 @@ function ArticleHeroOpenned() {
   const backgroundImageUrl = article.image_heading;
   return (
     <>
-      <div className="hero bg-background bg-cover bg-center flex flex-col pb-4 pt-24 items-center self-stretch h-auto w-auto"></div>
+      <div className="hero bg-background bg-cover bg-center flex flex-col pb-3 pt-24 items-center self-stretch h-auto w-auto"></div>
       {/* <div style={{ backgroundImage: `url(${backgroundImageUrl})` }} className="hero bg-cover bg-center flex flex-col pb-24 pt-24 items-center self-stretch h-auto"> */}
         {/* <div className="content text-white flex justify-center items-end"></div> */}
       {/* </div> */}

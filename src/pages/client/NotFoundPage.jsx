@@ -1,6 +1,6 @@
 import React from "react";
-import Mascot from "../../public/images/mascot-icons/pose=9.png";
-import Caution from "../../public/images/mascot-icons/Danger Triangle.png";
+import Mascot from "../../../public/images/mascot-icons/pose=9.png";
+import Caution from "../../../public/images/mascot-icons/Danger Triangle.png";
 
 function NotFoundPage() {
   return (

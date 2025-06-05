@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ArticleHero from "../components/ArticleHero";
-import ArticleList from "../components/ArticleList";
-import skyshareApi from "../utilities/skyshareApi";
+import ArticleHero from "../../components/ArticleHero";
+import ArticleList from "../../components/ArticleList";
+import skyshareApi from "../../utilities/skyshareApi";
 
 function Article() {
   const [searchTerm, setSearchTerm] = useState("");

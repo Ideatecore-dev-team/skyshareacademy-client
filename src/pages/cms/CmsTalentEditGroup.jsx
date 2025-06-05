@@ -1,6 +1,6 @@
 import React from "react";
-import CmsNavbar from "../components/CmsNavbar";
-import CmsTalentEditGroupForm from "../components/CmsTalentEditGroupForm";
+import CmsNavbar from "../../components/CmsNavbar";
+import CmsTalentEditGroupForm from "../../components/CmsTalentEditGroupForm";
 
 function CmsTalentEditGroup() {
   return (

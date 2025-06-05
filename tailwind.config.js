@@ -1,5 +1,3 @@
-import { MdHeight } from "react-icons/md";
-
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -39,21 +37,20 @@ export default {
         "neutral-3": "#66707C",
         "neutral-4": "#99A0A8",
         "neutral-5": "#CCCFD3",
-        "h200": "200px",
         "neutral-white": "#FFFFFF",
         benefitMentor: "#85D7F5",
         background: "#EFEFEF",
       },
       width: {
-        nav: "1152px;",
-        tagline: "72rem;",
+        nav: "1152px", 
+        tagline: "72rem", 
         "cover-size1": "43.5rem",
         "w200": "200px",
         "cover-size2": "40.5rem",
         "footer-content": "72.816rem",
         "cover-size3": "26rem",
         "logo-msim": "192px",
-        "slash-w": "45.5rem;",
+        "slash-w": "45.5rem", 
         "slash-sm": "28rem",
         "120":"120px",
         "312":"312px",
@@ -61,6 +58,7 @@ export default {
       height: {
         testimoni: "648px",
         "120":"120px",
+        "h200": "200px", 
       },
       margin: {
         "slash-top": "4.7rem",
@@ -72,8 +70,32 @@ export default {
       padding: {
         "padding106":"106px",
         "padding170":"170px"
-      }
+      },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            'p + p': {
+              marginTop: theme('spacing.3'),
+            },
+            'h2': {
+                marginBottom: theme('spacing.2'), // 8px
+            },
+            'ul > li + li': {
+                marginTop: theme('spacing.1'), // 4px
+            },
+          },
+        },
+        lg: {
+            css: {
+                'p + p': {
+                    marginTop: theme('spacing.3'), // 12px
+                },
+            },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'), 
+  ],
 };

@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { MdGroups2 } from "react-icons/md";
+import { MdSportsKabaddi } from "react-icons/md";
 
 import "./SSACarousel.css";
 
@@ -34,20 +35,8 @@ function SsaCarousel() {
     <>
       <Slider {...settings}>
         <div className="activities-card lg:ml-6 -ml-9 mt-10 px-4 pb-6 pt-8 lg:px-6 lg:pt-11 lg:pb-6 bg-white gap-4 lg:gap-gap10 text-center items-center content-center">
-          <div className="icon-card flex justify-center items-center bg-primary-1 -mt-14 lg:-mt-20">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-            >
-              <path
-                d="M10.4726 17.3331V12.8192C10.4726 12.0521 11.0944 11.4303 11.8614 11.4303V5.87473C11.8614 5.87473 10.8198 5.18031 9.08366 5.18031C7.34755 5.18031 6.30588 5.87478 6.30588 5.87478V11.4303C7.07299 11.4303 7.69484 12.0522 7.69484 12.8193V17.333M3.18096 17.333V12.8193C3.18096 12.0522 2.5591 11.4303 1.79199 11.4303V5.87476C1.79199 5.87476 2.83366 5.18028 4.56977 5.18028M14.9865 17.3331V12.8192C14.9865 12.0521 15.6083 11.4303 16.3753 11.4303V5.87473C16.3753 5.87473 15.3337 5.18031 13.5975 5.18031M8.97949 3.79145C8.97949 3.79145 7.86838 3.09701 7.86838 2.22895C7.86838 1.55777 8.41248 1.01367 9.08366 1.01367C9.75484 1.01367 10.296 1.55777 10.296 2.22895C10.296 3.09701 9.18782 3.79145 9.18782 3.79145H8.97949ZM4.4656 3.79145C4.4656 3.79145 3.35449 3.09701 3.35449 2.22895C3.35449 1.55777 3.89859 1.01367 4.56977 1.01367C5.24095 1.01367 5.78205 1.55777 5.78205 2.22895C5.78205 3.09701 4.67394 3.79145 4.67394 3.79145H4.4656ZM13.4934 3.79145C13.4934 3.79145 12.3823 3.09701 12.3823 2.22895C12.3823 1.55777 12.9264 1.01367 13.5975 1.01367C14.2687 1.01367 14.8098 1.55777 14.8098 2.22895C14.8098 3.09701 13.7017 3.79145 13.7017 3.79145H13.4934Z"
-                stroke="white"
-                strokeWidth="1.04167"
-              />
-            </svg>
+          <div className="icon-card flex justify-center items-center bg-primary-1 -mt-14 lg:-mt-20 size-[60px]">
+            <MdGroups2 />
           </div>
           <div className="main-card flex flex-col item self-stretch">
             <h4 className="headline-4">1. Circle Time</h4>
@@ -61,7 +50,7 @@ function SsaCarousel() {
         </div>
         <div className="activities-card lg:ml-6 -ml-9 mt-10 px-4 pb-6 pt-8 lg:px-6 lg:pt-11 lg:pb-6 bg-white gap-4 lg:gap-4 text-center items-center">
           <div className="icon-card flex justify-center items-center bg-primary-1 -mt-14 lg:-mt-20">
-            <MdGroups2 />
+            <MdSportsKabaddi />
           </div>
           <div className="main-card flex flex-col item self-stretch">
             <h4 className="headline-4">2. Sport Time</h4>

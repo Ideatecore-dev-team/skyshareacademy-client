@@ -1,6 +1,9 @@
 import React from "react";
 import SSACarousel from "./SSACarouselTalent";
 import ButtonLink from "./ButtonLink";
+
+
+
 import "./ActivitiesCarousel.css";
 
 function SkyshareActivitiesCarousel() {
@@ -9,6 +12,8 @@ function SkyshareActivitiesCarousel() {
       <div className="carousel-act bg-background flex lg:pb-24 lg:pt-14 py-14 px-6 lg:px-0 flex-col justify-center items-center overflow-hidden">
         <div className="flex lg:max-w-6xl max-w-sm flex-col gap-10 flex-nowrap">
           <SSACarousel />
+        
+
         </div>
         <div className="join-btn mx-auto w-64 py-14 lg:py-24">
           <ButtonLink
