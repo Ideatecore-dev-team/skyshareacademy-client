@@ -53,7 +53,7 @@ function SsaCarousel() {
           </div>
           <hr className=" horz-rule" />
           <p className="alternative-paragraph">
-            Lorem ipsum dolor sit ammet, consectetur edipiching elit
+            Lorem ipsum dolor sit ammet, consectetur edipiching elit UpMe
           </p>
         </div>
         <div className="activities-card lg:ml-9 -ml-9 mt-10 px-4 pb-6 pt-8 lg:px-6 lg:pt-11 lg:pb-6 bg-white gap-4 lg:gap-4 text-center items-center">
