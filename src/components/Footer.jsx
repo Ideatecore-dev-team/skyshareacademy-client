@@ -25,7 +25,7 @@ function Footer() {
                   Selatan 15224
                 </p>
                 <p className="lg:text-base xs:text-sm font-normal">
-                  (+62) 856-8043-529
+                  (+62) 8954-1392-8653
                 </p>
                 <p className="lg:text-base xs:text-sm font-normal">
                   msimbusiness@org.com

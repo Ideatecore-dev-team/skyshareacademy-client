@@ -17,7 +17,7 @@ function MentorCta({ mentor }) {
               </h1>
             </div>
             <p className="regist paragraph text-center mb-3">
-              Open registration Mentor Academy Season 6.
+              Open registration Mentor Academy Season 2.
             </p>
             <div className="join-download flex items-start gap-7 flex-col lg:flex-row ">
               <ButtonLink
