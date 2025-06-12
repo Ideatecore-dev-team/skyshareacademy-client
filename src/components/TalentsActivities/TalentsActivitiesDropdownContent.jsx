@@ -151,7 +151,11 @@ export const OurProgramDropdownContent = ({ programId }) => {
   <div className="program-header xs:gap-[34px] gap-[34px] flex flex-col lg:flex-row-reverse items-start lg:self-stretch lg:justify-between lg:w-[1152]">
     <img
       src={image}
-      className="w-full lg:w-[750px] lg:h-[250px] h-[127.333px]"
+      className="w-full lg:w-[750px] lg:h-[250px] h-[127.333px] rounded-2xl 
+      
+        border-[1px] border-neutral-600 cursor-pointer
+        shadow-[8px_8px_0px_0px_rgba(51,65,81,1)] transition-all duration-300 ease-in-out
+        hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(51,65,81,1)]"
       alt="program-banner"
     />
     <div className="program-header-content flex flex-col items-start gap-4 self-stretch lg:w-[1152]">
