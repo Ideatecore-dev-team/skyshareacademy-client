@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import skyshareApi from "../utilities/skyshareApi";
-import Logo from "../../public/images/logo placeholder.png";
-import IconButton from "../../public/images/mascot-icons/Logout.png";
+
+import skyshareApi from "../../utilities/skyshareApi";
+
+import Logo from "../../../public/images/logo placeholder.png";
+import IconButton from "../../../public/images/mascot-icons/Logout.png";
 import { useNavigate } from "react-router-dom";
 
 function CmsNavbar() {

@@ -1,24 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Hero.css";
+import "./Hero2.css";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
 import CmsNavCard from "./CmsNavCard";
-import Arrow from "../../public/images/mascot-icons/Arrow-down.png";
-import File from "../../public/images/mascot-icons/Image 3.png";
-import Plus from "../../public/images/mascot-icons/Plus-0.png";
-import Delete from "../../public/images/mascot-icons/Delete.png";
-import Del from "../../public/images/mascot-icons/Delete-0.png";
-import Mascot from "../../public/images/mascot-icons/pose=2.png";
-import Add from "../../public/images/mascot-icons/Plus.png";
-import Xbutton from "../../public/images/mascot-icons/Fill 300.png";
-import Ceklist from "../../public/images/mascot-icons/Tick Square.png";
-import Coution from "../../public/images/mascot-icons/Info Square.png";
-import Mascot1 from "../../public/images/mascot-icons/pose=8.png";
-import Mascot2 from "../../public/images/mascot-icons/pose=1.png";
-import Chain from "../../public/images/mascot-icons/Link.png";
-import Close from "../../public/images/mascot-icons/Close Square.png";
+import Arrow from "../../../public/images/mascot-icons/Arrow-down.png";
+import File from "../../../public/images/mascot-icons/Image 3.png";
+import Plus from "../../../public/images/mascot-icons/Plus-0.png";
+import Delete from "../../../public/images/mascot-icons/Delete.png";
+import Del from "../../../public/images/mascot-icons/Delete-0.png";
+import Mascot from "../../../public/images/mascot-icons/pose=2.png";
+import Add from "../../../public/images/mascot-icons/Plus.png";
+import Xbutton from "../../../public/images/mascot-icons/Fill 300.png";
+import Ceklist from "../../../public/images/mascot-icons/Tick Square.png";
+import Coution from "../../../public/images/mascot-icons/Info Square.png";
+import Mascot1 from "../../../public/images/mascot-icons/pose=8.png";
+import Mascot2 from "../../../public/images/mascot-icons/pose=1.png";
+import Chain from "../../../public/images/mascot-icons/Link.png";
+import Close from "../../../public/images/mascot-icons/Close Square.png";
 import ReactQuill from "react-quill";
-import skyshareApi from "../utilities/skyshareApi";
+
+import skyshareApi from "../../utilities/skyshareApi";
 // import "react-quill/dist/quill.snow.css";
 
 function CmsArticleEditForm() {

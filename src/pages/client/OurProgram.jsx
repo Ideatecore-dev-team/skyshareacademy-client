@@ -107,7 +107,7 @@ function OurProgram() {
             </div>
             <h2 className="headline-2">Parents Academy</h2>
             <p className="paragraph px-6">
-              Parents Academy untuk orang tua member Talents Academy yang bertindak sebagai pendukung (support system) program agar memiliki kesamaan visi misi dalam pembentukan karakter dan pengembangan potensi talents.
+              Program untuk menyelaraskan visi orang tua member Talents Academy dalam mendukung pembentukan karakter dan pengembangan potensi.
             </p>
             <Button onClick={() => navigate("/ourprogram/parents")}>
               <div className="flex gap-2">

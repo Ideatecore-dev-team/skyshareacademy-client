@@ -4,22 +4,28 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+/* Main URL */
 import Home from "./pages/client/Home";
 import AboutUs from "./pages/client/AboutUs";
 import OurProgram from "./pages/client/OurProgram";
-import Skyshare from "./pages/client/Talent";
+import Talent from "./pages/client/Talent";
 import Mentor from "./pages/client/Mentor";
 import Parents from "./pages/client/Parents";
 import Article from "./pages/client/Article";
+
+/* Activities */
+import TalentActivities from "./pages/client/TalentActivities";
+
 import TalentActivity from "./pages/client/TalentActivity";
 import ParentsActivity from "./pages/client/ParentsActivity";
 import MentorActivity from "./pages/client/MentorActivity";
+
 import ContactUs from "./pages/client/ContactUs";
 import ArticleOpennedPage from "./pages/client/ArticleOpennedPage";
 import NotFoundPage from "./pages/client/NotFoundPage";
 
-import CmsPrivateRoute from "../src/components/CmsPrivateRoute";
-import CmsLoginRoute from "../src/components/CmsLoginRoute";
+import CmsPrivateRoute from "../src/components/cms/CmsPrivateRoute";
+import CmsLoginRoute from "../src/components/cms/CmsLoginRoute";
 import CmsLogin from "./pages/cms/CmsLogin";
 import CmsKelolaAkun from "./pages/cms/CmsKelolaAkun";
 import CmsAddAdmin from "./pages/cms/CmsAddAdmin";
@@ -73,13 +79,21 @@ function App() {
       {!shouldHideNavbarAndFooter && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/ourprogram/talent" element={<Skyshare />} />
+        <Route path="/ourprogram/talent" element={<Talent />} />
         <Route path="/ourprogram/mentor" element={<Mentor />} />
         <Route path="/ourprogram/parents" element={<Parents />} />
         <Route path="/article/:id" element={<ArticleOpennedPage />} />
+
+        {/* <Route
+          path="/ourprogram/talent/activities2"
+          element={<TalentActivities />}
+        /> */}
+
         <Route
           path="/ourprogram/talent/activities"
-          element={<TalentActivity />}
+          // element={<TalentActivity />}
+          element={<TalentActivities />}
+
         />
         <Route
           path="/ourprogram/mentor/activities"
@@ -89,8 +103,12 @@ function App() {
           path="/ourprogram/parents/activities"
           element={<ParentsActivity />}
         />
+
         <Route path="/aboutus" element={<AboutUs />} />
+
         <Route path="/ourprogram" element={<OurProgram />} />
+
+
         <Route path="/article" element={<Article />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/cms" element={<CmsLoginRoute />}>

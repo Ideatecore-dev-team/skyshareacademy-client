@@ -1,6 +1,6 @@
 import React from "react";
-import CmsNavbar from "../../components/CmsNavbar";
-import CmsTalentAddSchoolForm from "../../components/CmsTalentAddSchoolForm";
+import CmsNavbar from "../../components/cms/CmsNavbar";
+import CmsTalentAddSchoolForm from "../../components/cms/CmsTalentAddSchoolForm";
 
 function CmsTalentAddSchool() {
   return (

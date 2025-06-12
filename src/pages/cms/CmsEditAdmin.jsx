@@ -1,6 +1,6 @@
 import React from "react";
-import CmsNavbar from "../../components/CmsNavbar";
-import CmsEditAdminForm from "../../components/CmsEditAdminForm";
+import CmsNavbar from "../../components/cms/CmsNavbar";
+import CmsEditAdminForm from "../../components/cms/CmsEditAdminForm";
 
 function CmsEditAdmin() {
   return (

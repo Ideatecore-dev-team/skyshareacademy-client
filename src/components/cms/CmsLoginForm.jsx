@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import skyshareApi from "../utilities/skyshareApi";
-import Pose1 from "../../public/images/mascot-icons/pose=2.png";
-import Pose2 from "../../public/images/mascot-icons/pose=7.png";
-import Pose3 from "../../public/images/mascot-icons/pose=6.png";
-import Pose4 from "../../public/images/mascot-icons/pose=8.png";
-import Pose5 from "../../public/images/mascot-icons/pose=3.png";
-import ArrowLeft from "../../public/images/mascot-icons/Arrow - Down 3.png";
-import Xbutton from "../../public/images/mascot-icons/Fill 300.png";
-import Danger from "../../public/images/mascot-icons/Danger Triangle.png";
+
+
+import skyshareApi from "../../utilities/skyshareApi";
+
+import Pose1 from "../../../public/images/mascot-icons/pose=2.png";
+import Pose2 from "../../../public/images/mascot-icons/pose=7.png";
+import Pose3 from "../../../public/images/mascot-icons/pose=6.png";
+import Pose4 from "../../../public/images/mascot-icons/pose=8.png";
+import Pose5 from "../../../public/images/mascot-icons/pose=3.png";
+import ArrowLeft from "../../../public/images/mascot-icons/Arrow - Down 3.png";
+import Xbutton from "../../../public/images/mascot-icons/Fill 300.png";
+import Danger from "../../../public/images/mascot-icons/Danger Triangle.png";
 
 function CmsLoginForm() {
   const [email, setEmail] = useState("");

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import skyshareApi from "../utilities/skyshareApi";
+import skyshareApi from "../../utilities/skyshareApi";
 import { Link } from "react-router-dom";
-import Edit from "../../public/images/mascot-icons/Edit.png";
-import ArrowRight from "../../public/images/mascot-icons/Arrow - Right 3.png";
-import IconAddUser from "../../public/images/mascot-icons/Add User.png";
+import Edit from "../../../public/images/mascot-icons/Edit.png";
+import ArrowRight from "../../../public/images/mascot-icons/Arrow - Right 3.png";
+import IconAddUser from "../../../public/images/mascot-icons/Add User.png";
 
 function CmsNavCard() {
   const [dataAdmin, setDataAdmin] = useState(null);

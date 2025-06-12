@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "./Hero.css";
-import skyshareApi from "../utilities/skyshareApi";
+import "./Hero2.css";
+import skyshareApi from "../../utilities/skyshareApi";
 import CmsNavCard from "./CmsNavCard";
-import Book from "../../public/images/mascot-icons/Document.png";
-import Work from "../../public/images/mascot-icons/Work.png";
-import Time from "../../public/images/mascot-icons/Time Circle.png";
-import Ceklist from "../../public/images/mascot-icons/Tick Square.png";
-import Chain from "../../public/images/mascot-icons/Link.png";
-import Xbutton from "../../public/images/mascot-icons/Fill 300.png";
-import Mascot1 from "../../public/images/mascot-icons/pose=8.png";
-import Mascot2 from "../../public/images/mascot-icons/pose=1.png";
-import Coution from "../../public/images/mascot-icons/Info Square.png";
-import Mascot from "../../public/images/mascot-icons/pose=2.png";
-import ArrowLeft from "../../public/images/mascot-icons/Arrow - Down 3.png";
+import Book from "../../../public/images/mascot-icons/Document.png";
+import Work from "../../../public/images/mascot-icons/Work.png";
+import Time from "../../../public/images/mascot-icons/Time Circle.png";
+import Ceklist from "../../../public/images/mascot-icons/Tick Square.png";
+import Chain from "../../../public/images/mascot-icons/Link.png";
+import Xbutton from "../../../public/images/mascot-icons/Fill 300.png";
+import Mascot1 from "../../../public/images/mascot-icons/pose=8.png";
+import Mascot2 from "../../../public/images/mascot-icons/pose=1.png";
+import Coution from "../../../public/images/mascot-icons/Info Square.png";
+import Mascot from "../../../public/images/mascot-icons/pose=2.png";
+import ArrowLeft from "../../../public/images/mascot-icons/Arrow - Down 3.png";
 
 function CmsMentorForm() {
   const [mentorForm, setMentorForm] = useState({});

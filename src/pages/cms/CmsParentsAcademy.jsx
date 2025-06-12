@@ -1,6 +1,6 @@
 import React from "react";
-import CmsNavbar from "../../components/CmsNavbar";
-import CmsParentsForm from "../../components/CmsParentsForm";
+import CmsNavbar from "../../components/cms/CmsNavbar";
+import CmsParentsForm from "../../components/cms/CmsParentsForm";
 
 function CmsParentsAcademy() {
   return (
