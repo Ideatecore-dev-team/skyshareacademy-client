@@ -1,5 +1,5 @@
 import React from "react";
-// import ProgramImage1 from "../assets/images/program-image-1.png";
+import ProgramImage1 from "../../../public/images/circle-time.png";
 // import ProgramImage2 from "../assets/images/program-image-2.png";
 // import ProgramImage3 from "../assets/images/program-image-3.png";
 // import ProgramImage4 from "../assets/images/program-image-4.png";
@@ -12,7 +12,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
     // Misalnya, jika programId 0 adalah Circle Time, 1 adalah Sport Time, dst.
     // Jika programId adalah nama program, maka sesuaikan strukturnya
     "Circle Time": {
-      // image: ProgramImage1, // Komen/Hapus jika tidak ada gambar spesifik
+      image: ProgramImage1,
       name: "Circle Time",
       description: "Kegiatan kelompok mingguan untuk membangun pemahaman materi.",
       caption1:

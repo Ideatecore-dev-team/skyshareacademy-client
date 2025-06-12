@@ -87,7 +87,7 @@
     ];
 
     return (
-        <div className="our-program-section flex items-start justify-center lg:pt-[120px] pt-[60px] bg-white">
+        <div className="our-program-section flex items-start justify-center lg:pt-[120px] pt-[60px] bg-background">
         <div className="our-program-container w-full xs:mx-6 lg:w-[1152px] flex flex-col items-center border-b-[1px] border-neutral-3 ">
             <div className="desc flex lg:w-[520px] py-12 flex-col items-start gap-4 self-stretch">
             <h5 className="text-sm lg:text-base font-bold">TALENTS ACTIVITIES</h5>
