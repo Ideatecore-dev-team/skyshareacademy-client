@@ -1,16 +1,26 @@
 import React from "react";
 import ProgramImage1 from "../../../public/images/circle-time.png";
-// import ProgramImage2 from "../assets/images/program-image-2.png";
-// import ProgramImage3 from "../assets/images/program-image-3.png";
-// import ProgramImage4 from "../assets/images/program-image-4.png";
-// import ProgramImage5 from "../assets/images/program-image-5.png";
+import ProgramImage2 from "../../../public/images/sport-time.png";
+import ProgramImage3 from "../../../public/images/training.png";
+import ProgramImage4 from "../../../public/images/fum.png";
+import ProgramImage5 from "../../../public/images/homvis.png";
+
+import ProgramImage6 from "../../../public/images/studex.png";
+import ProgramImage7 from "../../../public/images/take-a-walk-together.png";
+import ProgramImage8 from "../../../public/images/soul-of-charge.png";
+import ProgramImage9 from "../../../public/images/experential-learning.png";
+import ProgramImage10 from "../../../public/images/personal-approach.png";
+
+import ProgramImage11 from "../../../public/images/catch-wisdom.png";
+import ProgramImage12 from "../../../public/images/sharing-elevate.png";
+import ProgramImage13 from "../../../public/images/mentor-and-parents-conference.png";
+
+
 import { motion } from "framer-motion";
 
 export const OurProgramDropdownContent = ({ programId }) => {
   const programDetails = {
-    // Sesuaikan programId dengan indeks atau ID unik dari OurProgramData sebelumnya
-    // Misalnya, jika programId 0 adalah Circle Time, 1 adalah Sport Time, dst.
-    // Jika programId adalah nama program, maka sesuaikan strukturnya
+
     "Circle Time": {
       image: ProgramImage1,
       name: "Circle Time",
@@ -21,7 +31,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Melalui pendekatan teman sebaya, Circle Time memfasilitasi pembelajaran aktif dan partisipatif, di mana setiap individu memiliki kesempatan untuk berkontribusi. Ini membantu mengoptimalkan Multiple Intelligence dan The 7 essential life skills yang dimiliki setiap talenta, menciptakan lingkungan belajar yang dinamis dan efektif.",
     },
     "Sport Time": {
-      // image: ProgramImage2,
+      image: ProgramImage2,
       name: "Sport Time",
       description: "Sesi olahraga rutin bulanan untuk menjaga kebugaran dan kebersamaan.",
       caption1:
@@ -30,7 +40,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Selain manfaat fisik, Sport Time juga memperkuat bonding antar peserta melalui aktivitas bersama yang menyenangkan. Ini merupakan salah satu dari 13 program unggulan Skyshare Academy yang membantu mengoptimalkan Multiple Intelligence dan The 7 essential life skills, khususnya dalam aspek kinestetik dan interpersonal.",
     },
     "Training": {
-      // image: ProgramImage3,
+      image: ProgramImage3,
       name: "Training",
       description: "Pelatihan untuk meningkatkan kapasitas softskill dan hardskill.",
       caption1:
@@ -39,7 +49,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Pelatihan ini tidak hanya memberikan pengetahuan teknis, tetapi juga memperkuat karakter dan kompetensi yang dibutuhkan untuk menghadapi tantangan. Ini adalah bagian penting dari upaya Skyshare Academy untuk mengoptimalkan Multiple Intelligence dan The 7 essential life skills, mempersiapkan talenta menjadi individu yang berkualitas dan berdaya saing tinggi.",
     },
     "Fill Your Mind": {
-      // image: ProgramImage4,
+      image: ProgramImage4,
       name: "Fill Your Mind",
       description: "Seminar atau talkshow untuk memperluas wawasan dan cakrawala berpikir.",
       caption1:
@@ -48,7 +58,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Melalui interaksi dalam sesi-sesi ini, peserta didorong untuk berpikir kritis, mendapatkan perspektif baru, dan memicu ide-ide inovatif. Ini berkontribusi pada pengoptimalan Multiple Intelligence dan The 7 essential life skills, terutama dalam aspek kognitif dan sosial, menyiapkan mereka menjadi individu yang terinformasi dan berdaya.",
     },
     "Home Visit": {
-      // image: ProgramImage5,
+      image: ProgramImage5,
       name: "Home Visit",
       description: "Kunjungan rutin ke rumah member untuk membangun bonding dan mengenal latar belakang.",
       caption1:
@@ -57,7 +67,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Pendekatan personal ini memungkinkan terciptanya suasana kekeluargaan yang erat, memperkuat dukungan sosial, dan memahami kebutuhan individu secara lebih mendalam. Ini sangat efektif dalam pembentukan citra diri positif, attitude, knowledge, dan spiritual, sejalan dengan upaya Skyshare Academy untuk mengoptimalkan Multiple Intelligence dan The 7 essential life skills.",
     },
     "Student Expedition": {
-      // image: ProgramImageX, // Placeholder jika ada gambar baru
+      image: ProgramImage6,
       name: "Student Expedition",
       description: "Program tahunan di alam bebas untuk melatih kemandirian dan kepemimpinan.",
       caption1:
@@ -66,7 +76,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Melalui berbagai tantangan dan aktivitas di luar ruangan, program ini mendorong peserta untuk keluar dari zona nyaman, mengembangkan kemampuan adaptasi, dan memperkuat soft skills yang penting untuk kehidupan. Ini adalah salah satu dari 13 program unggulan Skyshare Academy yang secara efektif mengasah karakter dan potensi diri secara menyeluruh.",
     },
     "Take a Walk Together": {
-      // image: ProgramImageX,
+      image: ProgramImage7,
       name: "Take a Walk Together",
       description: "Kegiatan rekreasi dan edukasi internal grup atau gabungan ke tempat wisata.",
       caption1:
@@ -75,7 +85,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Selain aspek hiburan, kegiatan ini juga memiliki nilai edukasi yang tinggi, di mana peserta dapat belajar tentang budaya, sejarah, atau lingkungan sekitar tempat yang dikunjungi. Ini mendukung pengembangan Multiple Intelligence, terutama aspek naturalis dan interpersonal, serta memperkuat bonding dan support system antar talenta.",
     },
     "Soul of Charge": {
-      // image: ProgramImageX,
+      image: ProgramImage8,
       name: "Soul of Charge",
       description: "Kegiatan peningkatan kondisi ruhiyah dan ibadah untuk melatih kecerdasan spiritual.",
       caption1:
@@ -84,7 +94,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Melalui program ini, peserta diajak untuk lebih mendalami aspek spiritualitas, menumbuhkan kebijaksanaan, dan mengembangkan kepribadian yang berlandaskan akhlak mulia. Ini adalah pilar penting dalam pembentukan karakter yang seimbang antara kecerdasan intelektual, emosional, dan spiritual, sesuai dengan visi Skyshare Academy.",
     },
     "Experiential Learning": {
-      // image: ProgramImageX,
+      image: ProgramImage9,
       name: "Experiential Learning",
       description: "Penugasan untuk melatih manajemen diri, organisasi, dan kepekaan sosial.",
       caption1:
@@ -93,7 +103,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Melalui proyek-proyek dan tugas-tugas yang relevan, anggota didorong untuk mengembangkan keterampilan pemecahan masalah, kerja sama tim, dan kepedulian terhadap lingkungan sekitar. Ini secara efektif mengoptimalkan Multiple Intelligence dan The 7 essential life skills, mempersiapkan talenta menjadi individu yang mandiri dan bertanggung jawab.",
     },
     "Personal Approach": {
-      // image: ProgramImageX,
+      image: ProgramImage10,
       name: "Personal Approach",
       description: "Pendekatan pribadi mentor untuk membantu pembentukan karakter positif.",
       caption1:
@@ -102,7 +112,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Melalui interaksi satu lawan satu, mentor dapat memahami kebutuhan, tantangan, dan potensi unik setiap member. Ini memungkinkan mentor memberikan arahan yang lebih spesifik dan efektif dalam membentuk citra diri positif, attitude, knowledge, dan spiritual, sesuai dengan pendekatan Mentoring Project Harvard yang menjadi inspirasi Skyshare Academy.",
     },
     "Catch The Wisdom": {
-      // image: ProgramImageX,
+      image: ProgramImage11,
       name: "Catch The Wisdom",
       description: "Mengunjungi tokoh berpengaruh untuk mendapatkan pengalaman dan ilmu.",
       caption1:
@@ -111,7 +121,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Interaksi dengan para tokoh memungkinkan peserta untuk belajar dari pengalaman hidup, wawasan, dan nilai-nilai yang mereka pegang. Ini memperkaya perspektif member, memotivasi mereka untuk mencapai tujuan, dan membantu mengoptimalkan Multiple Intelligence, terutama dalam aspek interpersonal dan eksistensial.",
     },
     "Sharing To Elevate": {
-      // image: ProgramImageX,
+      image: ProgramImage12,
       name: "Sharing To Elevate",
       description: "Studi banding dengan grup lain untuk berbagi wawasan dan pengalaman.",
       caption1:
@@ -120,7 +130,7 @@ export const OurProgramDropdownContent = ({ programId }) => {
         "Melalui interaksi ini, peserta dapat memperluas jaringan, mendapatkan inspirasi baru, dan mengidentifikasi area untuk perbaikan dalam pengembangan diri dan program. Ini sangat efektif dalam mengoptimalkan Multiple Intelligence, khususnya dalam aspek interpersonal dan logis-matematis, serta membangun semangat kolaborasi.",
     },
     "Mentor & Parents Conference": {
-      // image: ProgramImageX,
+      image: ProgramImage13,
       name: "Mentor & Parents Conference",
       description: "Pertemuan rutin tahunan manajemen, mentor, dan orang tua untuk evaluasi program.",
       caption1:
