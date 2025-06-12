@@ -51,7 +51,7 @@ function ArticlePageOpenned() {
               </div>
 
               <div
-            className="hidden lg:block prose lg:prose-lg mx-auto text-justify lg:w-[600px]"
+            className="hidden lg:block prose lg:prose-lg mx-auto text-justify lg:w-[700px]"
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
 
