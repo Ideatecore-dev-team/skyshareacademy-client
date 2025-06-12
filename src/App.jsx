@@ -16,7 +16,6 @@ import Article from "./pages/client/Article";
 /* Activities */
 import TalentActivities from "./pages/client/TalentActivities";
 
-import TalentActivity from "./pages/client/TalentActivity";
 import ParentsActivity from "./pages/client/ParentsActivity";
 import MentorActivity from "./pages/client/MentorActivity";
 
