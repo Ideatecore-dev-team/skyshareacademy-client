@@ -4,22 +4,20 @@ import { useState, useEffect } from "react";
 import "./HomeArticle.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import Slider from "react-slick"; // Menggunakan Slider (react-slick)
 import { useNavigate } from "react-router-dom";
-import parse from "html-react-parser"; // Importing html-react-parser
+// import parse from "html-react-parser"; // Tidak perlu parse lagi untuk konten yang sudah di-strip
 
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
+// Tidak perlu Swiper jika sudah pakai Slider
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
+// import { Navigation, Pagination } from "swiper/modules";
 
 function HomeArticle() {
   const [articles, setArticles] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 639);
-
-  
 
   useEffect(() => {
     const getAllArticle = async function () {
@@ -39,26 +37,31 @@ function HomeArticle() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  // console.log(articles, "===>");
 
   const sortArticles = [...articles]
     .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
-    .slice(0, 3);
+    .slice(0, 3); // Ambil 3 artikel terbaru
+
   const navigate = useNavigate();
 
+  // Fungsi extractAndLimitContent yang sudah disempurnakan
   const extractAndLimitContent = (htmlContent, limit) => {
-    // Replace <div> with <p>
-    htmlContent = htmlContent
-      .replace(/<div>/g, "<p>")
-      .replace(/<\/div>/g, "</p>");
+    if (!htmlContent) return ""; // Handle case where htmlContent might be null or undefined
 
-    const firstParagraphMatch = htmlContent.match(/<p>(.*?)<\/p>/s);
-    if (!firstParagraphMatch) return "";
-    let firstParagraph = firstParagraphMatch[1]; // Extract inner content of the first paragraph
-    if (firstParagraph.length > limit) {
-      firstParagraph = firstParagraph.substring(0, limit) + "...";
+    // 1. Hapus tag HTML
+    let strippedContent = htmlContent.replace(/<[^>]*>/g, "");
+
+    // 2. Hapus karakter &nbsp; (non-breaking space)
+    strippedContent = strippedContent.replace(/&nbsp;/g, "");
+
+    // 3. Hapus spasi berlebih di awal atau akhir
+    strippedContent = strippedContent.trim();
+
+    // 4. Batasi panjang karakter
+    if (strippedContent.length > limit) {
+      return strippedContent.substring(0, limit) + "...";
     }
-    return `<p>${firstParagraph}</p>`; // Return as a paragraph
+    return strippedContent;
   };
 
   const settings = {
@@ -125,16 +128,12 @@ function HomeArticle() {
                   ></div>
                   <div className="card-content flex flex-col px-6 gap-4">
                     <p className="font-bold text-base">
-                      {parse(
-                        article.title.substring(0, 20) +
-                        (article.title.length > 20 ? "..." : "")
-                      )}
+                      {/* Menggunakan extractAndLimitContent untuk title */}
+                      {extractAndLimitContent(article.title, 20)}
                     </p>
                     <div className="font-normal text-sm">
-                      {parse(
-                        article.content.substring(0, 90) +
-                        (article.content.length > 100 ? "..." : "")
-                      )}
+                      {/* Menggunakan extractAndLimitContent untuk content */}
+                      {extractAndLimitContent(article.content, 90)}
                     </div>
                     <div className="card-cta mt-auto flex lg:flex-row xs:flex-col gap-4 items-center pb-[32px]">
                       <p
@@ -143,7 +142,10 @@ function HomeArticle() {
                       >
                         {article.category_name}
                       </p>
-                      <a href={"/article/" + article.id} className="link-txt flex items-start gap-1">
+                      <a
+                        href={"/article/" + article.id}
+                        className="link-txt flex items-start gap-1"
+                      >
                         <span className="lg:text-base xs:text-sm">
                           Baca Selengkapnya
                         </span>
@@ -151,7 +153,6 @@ function HomeArticle() {
                     </div>
                   </div>
                 </div>
-
               ))}
             </Slider>
           ) : (
@@ -167,24 +168,24 @@ function HomeArticle() {
                   ></div>
                   <div className="card-content flex px-6 flex-col gap-4">
                     <p className="font-bold text-base">
-                    {parse(
-                        article.title.substring(0, 20) +
-                          (article.title.length > 20 ? "..." : "")
-                      )}
-                      </p>
+                      {/* Menggunakan extractAndLimitContent untuk title */}
+                      {extractAndLimitContent(article.title, 20)}
+                    </p>
                     <div className="font-normal text-sm">
-                      {parse(
-                        article.content.substring(0, 160) +
-                          (article.content.length > 200 ? "..." : "")
-                      )}
+                      {/* Menggunakan extractAndLimitContent untuk content */}
+                      {extractAndLimitContent(article.content, 160)}
                     </div>
                     <div className="card-cta flex lg:flex-row xs:flex-col gap-4 items-center">
-                      <p 
-                      style={{ backgroundColor: `${article.category_color}` }}
-                      className="font-normal text-white lg:text-sm xs:text-xs flex px-4 py-1 content-center items-center gap-3 rounded-3xl">
+                      <p
+                        style={{ backgroundColor: `${article.category_color}` }}
+                        className="font-normal text-white lg:text-sm xs:text-xs flex px-4 py-1 content-center items-center gap-3 rounded-3xl"
+                      >
                         {article.category_name}
                       </p>
-                      <a href={"/article/" + article.id} className="link-txt flex items-start gap-1">
+                      <a
+                        href={"/article/" + article.id}
+                        className="link-txt flex items-start gap-1"
+                      >
                         <span className="lg:text-base xs:text-sm">
                           Baca Selengkapnya
                         </span>
@@ -196,7 +197,7 @@ function HomeArticle() {
             </div>
           )}
         </div>
-        
+
         <div className="flex justify-center w-full -mt-10">
           <button
             onClick={() => navigate("/article")}
