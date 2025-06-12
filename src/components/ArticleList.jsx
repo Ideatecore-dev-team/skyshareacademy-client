@@ -44,7 +44,6 @@ function ArticleList({ searchTerm, articles, sortOrder, selectedCategories }) {
         }
       });
     }
-
     return filteredArticles;
   };
 
@@ -65,18 +64,20 @@ function ArticleList({ searchTerm, articles, sortOrder, selectedCategories }) {
   const filteredArticles = filterAndSortArticles();
 
   const extractAndLimitContent = (htmlContent, limit) => {
-    // Replace <div> with <p>
-    htmlContent = htmlContent
-      .replace(/<div>/g, "<p>")
-      .replace(/<\/div>/g, "</p>");
+    // 1. Hapus tag HTML
+    let strippedContent = htmlContent.replace(/<[^>]*>/g, "");
 
-    const firstParagraphMatch = htmlContent.match(/<p>(.*?)<\/p>/s);
-    if (!firstParagraphMatch) return "";
-    let firstParagraph = firstParagraphMatch[1]; // Extract inner content of the first paragraph
-    if (firstParagraph.length > limit) {
-      firstParagraph = firstParagraph.substring(0, limit) + "...";
+    // 2. Hapus karakter &nbsp; (non-breaking space)
+    strippedContent = strippedContent.replace(/&nbsp;/g, "");
+
+    // 3. Hapus spasi berlebih di awal atau akhir
+    strippedContent = strippedContent.trim();
+
+    // 4. Batasi panjang karakter
+    if (strippedContent.length > limit) {
+      return strippedContent.substring(0, limit) + "...";
     }
-    return `<p>${firstParagraph}</p>`; // Return as a paragraph
+    return strippedContent;
   };
 
   // menentukan article yang di render berdasarkan current page and visible count
@@ -92,8 +93,7 @@ function ArticleList({ searchTerm, articles, sortOrder, selectedCategories }) {
     filteredArticles.length > visibleArticlesCount &&
     visibleArticlesCount < articlesPerPage;
   const showPagination =
-    currentPage > 1 ||
-    (currentPage === 1 && visibleArticlesCount === articlesPerPage);
+    currentPage > 1 || (currentPage === 1 && visibleArticlesCount === articlesPerPage);
 
   return (
     <div className="article-list-section bg-background flex flex-col items-center self-stretch py-14 lg:pb-24 lg:pt-12">
@@ -108,19 +108,20 @@ function ArticleList({ searchTerm, articles, sortOrder, selectedCategories }) {
         ) : (
           <h1 className="headline-1">Artikel Terbaru</h1>
         )}
+
         {filteredArticles.length === 0 && (
           <div className="not-found flex flex-col items-center gap-4">
             <img src={NotFound} alt="not found" />
             <div className="notfound-content flex flex-col items-center gap-2">
               <h4 className="headline-4 text-black">
-                Hmm, Sepertinya artikel yang kamu cari tidak tersedia
+                {" "}
+                Hmm, Sepertinya artikel yang kamu cari tidak tersedia{" "}
               </h4>
-              <p className="paragraph text-black">
-                Coba masukkan kata kunci lain
-              </p>
+              <p className="paragraph text-black"> Coba masukkan kata kunci lain </p>
             </div>
           </div>
         )}
+
         {filteredArticles.length > 0 && (
           <div className="article-list flex flex-col items-start gap-4 lg:gap-6">
             {displayedArticles.map((article, index) => (
@@ -136,7 +137,7 @@ function ArticleList({ searchTerm, articles, sortOrder, selectedCategories }) {
                   <h4 className="headline-4">{article.title}</h4>
                   <div className="article-desc">
                     <p className="paragraph">
-                      {parse(extractAndLimitContent(article.content, 120))}
+                      {extractAndLimitContent(article.content, 150)}
                     </p>
                   </div>
                   <div className="article-cta flex flex-col lg:flex-row items-center mx-auto gap-2 lg:gap-4 w-full">
@@ -150,12 +151,8 @@ function ArticleList({ searchTerm, articles, sortOrder, selectedCategories }) {
                       to={`/article/${article.id}`}
                       className="paragraph underline text-primary-1 flex flex-row items-center justify-center"
                     >
-                      Baca Selengkapnya
-                      <img
-                        className="size-4 lg:size-6"
-                        src={ArrowOrange}
-                        alt=""
-                      />
+                      Baca Selengkapnya{" "}
+                      <img className="size-4 lg:size-6" src={ArrowOrange} alt="" />
                     </Link>
                   </div>
                 </div>
@@ -163,6 +160,7 @@ function ArticleList({ searchTerm, articles, sortOrder, selectedCategories }) {
             ))}
           </div>
         )}
+
         {showLoadMore && (
           <button
             onClick={handleLoadMore}
@@ -172,6 +170,7 @@ function ArticleList({ searchTerm, articles, sortOrder, selectedCategories }) {
             <FaArrowRight />
           </button>
         )}
+
         {showPagination && (
           <div className="pagination-buttons flex justify-between w-full px-4">
             {currentPage > 1 && (
@@ -186,7 +185,7 @@ function ArticleList({ searchTerm, articles, sortOrder, selectedCategories }) {
             {endIndex < filteredArticles.length && (
               <button
                 onClick={handleNextPage}
-                className="next-button flex items-center content-center gap-2 px-4 py-2 bg-primary-1 hover:bg-primary-2  text-white rounded-full"
+                className="next-button flex items-center content-center gap-2 px-4 py-2 bg-primary-1 hover:bg-primary-2  text-white rounded-full"
               >
                 <p>Next</p>
                 <FaArrowRight />
