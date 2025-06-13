@@ -13,7 +13,7 @@ import { Pagination } from "swiper/modules"; // Import Pagination module
 
 function HomeArticle() {
   const [articles, setArticles] = useState([]);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 639);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 638);
 
   useEffect(() => {
     const getAllArticle = async function () {
@@ -27,7 +27,7 @@ function HomeArticle() {
     getAllArticle();
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 639);
+      setIsMobile(window.innerWidth <= 638);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
