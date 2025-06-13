@@ -2,9 +2,6 @@ import React from "react";
 import skyshareApi from "../utilities/skyshareApi";
 import { useState, useEffect } from "react";
 import "./HomeArticle.css";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper dan SwiperSlide
 import "swiper/css"; // Import base Swiper styles
@@ -55,15 +52,6 @@ function HomeArticle() {
     return strippedContent;
   };
 
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
   return (
     <>
       <div className=" home-art lg:py-20 xs:py-14 lg:px-0 xs:px-6">
@@ -108,14 +96,14 @@ function HomeArticle() {
             </svg>
           </button>
         </div>
-        <div className="article max-w-6xl mx-auto xs:pb-[80px] xs:overflow-hidden">
+        <div className="article max-w-6xl mx-auto xs:pb-[50px] xs:overflow-hidden">
           {isMobile ? (
             <Swiper
               spaceBetween={10}
               slidesPerView={1}
-              // pagination={{ clickable: true }}
-              // modules={[Pagination]}
-              className="w-[260px] overflow-hidden"
+              pagination={{ clickable: true }}
+              modules={[Pagination]}
+              className="w-[260px] overflow-hidden xs:pb-[50px]"
             >
               {sortArticles.map((article) => (
                 <SwiperSlide key={article.id}>
@@ -133,7 +121,7 @@ function HomeArticle() {
                       <p className="font-bold text-base">
                         {extractAndLimitContent(article.title, 20)}
                       </p>
-                      <div className="font-normal text-sm">
+                      <div className="font-normal text-sm xs:h-[80px] xs:overflow-hidden">
                         {extractAndLimitContent(article.content, 90)}
                       </div>
                       <div className="card-cta mt-auto flex lg:flex-row xs:flex-col gap-4 items-center pb-[32px]">
