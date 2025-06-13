@@ -50,7 +50,7 @@ function ArticlePageOpenned() {
       <div className="hero flex background flex-col items-center self-stretch">
         <div className="content h-full lg:mt-10">
           <div>
-          <h1 className="headline-1 lg:text-[32px] xs:text-[24px] text-center content-center">
+          <h1 className="headline-1 lg:text-[28px] xs:text-[24px] text-center content-center">
             {article.title}
           </h1>
 
