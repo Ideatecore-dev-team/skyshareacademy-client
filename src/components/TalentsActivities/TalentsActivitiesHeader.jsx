@@ -1,117 +1,166 @@
-    // eslint-disable-next-line no-unused-vars
     import React from "react";
-    // import Logo from "../assets/images/logo-color.png";
     import {
-    MdSportsSoccer, // Sport Time
-    MdOutlineAccessTime, // Circle Time, Personal Approach
-    MdSchool, // Training, Fill Your Mind, Sharing To Elevate
-    MdHome, // Home Visit
-    MdHiking, // Leadership Survival Camp / Student Expedition, Take a Walk Together
-    MdSelfImprovement, // Soul of Charge
-    MdWork, // Experiential Learning
-    MdEmojiObjects, // Catch The Wisdom
-    MdFamilyRestroom, // Mentor and Parents Conference
-    MdGroupAdd, // Catch The Wisdom alternative
-    MdOutlineLightbulb, // Fill Your Mind alternative
+    MdSportsSoccer,
+    MdOutlineAccessTime,
+    MdSchool,
+    MdHome,
+    MdHiking,
+    MdSelfImprovement,
+    MdWork,
+    MdGroupAdd,
+    MdFamilyRestroom,
+    MdOutlineLightbulb, // Menggunakan MdOutlineLightbulb untuk "Fill Your Mind"
     } from "react-icons/md";
-
     import { GiCampingTent } from "react-icons/gi";
+
+    // Import Swiper React components
+    import { Swiper, SwiperSlide } from "swiper/react";
+
+    // Import Swiper styles
+    import "swiper/css";
+    import "swiper/css/autoplay";
+
+    // Import required modules
+    import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
     export const TalentsActivitiesHeader = () => {
     const OurProgramData = [
         {
-        program: "1. Circle Time",
+        program: "Circle Time",
         desc: "Membangun pemahaman materi secara berkelompok setiap minggu.",
-        icon: <MdOutlineAccessTime size={24} className="text-white" />,
+        icon: <MdOutlineAccessTime size={32} className="text-white" />, // Ukuran icon diperbesar
         },
         {
-        program: "2. Sport Time",
+        program: "Sport Time",
         desc: "Kegiatan olahraga rutin bersama setiap bulan.",
-        icon: <MdSportsSoccer size={24} className="text-white" />,
+        icon: <MdSportsSoccer size={32} className="text-white" />,
         },
         {
-        program: "3. Training",
+        program: "Training",
         desc: "Pelatihan softskill dan hardskill.",
-        icon: <MdSchool size={24} className="text-white" />,
+        icon: <MdSchool size={32} className="text-white" />,
         },
         {
-        program: "4. Fill Your Mind",
+        program: "Fill Your Mind",
         desc: "Talkshow pengembangan diri untuk memperluas wawasan.",
-        icon: <MdOutlineLightbulb size={24} className="text-white" />,
+        icon: <MdOutlineLightbulb size={32} className="text-white" />,
         },
         {
-        program: "5. Home Visit",
+        program: "Home Visit",
         desc: "Kunjungan rutin ke rumah member untuk membangun bonding setiap bulan.",
-        icon: <MdHome size={24} className="text-white" />,
+        icon: <MdHome size={32} className="text-white" />,
         },
         {
-        program: "6. Student Expedition",
+        program: "Student Expedition",
         desc: "Program tahunan di alam bebas untuk melatih kemandirian dan kepemimpinan.",
-        icon: <GiCampingTent size={24} className="text-white" />,
+        icon: <GiCampingTent size={32} className="text-white" />,
         },
         {
-        program: "7. Take a Walk Together",
+        program: "Take a Walk Together",
         desc: "Rekreasi dan edukasi ke tempat wisata.",
-        icon: <MdHiking size={24} className="text-white" />,
+        icon: <MdHiking size={32} className="text-white" />,
         },
         {
-        program: "8. Soul of Charge",
+        program: "Soul of Charge",
         desc: "Kegiatan peningkatan kondisi ruhiyah dan ibadah.",
-        icon: <MdSelfImprovement size={24} className="text-white" />,
+        icon: <MdSelfImprovement size={32} className="text-white" />,
         },
         {
-        program: "9. Experiential Learning",
+        program: "Experiential Learning",
         desc: "Penugasan untuk melatih manajemen diri dan kepekaan sosial setahun sekali.",
-        icon: <MdWork size={24} className="text-white" />,
+        icon: <MdWork size={32} className="text-white" />,
         },
         {
-        program: "10. Personal Approach",
+        program: "Personal Approach",
         desc: "Pendekatan pribadi mentor untuk pembentukan karakter positif setiap minggu.",
-        icon: <MdOutlineAccessTime size={24} className="text-white" />,
+        icon: <MdOutlineAccessTime size={32} className="text-white" />,
         },
         {
-        program: "11. Catch The Wisdom",
+        program: "Catch The Wisdom",
         desc: "Mengunjungi tokoh berpengaruh untuk mendapatkan pengalaman dan ilmu.",
-        icon: <MdGroupAdd size={24} className="text-white" />,
+        icon: <MdGroupAdd size={32} className="text-white" />,
         },
         {
-        program: "12. Sharing To Elevate",
+        program: "Sharing To Elevate",
         desc: "Studi banding dengan grup lain setahun sekali.",
-        icon: <MdSchool size={24} className="text-white" />,
+        icon: <MdSchool size={32} className="text-white" />,
         },
         {
-        program: "13. Mentor & Parents Conference",
+        program: "Mentor & Parents Conference",
         desc: "Pertemuan rutin tahunan manajemen, mentor, dan orang tua untuk evaluasi program.",
-        icon: <MdFamilyRestroom size={24} className="text-white" />,
+        icon: <MdFamilyRestroom size={32} className="text-white" />,
         },
     ];
 
     return (
         <div className="our-program-section flex items-start justify-center lg:pt-[120px] pt-[60px] bg-background">
-        <div className="our-program-container w-full xs:mx-6 lg:w-[1152px] flex flex-col items-center border-b-[1px] border-neutral-3 ">
-            <div className="desc flex lg:w-[520px] py-12 flex-col items-start gap-4 self-stretch">
+        <div className="our-program-container w-[327px] xs:mx-6 lg:w-[1152px] flex flex-col items-center border-b-[1px] border-neutral-3 ">
+            <div className="desc flex lg:w-[550px] pt-12 flex-col items-start gap-4 self-stretch">
             <h5 className="text-sm lg:text-base font-bold">TALENTS ACTIVITIES</h5>
             <div className="heading-desc flex flex-col items-start gap-3 self-stretch">
                 <h2 className="text-2xl lg:text-[32px] text-left font-bold">
-                Menghubungkan Para Pemimpin Muda untuk Berkreasi, Berkolaborasi, dan Mempersiapkan Diri.
+                Menghubungkan Para Pemimpin Muda untuk Berkreasi, Berkolaborasi,
+                dan Mempersiapkan Diri.
                 </h2>
                 <p className="text-base text-justify">
-                Skyshare Academy Indonesia adalah lembaga pengembangan potensi diri dan kelas karakter minat bakat yang berfokus pada remaja dan pemuda (pelajar dan mahasiswa) untuk membentuk diri yang lebih baik, berkualitas, dan berdaya bagi bangsa dan negara. 
+                Skyshare Academy Indonesia adalah lembaga pengembangan potensi diri
+                dan kelas karakter minat bakat yang berfokus pada remaja dan
+                pemuda (pelajar dan mahasiswa) untuk membentuk diri yang lebih
+                baik, berkualitas, dan berdaya bagi bangsa dan negara.
                 </p>
             </div>
             </div>
-            <div className="programs pb-12 flex flex-col lg:flex-row lg:flex-wrap items-start lg:content-start lg:justify-between xs:gap-8 lg:gap-y-8 self-stretch">
-            {OurProgramData.map((programData, index) => (
-                <div key={index} className="lg:w-[19%] flex flex-col items-start gap-2 lg:gap-3 self-stretch"> {/* Adjusted width for 5 items per row */}
-                <div className="program-name flex gap-3 self-stretch items-center">
-                    <div className="icon flex p-3 items-center justify-center rounded-lg bg-primary-1 hover:bg-secondary-3">
-                    {programData.icon}
+
+            <div className="programs w-full overflow-hidden lg:pt-[52px] pt-[40px]">
+            <Swiper
+                spaceBetween={30}
+                autoplay={{
+                delay: 0, 
+                disableOnInteraction: true,
+                // Hapus pauseOnMouseEnter agar tidak berhenti saat kursor di atas
+                // pauseOnMouseEnter: true,
+                reverseDirection: false, // Tambahkan ini jika ingin bergerak satu arah terus
+                }}
+                loop={true} // Tetap true untuk infinite loop
+                speed={2500} // Kecepatan transisi antar slide (tingkatkan untuk lebih smooth dan terus berjalan)
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper !pb-[24px]"
+                breakpoints={{
+                320: {
+                    slidesPerView: 2, // Mungkin perlu lebih dari 1 untuk efek continuous
+                    spaceBetween: 10,
+                },
+                640: {
+                    slidesPerView: 2, // Sesuaikan jumlah slide yang terlihat untuk efek continuous
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 10,
+                },
+                }}
+            >
+                {OurProgramData.map((programData, index) => (
+                <SwiperSlide key={index}>
+                    <div className="program-card bg-white rounded-lg py-2 pt-[24px] flex flex-col items-center text-center gap-4 h-full border border-neutral-900 relative lg:w-[250px] mx-auto xs:h-[100px]">
+                    {/* Icon di tengah atas */}
+                    <div className="icon-container absolute -top-8 left-1/2 -translate-x-1/2 flex p-3 items-center justify-center rounded-lg bg-primary-1 w-16 h-16">
+                        {programData.icon}
                     </div>
-                    <h4 className="text-[16px] leading-[24px] font-bold">{programData.program}</h4>
-                </div>
-                {/* <p className="text-base xs:text-justify ">{programData.desc}</p> */}
-                </div>
-            ))}
+                    <h4 className="text-[14px] leading-[24px] font-bold text-gray-800 mt-4">
+                        {programData.program}
+                    </h4>
+                    {/* <p className="text-base text-gray-600">
+                        {programData.desc}
+                    </p> */}
+                    </div>
+                </SwiperSlide>
+                ))}
+            </Swiper>
             </div>
         </div>
         </div>
