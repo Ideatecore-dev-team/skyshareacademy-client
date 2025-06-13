@@ -5,6 +5,9 @@ import { Helmet } from "react-helmet"; // Import Helmet
 import skyshareApi from "../utilities/skyshareApi";
 import ArrowLeft from "../../public/images/mascot-icons/Arrow - Down 3.png";
 
+import HomeArticle from "../components/HomeArticle";
+
+
 function ArticlePageOpenned() {
   const [article, setArticle] = useState({});
   const { id } = useParams();
@@ -45,10 +48,13 @@ function ArticlePageOpenned() {
       </Helmet>
 
       <div className="hero flex background flex-col items-center self-stretch">
-        <div className="content h-full pb-20 lg:mt-10">
-          <h1 className="headline-1 lg:text-[32px] xs:text-[24px] text-center">
+        <div className="content h-full lg:mt-10">
+          <div>
+          <h1 className="headline-1 lg:text-[32px] xs:text-[24px] text-center content-center">
             {article.title}
           </h1>
+
+          </div>
           <div className="pt-4 lg:hidden block">
             <h4
               style={{ backgroundColor: `${article.category_color}` }}
@@ -61,7 +67,7 @@ function ArticlePageOpenned() {
             {article.image_heading && (
               <img
                 src={article.image_heading}
-                className="mt-4 mx-auto lg:max-w-[700px]"
+                className="mt-4 mx-auto lg:w-[1152px] lg:max-h-[648px]"
                 alt={article.title || "Article Image"} // Tambahkan alt text untuk aksesibilitas
               />
             )}
@@ -89,7 +95,7 @@ function ArticlePageOpenned() {
             className="block lg:hidden prose lg:prose-lg mx-auto text-justify lg:w-[600px] xs:pt-4"
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
-          <div className="w-full flex justify-center mt-10">
+          {/* <div className="w-full flex justify-center mt-10">
             <a
               className="px-5 py-4 items-center gap-2 bg-primary-1 flex hover:bg-primary-2 rounded-lg"
               href={`https://${article.link}`}
@@ -99,9 +105,11 @@ function ArticlePageOpenned() {
               <p className="text-white font-semibold">Learn more</p>
               <img className="w-6 -rotate-90" src={ArrowLeft} alt="" />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
+      <HomeArticle />
+
     </>
   );
 }
