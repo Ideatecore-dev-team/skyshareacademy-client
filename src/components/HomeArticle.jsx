@@ -4,16 +4,8 @@ import { useState, useEffect } from "react";
 import "./HomeArticle.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick"; // Menggunakan Slider (react-slick)
+import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
-// import parse from "html-react-parser"; // Tidak perlu parse lagi untuk konten yang sudah di-strip
-
-// Tidak perlu Swiper jika sudah pakai Slider
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import "swiper/css/pagination";
-// import { Navigation, Pagination } from "swiper/modules";
 
 function HomeArticle() {
   const [articles, setArticles] = useState([]);
@@ -33,7 +25,6 @@ function HomeArticle() {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 639);
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -44,20 +35,19 @@ function HomeArticle() {
 
   const navigate = useNavigate();
 
-  // Fungsi extractAndLimitContent yang sudah disempurnakan
+  // Fungsi untuk scroll ke atas
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth" // Membuat efek scroll menjadi lebih halus
+    });
+  };
+
   const extractAndLimitContent = (htmlContent, limit) => {
-    if (!htmlContent) return ""; // Handle case where htmlContent might be null or undefined
-
-    // 1. Hapus tag HTML
+    if (!htmlContent) return "";
     let strippedContent = htmlContent.replace(/<[^>]*>/g, "");
-
-    // 2. Hapus karakter &nbsp; (non-breaking space)
     strippedContent = strippedContent.replace(/&nbsp;/g, "");
-
-    // 3. Hapus spasi berlebih di awal atau akhir
     strippedContent = strippedContent.trim();
-
-    // 4. Batasi panjang karakter
     if (strippedContent.length > limit) {
       return strippedContent.substring(0, limit) + "...";
     }
@@ -81,7 +71,10 @@ function HomeArticle() {
             Artikel Terbaru
           </h2>
           <button
-            onClick={() => navigate("/article")}
+            onClick={() => {
+              navigate("/article");
+              scrollToTop(); // Tambahkan ini agar scroll ke atas saat "View More" diklik
+            }}
             className=" bg-primary-1 hover:bg-primary-2 px-4 py-3 rounded-lg lg:flex hidden"
           >
             <p className="text-white font-semibold">View More</p>
@@ -118,9 +111,15 @@ function HomeArticle() {
           {isMobile ? (
             <Slider {...settings}>
               {sortArticles.slice(0, 6).map((article) => (
-                <div
+                <a // Menggunakan <a> karena ini card yang bisa diklik
+                  href={"/article/" + article.id}
                   key={article.id}
-                  className="card-art bg-white rounded-2xl lg:gap-6 gap-4 flex flex-col overflow-hidden"
+                  onClick={scrollToTop} // Tambahkan ini agar scroll ke atas saat artikel diklik
+                  className="card-art bg-white rounded-2xl lg:gap-6 gap-4 flex flex-col overflow-hidden
+                             relative border-[2px] border-neutral-600
+                             shadow-none transition-all duration-300 ease-in-out
+                           hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[8px_8px_0px_0px_rgba(51,65,81,1)]
+                           active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
                 >
                   <div
                     className="card-img bg-cover h-[110px] self-stretch flex-shrink-0"
@@ -128,11 +127,9 @@ function HomeArticle() {
                   ></div>
                   <div className="card-content flex flex-col px-6 gap-4">
                     <p className="font-bold text-base">
-                      {/* Menggunakan extractAndLimitContent untuk title */}
                       {extractAndLimitContent(article.title, 20)}
                     </p>
                     <div className="font-normal text-sm">
-                      {/* Menggunakan extractAndLimitContent untuk content */}
                       {extractAndLimitContent(article.content, 90)}
                     </div>
                     <div className="card-cta mt-auto flex lg:flex-row xs:flex-col gap-4 items-center pb-[32px]">
@@ -142,25 +139,29 @@ function HomeArticle() {
                       >
                         {article.category_name}
                       </p>
-                      <a
-                        href={"/article/" + article.id}
-                        className="link-txt flex items-start gap-1"
-                      >
+                      <p className="link-txt flex items-start gap-1">
                         <span className="lg:text-base xs:text-sm">
-                          Baca Selengkapnya
+                          {" "}
+                          Baca Selengkapnya{" "}
                         </span>
-                      </a>
+                      </p>
                     </div>
                   </div>
-                </div>
+                </a>
               ))}
             </Slider>
           ) : (
             <div className="flex flex-wrap justify-center gap-6">
               {sortArticles.slice(0, 6).map((article) => (
-                <div
+                <a // Menggunakan <a> karena ini card yang bisa diklik
+                  href={"/article/" + article.id}
                   key={article.id}
-                  className="card-art bg-white rounded-2xl lg:gap-6 xs:gap-4 flex flex-col overflow-hidden lg:pb-[32px]"
+                  onClick={scrollToTop} // Tambahkan ini agar scroll ke atas saat artikel diklik
+                  className="card-art bg-white rounded-2xl lg:gap-6 xs:gap-4 flex flex-col overflow-hidden lg:pb-[32px]
+                             relative border-[2px] border-neutral-600
+                             shadow-none transition-all duration-300 ease-in-out
+                           hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[8px_8px_0px_0px_rgba(51,65,81,1)]
+                           active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
                 >
                   <div
                     className="card-img bg-cover"
@@ -168,11 +169,9 @@ function HomeArticle() {
                   ></div>
                   <div className="card-content flex px-6 flex-col gap-4">
                     <p className="font-bold text-base">
-                      {/* Menggunakan extractAndLimitContent untuk title */}
                       {extractAndLimitContent(article.title, 20)}
                     </p>
                     <div className="font-normal text-sm">
-                      {/* Menggunakan extractAndLimitContent untuk content */}
                       {extractAndLimitContent(article.content, 160)}
                     </div>
                     <div className="card-cta flex lg:flex-row xs:flex-col gap-4 items-center">
@@ -182,29 +181,30 @@ function HomeArticle() {
                       >
                         {article.category_name}
                       </p>
-                      <a
-                        href={"/article/" + article.id}
-                        className="link-txt flex items-start gap-1"
-                      >
+                      <p className="link-txt flex items-start gap-1">
                         <span className="lg:text-base xs:text-sm">
-                          Baca Selengkapnya
+                          {" "}
+                          Baca Selengkapnya{" "}
                         </span>
-                      </a>
+                      </p>
                     </div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           )}
         </div>
-
         <div className="flex justify-center w-full -mt-10">
           <button
-            onClick={() => navigate("/article")}
+            onClick={() => {
+              navigate("/article");
+              scrollToTop(); // Tambahkan ini agar scroll ke atas saat "View More" diklik
+            }}
             className=" bg-primary-1 hover:bg-primary-2 lg:px-4 lg:py-3 xs:px-3 xs:py-3 rounded-lg flex lg:hidden"
           >
             <p className="text-white lg:text-base xs:text-sm font-semibold">
-              View More
+              {" "}
+              View More{" "}
             </p>
             <svg
               width="19"
