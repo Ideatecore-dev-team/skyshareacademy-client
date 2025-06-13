@@ -35,7 +35,7 @@ function HomeArticle() {
 
   const sortArticles = [...articles]
     .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
-    .slice(0, 3); // Ambil 6 artikel terbaru untuk pagination mobile
+    .slice(0, 3)
 
   const navigate = useNavigate();
 
@@ -108,14 +108,14 @@ function HomeArticle() {
             </svg>
           </button>
         </div>
-        <div className="article max-w-6xl mx-auto xs:pb-[80px]">
+        <div className="article max-w-6xl mx-auto xs:pb-[80px] xs:overflow-hidden">
           {isMobile ? (
             <Swiper
               spaceBetween={10}
               slidesPerView={1}
               // pagination={{ clickable: true }}
               // modules={[Pagination]}
-              className="w-[260px]"
+              className="w-[260px] overflow-hidden"
             >
               {sortArticles.map((article) => (
                 <SwiperSlide key={article.id}>
