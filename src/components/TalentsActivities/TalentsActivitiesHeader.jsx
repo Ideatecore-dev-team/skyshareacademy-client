@@ -23,6 +23,9 @@
     // Import required modules
     import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
+    import Mascot1 from "../../../public/images/mascot-icons/pose=10.png";
+
+
     export const TalentsActivitiesHeader = () => {
     const OurProgramData = [
         {
@@ -109,6 +112,18 @@
                 baik, berkualitas, dan berdaya bagi bangsa dan negara.
                 </p>
             </div>
+            
+            <div className="mascot-container absolute">
+                <img
+                    // className="absolute size-24 lg:size-[400px] left-[896px] top-[208px]"
+                    className="relative size-24 lg:size-[400px] left-[752px] top-[-30px] lg:block hidden" // ini kaya selancar
+                    // className="relative size-24 lg:size-[400px] left-[752px] top-[25px]" // ini gada kaki
+
+                    src={Mascot1}
+                    alt="mascot1"
+                />
+            </div>
+
             </div>
 
             <div className="programs w-full overflow-hidden lg:pt-[52px] pt-[40px]">
