@@ -59,7 +59,7 @@ export const TalentsActivitiesWhat = () => {
           <div className="title-desc flex flex-col gap-3 items-start self-stretch lg:w-[550px] w-full">
             <h2 className="text-2xl lg:text-[32px] font-bold">What We Do?</h2>
             <p className="text-base">
-              Pelajari lebih lanjut tentang kegiatan yang kami lakukan di setiap program.
+              Pelajari lebih lanjut tentang kegiatan yang kami lakukan di Talents Academy.
             </p>
           </div>
 
