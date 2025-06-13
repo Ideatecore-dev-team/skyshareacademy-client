@@ -2,10 +2,14 @@ import React from "react";
 import skyshareApi from "../utilities/skyshareApi";
 import { useState, useEffect } from "react";
 import "./HomeArticle.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper dan SwiperSlide
+import "swiper/css"; // Import base Swiper styles
+import "swiper/css/pagination"; // Import Swiper pagination styles
+import { Pagination } from "swiper/modules"; // Import Pagination module
 
 function HomeArticle() {
   const [articles, setArticles] = useState([]);
@@ -31,16 +35,13 @@ function HomeArticle() {
 
   const sortArticles = [...articles]
     .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
-    .slice(0, 3); // Ambil 3 artikel terbaru
+    .slice(0, 3); // Ambil 6 artikel terbaru untuk pagination mobile
 
   const navigate = useNavigate();
 
   // Fungsi untuk scroll ke atas
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth" // Membuat efek scroll menjadi lebih halus
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const extractAndLimitContent = (htmlContent, limit) => {
@@ -73,7 +74,7 @@ function HomeArticle() {
           <button
             onClick={() => {
               navigate("/article");
-              scrollToTop(); // Tambahkan ini agar scroll ke atas saat "View More" diklik
+              scrollToTop();
             }}
             className=" bg-primary-1 hover:bg-primary-2 px-4 py-3 rounded-lg lg:flex hidden"
           >
@@ -107,61 +108,61 @@ function HomeArticle() {
             </svg>
           </button>
         </div>
-        <div className="article max-w-6xl mx-auto pb-20 bg-red-20">
+        <div className="article max-w-6xl mx-auto xs:pb-[80px]">
           {isMobile ? (
-            <Slider {...settings}>
-              {sortArticles.slice(0, 6).map((article) => (
-                <a // Menggunakan <a> karena ini card yang bisa diklik
-                  href={"/article/" + article.id}
-                  key={article.id}
-                  onClick={scrollToTop} // Tambahkan ini agar scroll ke atas saat artikel diklik
-                  className="card-art bg-white rounded-2xl lg:gap-6 gap-4 flex flex-col overflow-hidden
-                             relative border-[2px] border-neutral-600
-                             shadow-none transition-all duration-300 ease-in-out
-                           hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[8px_8px_0px_0px_rgba(51,65,81,1)]
-                           active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-                >
-                  <div
-                    className="card-img bg-cover h-[110px] self-stretch flex-shrink-0"
-                    style={{ backgroundImage: `url(${article.image_heading})` }}
-                  ></div>
-                  <div className="card-content flex flex-col px-6 gap-4">
-                    <p className="font-bold text-base">
-                      {extractAndLimitContent(article.title, 20)}
-                    </p>
-                    <div className="font-normal text-sm">
-                      {extractAndLimitContent(article.content, 90)}
-                    </div>
-                    <div className="card-cta mt-auto flex lg:flex-row xs:flex-col gap-4 items-center pb-[32px]">
-                      <p
-                        style={{ backgroundColor: `${article.category_color}` }}
-                        className="font-normal lg:text-sm xs:text-xs text-white flex px-4 py-1 content-center items-center gap-3 rounded-3xl"
-                      >
-                        {article.category_name}
+            <Swiper
+              spaceBetween={10}
+              slidesPerView={1}
+              // pagination={{ clickable: true }}
+              // modules={[Pagination]}
+              className="w-[260px]"
+            >
+              {sortArticles.map((article) => (
+                <SwiperSlide key={article.id}>
+                  <a
+                    href={"/article/" + article.id}
+                    onClick={scrollToTop}
+                    // Menghilangkan hover dan shadow saat mobile
+                    className="card-art bg-white rounded-2xl lg:gap-6 gap-4 flex flex-col overflow-hidden relative border-[2px] border-neutral-600"
+                  >
+                    <div
+                      className="card-img bg-cover h-[110px] self-stretch flex-shrink-0"
+                      style={{ backgroundImage: `url(${article.image_heading})` }}
+                    ></div>
+                    <div className="card-content flex flex-col px-6 gap-4">
+                      <p className="font-bold text-base">
+                        {extractAndLimitContent(article.title, 20)}
                       </p>
-                      <p className="link-txt flex items-start gap-1">
-                        <span className="lg:text-base xs:text-sm">
-                          {" "}
-                          Baca Selengkapnya{" "}
-                        </span>
-                      </p>
+                      <div className="font-normal text-sm">
+                        {extractAndLimitContent(article.content, 90)}
+                      </div>
+                      <div className="card-cta mt-auto flex lg:flex-row xs:flex-col gap-4 items-center pb-[32px]">
+                        <p
+                          style={{ backgroundColor: `${article.category_color}` }}
+                          className="font-normal lg:text-sm xs:text-xs text-white flex px-4 py-1 content-center items-center gap-3 rounded-3xl"
+                        >
+                          {article.category_name}
+                        </p>
+                        <p className="link-txt flex items-start gap-1">
+                          <span className="lg:text-base xs:text-sm">
+                            {" "}
+                            Baca Selengkapnya{" "}
+                          </span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </a>
+                  </a>
+                </SwiperSlide>
               ))}
-            </Slider>
+            </Swiper>
           ) : (
             <div className="flex flex-wrap justify-center gap-6">
-              {sortArticles.slice(0, 6).map((article) => (
-                <a // Menggunakan <a> karena ini card yang bisa diklik
+              {sortArticles.map((article) => (
+                <a
                   href={"/article/" + article.id}
                   key={article.id}
-                  onClick={scrollToTop} // Tambahkan ini agar scroll ke atas saat artikel diklik
-                  className="card-art bg-white rounded-2xl lg:gap-6 xs:gap-4 flex flex-col overflow-hidden lg:pb-[32px]
-                             relative border-[2px] border-neutral-600
-                             shadow-none transition-all duration-300 ease-in-out
-                           hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[8px_8px_0px_0px_rgba(51,65,81,1)]
-                           active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+                  onClick={scrollToTop}
+                  className="card-art bg-white rounded-2xl lg:gap-6 xs:gap-4 flex flex-col overflow-hidden lg:pb-[32px] relative border-[2px] border-neutral-600 shadow-none transition-all duration-300 ease-in-out hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[8px_8px_0px_0px_rgba(51,65,81,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
                 >
                   <div
                     className="card-img bg-cover"
@@ -198,7 +199,7 @@ function HomeArticle() {
           <button
             onClick={() => {
               navigate("/article");
-              scrollToTop(); // Tambahkan ini agar scroll ke atas saat "View More" diklik
+              scrollToTop();
             }}
             className=" bg-primary-1 hover:bg-primary-2 lg:px-4 lg:py-3 xs:px-3 xs:py-3 rounded-lg flex lg:hidden"
           >
