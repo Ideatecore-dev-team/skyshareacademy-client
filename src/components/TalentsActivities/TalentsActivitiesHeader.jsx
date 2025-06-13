@@ -115,7 +115,6 @@
             
             <div className="mascot-container absolute">
                 <img
-                    // className="absolute size-24 lg:size-[400px] left-[896px] top-[208px]"
                     className="relative size-24 lg:size-[400px] left-[752px] top-[-30px] lg:block hidden" // ini kaya selancar
                     // className="relative size-24 lg:size-[400px] left-[752px] top-[25px]" // ini gada kaki
 
