@@ -136,7 +136,27 @@ function ArticleList({ searchTerm, articles, sortOrder, selectedCategories }) {
                 to={`/article/${article.id}`}
                 key={index}
                 onClick={scrollToTop} // Tambahkan ini agar scroll ke atas saat artikel diklik
-                className="article-card lg:h-auto flex flex-col lg:flex-row bg-white rounded-2xl pb-8 lg:pr-6 lg:pb-0 gap-4 lg:gap-6 overflow-hidden relative border-[2px] border-neutral-600 shadow-none transition-all duration-300 ease-in-out hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[8px_8px_0px_0px_rgba(51,65,81,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+                className="
+                article-card 
+                lg:h-auto 
+                flex flex-col lg:flex-row 
+                bg-white rounded-2xl 
+                pb-8 lg:pr-6 lg:pb-0 
+                gap-4 lg:gap-6 
+                overflow-hidden 
+                relative 
+                border-[2px] border-neutral-600 
+                shadow-none 
+                
+                // Efek transisi dan hover hanya berlaku di layar besar (lg dan di atasnya)
+                lg:transition-all lg:duration-300 lg:ease-in-out 
+                lg:hover:-translate-x-[4px] lg:hover:-translate-y-[4px] 
+                lg:hover:shadow-[8px_8px_0px_0px_rgba(51,65,81,1)] 
+                
+                // Efek active (saat diklik/tekan) hanya berlaku di layar besar (lg dan di atasnya)
+                lg:active:translate-x-[4px] lg:active:translate-y-[4px] 
+                lg:active:shadow-none
+                "
               >
                 <div
                   className="article-list-img bg-cover lg:rounded-2xl lg:h-auto h-[190px]"
