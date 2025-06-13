@@ -148,7 +148,7 @@
                 <SwiperSlide key={index}>
                     <div className="program-card bg-white rounded-lg py-2 pt-[24px] flex flex-col items-center text-center gap-4 h-full border border-neutral-900 relative lg:w-[250px] mx-auto xs:h-[100px]">
                     {/* Icon di tengah atas */}
-                    <div className="icon-container absolute -top-8 left-1/2 -translate-x-1/2 flex p-3 items-center justify-center rounded-lg bg-primary-1 w-16 h-16">
+                    <div className="icon-container absolute -top-8 left-1/2 -translate-x-1/2 flex p-3 items-center justify-center rounded-lg bg-primary-1 w-16 h-16  border border-neutral-900">
                         {programData.icon}
                     </div>
                     <h4 className="text-[14px] leading-[24px] font-bold text-gray-800 mt-4">
