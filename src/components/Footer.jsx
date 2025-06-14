@@ -86,7 +86,7 @@ function Footer() {
           </div>
           <div className="footer-mascot flex flex-col items-center lg:ml-44 lg:items-start lg:mt-0 xs:mt-8 gap-4 lg:w-72 xs:w-full">
             <div className="mascot-footer flex justify-center items-center lg:w-full xs:w-2/5">
-              <img src={Mascot} alt="mascot" className="mx-auto" />
+              <img src={Mascot} alt="mascot" className="mx-auto hover:opacity-60 transition-opacity" />
             </div>
             <p className="lg:text-base xs:text-sm font-normal text-center w-full">
               Berkembang seorang diri itu melelahkan.

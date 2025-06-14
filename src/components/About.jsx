@@ -27,7 +27,7 @@ function About() {
             <div className="about-picture flex justify-center lg:justify-end relative w-full">
               <div className="mascot-about">
                 <img
-                  className="absolute size-24 lg:size-52 left-5 bottom-0"
+                  className="absolute size-24 lg:size-52 left-5 bottom-0 hover:translate-x-7 transition-transform"
                   src={Mascot1}
                   alt="mascot1"
                 />
