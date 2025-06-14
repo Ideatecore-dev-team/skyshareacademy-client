@@ -93,7 +93,7 @@
         <div className="faq-section flex lg:py-[96px] py-[56px] px-[10px] justify-center items-start gap-gap10 bg-background">
             <div className="faq-container flex flex-col items-start gap-7 lg:gap-[40px]">
             <div className="faq-title flex xs:flex-col items-start lg:items-center gap-4">
-                <div className="mascot-container flex size-[120px] justify-center items-center">
+                <div className="mascot-container flex size-[120px] justify-center items-center hover:-rotate-12 transition-transform">
                 <img src={mascot} alt="Mascot" />
                 </div>
                 <div className="title-container flex lg:w-[516px] w-[296px] flex-col items-start gap-2">

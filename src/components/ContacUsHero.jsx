@@ -163,7 +163,7 @@ function ContactUsHero() {
               </div>
               <img
                 src={mascot}
-                className="hidden lg:block lg:absolute -right-24 bottom-0 w-w200 h-h200"
+                className="hidden lg:block lg:absolute -right-24 bottom-0 w-w200 h-h200 hover:-rotate-12 transition-transform"
                 alt="Mascot"
               ></img>
             </div>
