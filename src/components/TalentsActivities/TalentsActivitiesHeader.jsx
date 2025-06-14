@@ -115,7 +115,7 @@
             
             <div className="mascot-container absolute">
                 <img
-                    className="relative size-24 lg:size-[400px] left-[752px] top-[-30px] lg:block hidden" // ini kaya selancar
+                    className="relative size-24 lg:size-[300px] left-[752px] top-[-25px] lg:block hidden hover:rotate-12 transition-transform" // ini kaya selancar
                     // className="relative size-24 lg:size-[400px] left-[752px] top-[25px]" // ini gada kaki
 
                     src={Mascot1}
