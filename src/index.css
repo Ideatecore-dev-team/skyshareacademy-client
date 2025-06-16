@@ -34,6 +34,11 @@ input {
   background: #feb359;
 }
 
+
+.swiper-wrapper {
+transition-timing-function: linear !important;
+}
+
 .sec-btn {
   border-radius: 16px;
   border: 1px solid black;

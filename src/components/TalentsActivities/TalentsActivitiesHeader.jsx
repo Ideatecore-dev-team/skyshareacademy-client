@@ -133,10 +133,10 @@
                 disableOnInteraction: true,
                 // Hapus pauseOnMouseEnter agar tidak berhenti saat kursor di atas
                 // pauseOnMouseEnter: true,
-                reverseDirection: false, // Tambahkan ini jika ingin bergerak satu arah terus
+                reverseDirection: false, 
                 }}
-                loop={true} // Tetap true untuk infinite loop
-                speed={2500} // Kecepatan transisi antar slide (tingkatkan untuk lebih smooth dan terus berjalan)
+                loop={true}
+                speed={3000} 
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper !pb-[24px]"
                 breakpoints={{
