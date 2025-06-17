@@ -17,8 +17,8 @@ function Hero() {
               Katanya mau berkembang? daripada berkembang seorang diri, Yukk
               maksimalkan potensi kamu dengan adanya mentorship!
             </p>
-            <Button onClick={() => navigate("/ourprogram")} className="">
-              Check Our Programs
+            <Button onClick={() => navigate("/aboutus")} className="">
+              Pelajari lebih lanjut
               <svg
                 width="24"
                 height="25"
