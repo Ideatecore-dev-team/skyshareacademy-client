@@ -6,8 +6,8 @@ import SecondaryButton from "./SecondayButton";
 function Footer() {
   return (
     <>
-      <div className=" neutral-white lg:max-w-6xl bottom-0 left-0 w-full lg:py-24 xs:py-14 flex flex-col text-xl font-normal mx-auto items-center">
-        <div className=" lg:w-full w-4/5 flex items-end flex-wrap content-between">
+      <div className=" bg-white lg:max-w-6xl bottom-0 left-0 xs:w-[312px] lg:py-24 xs:py-14 flex flex-col text-xl font-normal mx-auto items-center">
+        <div className=" lg:w-full w-[312px] flex items-end flex-wrap content-between">
           <div className="footer-container flex flex-col items-start lg:gap-16 xs:gap-8">
             <div className="logo flex flex-col items-start">
               <div className="logo-placeholder lg:w-44 lg:h-14 xs:w-28 xs:h-6 xs:mb-4">
@@ -17,7 +17,7 @@ function Footer() {
                 Find Yourself
               </p>
             </div>
-            <div className="footer-info w-1/2 lg:w-full lg:flex-nowrap flex items-start flex-wrap gap-8 self-stretch">
+            <div className="footer-info w-[256px] lg:w-full lg:flex-nowrap flex items-start flex-wrap gap-8 self-stretch">
               <div className="footer-profile flex flex-col items-start lg:gap-6 xs:gap-4 xs:min-w-64 xs:max-w-64">
                 <h4 className="lg:text-lg xs:text-base font-bold">About</h4>
                 <p className="lg:text-base xs:text-sm font-normal">
@@ -34,11 +34,13 @@ function Footer() {
                   Copyright © 2024-2025 Skyshare Academy in Collaboration with Ideatecore{" "}
                 </p>
               </div>
-              <div className="footer-link flex flex-col lg:gap-6 xs:gap-4">
+              <div className="footer-link flex flex-col lg:gap-6 xs:gap-4 xs:w-[256px]">
                 <p className="lg:text-lg xs:text-base font-bold">Company</p>
                 <SecondaryButton to="/aboutus">About Us</SecondaryButton>
                 <SecondaryButton to="/article">Article</SecondaryButton>
-                <SecondaryButton to="/ourprogram">Our Program</SecondaryButton>
+                <SecondaryButton to="/ourprogram/talent">Talents Academy</SecondaryButton>
+                <SecondaryButton to="/ourprogram/mentor">Mentor Academy</SecondaryButton>
+                <SecondaryButton to="/ourprogram/parents">Parents Academy</SecondaryButton>
                 <SecondaryButton to="/contactus">Contact Us</SecondaryButton>
               </div>
               <div className="footer-social flex flex-col items-start lg:gap-6 xs:gap-4">
@@ -86,7 +88,7 @@ function Footer() {
           </div>
           <div className="footer-mascot flex flex-col items-center lg:ml-44 lg:items-start lg:mt-0 xs:mt-8 gap-4 lg:w-72 xs:w-full">
             <div className="mascot-footer flex justify-center items-center lg:w-full xs:w-2/5">
-              <img src={Mascot} alt="mascot" className="mx-auto" />
+              <img src={Mascot} alt="mascot" className="mx-auto hover:opacity-60 transition-opacity" />
             </div>
             <p className="lg:text-base xs:text-sm font-normal text-center w-full">
               Berkembang seorang diri itu melelahkan.

@@ -1,6 +1,6 @@
 import React from "react";
-import CmsNavbar from "../../components/CmsNavbar";
-import CmsArticleDashboardTable from "../../components/CmsArticleDashboardTable";
+import CmsNavbar from "../../components/cms/CmsNavbar";
+import CmsArticleDashboardTable from "../../components/cms/CmsArticleDashboardTable";
 
 function CmsArticleDashboard() {
   return (

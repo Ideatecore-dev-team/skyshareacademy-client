@@ -4,10 +4,19 @@ import PropTypes from "prop-types";
 import "./ButtonLink.css";
 
 function ButtonLink({ children, to, caption, backgroundColor, textColor }) {
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Membuat efek scroll menjadi lebih halus
+    });
+  };
+
   return (
     <Link
       to={to}
       className={`btn-link flex p-3 justify-center items-center gap-2 ${backgroundColor} ${textColor}`}
+      onClick={scrollToTop}
     >
       <p>{caption}</p>
       {children}

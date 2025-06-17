@@ -1,27 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Hero.css";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import "./Hero2.css";
+import { Link, useNavigate } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
+import skyshareApi from "../../utilities/skyshareApi";
 import CmsNavCard from "./CmsNavCard";
-import Arrow from "../../public/images/mascot-icons/Arrow-down.png";
-import File from "../../public/images/mascot-icons/Image 3.png";
-import Plus from "../../public/images/mascot-icons/Plus-0.png";
-import Delete from "../../public/images/mascot-icons/Delete.png";
-import Del from "../../public/images/mascot-icons/Delete-0.png";
-import Mascot from "../../public/images/mascot-icons/pose=2.png";
-import Add from "../../public/images/mascot-icons/Plus.png";
-import Xbutton from "../../public/images/mascot-icons/Fill 300.png";
-import Ceklist from "../../public/images/mascot-icons/Tick Square.png";
-import Coution from "../../public/images/mascot-icons/Info Square.png";
-import Mascot1 from "../../public/images/mascot-icons/pose=8.png";
-import Mascot2 from "../../public/images/mascot-icons/pose=1.png";
-import Chain from "../../public/images/mascot-icons/Link.png";
-import Close from "../../public/images/mascot-icons/Close Square.png";
-import ReactQuill from "react-quill";
-import skyshareApi from "../utilities/skyshareApi";
-// import "react-quill/dist/quill.snow.css";
+import Arrow from "../../../public/images/mascot-icons/Arrow-down.png";
+import File from "../../../public/images/mascot-icons/Image 3.png";
+import Plus from "../../../public/images/mascot-icons/Plus-0.png";
+import Delete from "../../../public/images/mascot-icons/Delete.png";
+import Del from "../../../public/images/mascot-icons/Delete-0.png";
+import Mascot from "../../../public/images/mascot-icons/pose=2.png";
+import Add from "../../../public/images/mascot-icons/Plus.png";
+import Xbutton from "../../../public/images/mascot-icons/Fill 300.png";
+import Ceklist from "../../../public/images/mascot-icons/Tick Square.png";
+import Coution from "../../../public/images/mascot-icons/Info Square.png";
+import Mascot1 from "../../../public/images/mascot-icons/pose=8.png";
+import Mascot2 from "../../../public/images/mascot-icons/pose=1.png";
+import Chain from "../../../public/images/mascot-icons/Link.png";
+import Close from "../../../public/images/mascot-icons/Close Square.png";
+import ArrowLeft from "../../../public/images/mascot-icons/Arrow - Down 3.png";
+import "react-quill/dist/quill.snow.css";
 
-function CmsArticleEditForm() {
+function CmsArticleAddForm() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdownAddOpen, setIsDropdownAddOpen] = useState(false);
   const [colorInputValet, setColorInputValet] = useState("#FFFFFF");
@@ -30,23 +30,20 @@ function CmsArticleEditForm() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
   const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
-  const [isUploading, setIsUploading] = useState(false);
-  const [isErrorModal, setIsErrorModal] = useState(false);
   const [isCategorySelected, setIsCategorySelected] = useState(false);
   const [isCategoryNoSelected, setIsCategoryNoSelected] = useState(true);
+  const [isDeleteFailed, setIsDeleteFailed] = useState(false);
   const [deleteMessage, setDeleteMessage] = useState(false);
-  const [isModalOpenDelCategory, setIsModalOpenDelCategory] = useState(false);
-  const [categories, setCategories] = useState([]);
-  const [articleById, setArticleById] = useState({});
   const [categoryId, setCategoryId] = useState("");
-  const [articleForm, setArticleForm] = useState({});
-  const [selectedFileName, setSelectedFileName] = useState("");
-  const [imagePreviewUrl, setImagePreviewUrl] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState({});
-  const [idCategory, setIdCategory] = useState(null);
+  const [categories, setCategories] = useState([]);
   const [categoryName, setCategoryName] = useState("");
-  const { selectedCategoryById, setSelectedCategoryById } = useState({});
-  const { id } = useParams();
+  const [articleForm, setArticleForm] = useState({});
+  const [imagePreviewUrl, setImagePreviewUrl] = useState("");
+  const [selectedFileName, setSelectedFileName] = useState("");
+  const [addStatus, setAddStatus] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState({});
+  const Navigate = useNavigate();
 
   const handleArticleData = async function () {
     const formData = new FormData();
@@ -55,54 +52,28 @@ function CmsArticleEditForm() {
     formData.append("content", articleForm.content);
     formData.append("link", articleForm.link);
     formData.append("category_id", articleForm.category_id);
-    setIsUploading(true);
+    setIsDeleting(true);
     try {
       const responseFromServer = await skyshareApi({
-        url: `/article/${id}`,
-        method: "put",
+        url: "/article/add",
+        method: "post",
         data: formData,
       });
+      setAddStatus(responseFromServer.data.status);
       if (responseFromServer.data.status === "success") {
         setIsSaveModalOpen(true);
-      } else {
-        setIsErrorModal(true);
       }
     } catch (error) {
-      setIsErrorModal(true);
       console.log(error);
     } finally {
-      setIsUploading(false);
+      setIsDeleting(false);
     }
   };
 
   const getCategoryByid = async function (id) {
     try {
       const response = await skyshareApi.get(`category/${id}`);
-      // console.log(response.data, "==> res");
       setSelectedCategory(response.data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleCategoryAdd = async function () {
-    console.log("nfj");
-    const inputDataCategory = {
-      name: categoryName,
-      color: colorInputHexa,
-    };
-    try {
-      const response = await skyshareApi({
-        url: "/category/add",
-        method: "POST",
-        data: inputDataCategory,
-      });
-      const newCategory = response.data.data;
-      setCategories([...categories, newCategory]); // Update the state with the new category
-      setCategoryName("");
-      setColorInputHexa("#FFFFFF");
-      setColorInputValet("#FFFFFF");
-      setIsDropdownAddOpen(false);
     } catch (error) {
       console.log(error);
     }
@@ -119,42 +90,28 @@ function CmsArticleEditForm() {
     getCategories();
   }, []);
 
-  const deleteCategory = async function () {
+  const handleCategoryAdd = async function () {
+    const inputDataCategory = {
+      name: categoryName,
+      color: colorInputHexa,
+    };
+
     try {
-      const response = await skyshareApi.delete(`/category/${idCategory}`);
+      const response = await skyshareApi({
+        url: "/category/add",
+        method: "POST",
+        data: inputDataCategory,
+      });
+      const newCategory = response.data.data;
+      setCategories([...categories, newCategory]);
+      setCategoryName("");
+      setColorInputHexa("#FFFFFF");
+      setColorInputValet("#FFFFFF");
+      setIsDropdownAddOpen(false);
     } catch (error) {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    const getDataArticle = async () => {
-      try {
-        const getDataFromServer = await skyshareApi.get(`/article/${id}`);
-        const article = getDataFromServer.data.data;
-        setArticleById(article);
-        setArticleForm({
-          ...articleForm,
-          title: article.title,
-          content: article.content,
-          link: article.link,
-          category_id: article.category_id,
-        });
-        setSelectedFileName(article.image_heading || "");
-        setImagePreviewUrl(article.image_heading || "");
-        setIdCategory(articleById.category_id);
-        setIsCategorySelected(true);
-        setIsCategoryNoSelected(false);
-
-        if (article.category_id) {
-          getCategoryByid(article.category_id);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getDataArticle();
-  }, [id]);
 
   useEffect(() => {
     setColorInputHexa(colorInputValet);
@@ -179,15 +136,10 @@ function CmsArticleEditForm() {
     if (!isDropdownAddOpen) setIsDropdownOpen(true);
   };
 
-  const closeErrorModal = () => {
-    setIsErrorModal(false);
+  const handleSave = (e) => {
+    e.preventDefault();
+    setIsSaveModalOpen(true);
   };
-
-  // const handleSave = (e) => {
-  //   handleArticleData();
-  //   e.preventDefault();
-  //   setIsSaveModalOpen(true);
-  // };
 
   const handleCancel = () => {
     setIsCancelModalOpen(true);
@@ -195,21 +147,29 @@ function CmsArticleEditForm() {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setIsModalOpenDelCategory(false);
   };
 
-  const confirmDelete = () => {
-    setIsModalOpen(true);
-    handleDeleteImage();
+  async function deleteCategory() {
     setIsModalOpen(false);
-  };
+    if (!categoryId) return;
 
-  function confirmDeleteCategory() {
-    deleteCategory();
-    setIsModalOpenDelCategory(false);
+    const updatedCategories = categories.filter(
+      (category) => category.id !== categoryId
+    );
+    setCategories(updatedCategories);
+
+    setIsDeleting(true);
+    try {
+      await skyshareApi.delete(`/category/${categoryId}`);
+    } catch (error) {
+      setIsDeleteFailed(true);
+      setCategories(categories);
+      console.error(error);
+    } finally {
+      setIsDeleting(false);
+    }
   }
 
-  const Navigate = useNavigate();
   const closeSaveModal = () => {
     setIsSaveModalOpen(false);
     Navigate("/cms/article");
@@ -220,14 +180,9 @@ function CmsArticleEditForm() {
     Navigate("/cms/article");
   };
 
-  const handleCategoryValue = () => {
-    setCategoryId(articleById.category_id);
-  };
-
   const handleDeleteCategory = () => {
-    setIsModalOpenDelCategory(true);
+    setIsModalOpen(true);
     setDeleteMessage("Yakin untuk menghapus category?");
-    console.log(deleteMessage);
   };
 
   const handleFileChange = (e) => {
@@ -242,14 +197,9 @@ function CmsArticleEditForm() {
     }
   };
 
-  const handleDeleteImage = () => {
-    setArticleForm({
-      ...articleForm,
-      image_heading: null,
-    });
-    setSelectedFileName("");
-    setImagePreviewUrl("");
-  };
+  function closeDeleteFailedModal() {
+    setIsDeleteFailed(false);
+  }
 
   return (
     <>
@@ -260,80 +210,62 @@ function CmsArticleEditForm() {
           </div>
           <div className="w-full">
             <div>
-              <h1 className="headline-1">Edit Article</h1>
+              <h1 className="headline-1">Add Article</h1>
               <p className="paragraph">Masukkan data pada field yang tertera</p>
             </div>
             <div className="shadow-md bg-neutral-white mt-10 border-2 border-black rounded-xl pb-5 px-3 w-full">
-              <div className="alur-acara">
-                <div className="bg-neutral-white p-4 gap-4 flex items-center">
-                  <h4 className="font-bold text-base">
-                    Upload gambar heading{" "}
-                    <span className="text-base font-bold text-orange-300">
-                      *
-                    </span>
-                  </h4>
-                </div>
-                <div className="bg-neutral-white rounded-xl border-2 border-gray-400 px-6 pt-7 pb-4">
-                  <div className="border-2 flex justify-center items-center mb-4 border-gray-400 rounded-xl h-16">
-                    <div className="flex justify-between px-4 w-full">
-                      <div className="flex items-center">
-                        <div className="flex items-center gap-2 ">
-                          <img className="w-7" src={File} alt="" />
-                          <p className="paragraph">
-                            {selectedFileName.substring(0, 80) ||
-                              articleById.image_heading?.substring(0, 80)}
-                          </p>
-                        </div>
-                        <input
-                          accept="image/*"
-                          id="image_heading"
-                          onChange={handleFileChange}
-                          className="w-10 opacity-0 absolute"
-                          type="file"
+              <h4 className=" font-bold text-base mt-6">
+                Upload gambar heading{" "}
+                <span className=" text-base font-bold text-orange-300">*</span>
+              </h4>
+              <div className="bg-neutral-white rounded-xl border-2 mt-4 border-gray-400 px-6 pt-7 pb-4">
+                <div className="border-2 border-dashed flex justify-center items-center border-gray-400 rounded-xl h-60">
+                  <div className="">
+                    {imagePreviewUrl && (
+                      <div className="flex justify-center  ">
+                        <img
+                          src={imagePreviewUrl}
+                          alt="Image Preview"
+                          className="rounded-xl border-2 border-gray-400"
+                          style={{ maxWidth: "100%", maxHeight: "220px" }}
                         />
                       </div>
-                      <div className="w-10 flex items-center justify-center rounded-md py-2">
-                        <button
-                          onClick={() => {
-                            setIsModalOpen(true);
-                            setDeleteMessage(
-                              "Yakin untuk menghapus image heading?"
-                            );
-                          }}
-                          className="bg-red-500 hover:bg-red-400 px-2 py-2 rounded-lg flex justify-center items-center"
-                        >
-                          <img className="w-5" src={Delete} alt="" />
-                        </button>
-                      </div>
-                    </div>
+                    )}
                   </div>
-                  <div className="flex justify-center pb-3">
-                    <h4 className="text-base">
-                      Minimal Ukuran{" "}
-                      <span className="font-bold">(956 x 350px)</span>
-                    </h4>
+                </div>
+                <div className="my-4 bg-primary-1 cursor-pointer hover:bg-primary-2 flex justify-center rounded-xl items-center">
+                  <input
+                    type="file"
+                    id="image_heading"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="cursor-pointer z-10 opacity-0 ml-80 rounded-xl flex justify-center gap-2 py-4"
+                  />
+                  <div className="absolute cursor-pointer flex gap-2 items-center ">
+                    <p className=" cursor-pointer text-white font-bold">
+                      Upload File
+                    </p>
+                    <img
+                      className=" cursor-pointer w-6 -rotate-90"
+                      src={ArrowLeft}
+                      alt=""
+                    />
                   </div>
-                  {imagePreviewUrl && (
-                    <div className="flex justify-center pb-3">
-                      <img
-                        src={imagePreviewUrl}
-                        alt="Image Preview"
-                        className="rounded-xl border-2 border-gray-400"
-                        style={{ maxWidth: "100%", maxHeight: "300px" }}
-                      />
-                    </div>
-                  )}
+                </div>
+                <div className="flex justify-center pb-3">
+                  <h4 className="text-base">
+                    Minimal Ukuran{" "}
+                    <span className="font-bold">(956 x 350px)</span>
+                  </h4>
                 </div>
               </div>
-              <div className="join-button">
+              <div className="add-content">
                 <div className="bg-neutral-white py-4 gap-4 flex items-center">
-                  <form className="w-full" onSubmit={handleArticleData}>
-                    <label className="block font-bold mb-1" htmlFor="title">
+                  <form className="w-full" onSubmit={handleSave}>
+                    <label className="block font-bold mb-1" htmlFor="cta">
                       Judul <span className="text-orange-400">*</span>
                     </label>
                     <input
-                      initialValue={articleById.title}
-                      value={articleForm.title}
                       onChange={(e) =>
                         setArticleForm({
                           ...articleForm,
@@ -352,9 +284,9 @@ function CmsArticleEditForm() {
                     <div
                       className={`w-full px-4 duration-500 origin-top ${
                         isDropdownAddOpen
-                          ? "h-80"
+                          ? "h-96"
                           : isDropdownOpen
-                          ? "h-56"
+                          ? "h-64"
                           : "h-14"
                       } border-gray-300 border-2 rounded-lg outline-none`}
                     >
@@ -388,8 +320,8 @@ function CmsArticleEditForm() {
                           </button>
                         </div>
                       </div>
-                      {/* <div
-                        className={`mt-2 gap-4 flex-wrap bg-neutral-white absolute w-1/2 pb-4 ${
+                      <div
+                        className={`mt-2 gap-4 flex-wrap pb-10 bg-neutral-white absolute w-3/6 ${
                           isDropdownOpen && ishidenCategori ? "flex" : "hidden"
                         }`}
                       >
@@ -411,29 +343,27 @@ function CmsArticleEditForm() {
                             </button>
                           );
                         })}
-                      </div> */}
+                      </div>
                       <div
-                        className={`mt-2 gap-4 flex-wrap ${
-                          !isDropdownOpen ? "hidden" : "flex"
+                        className={`mt-2 flex gap-4 flex-wrap ${
+                          !isDropdownOpen ? "opacity-0" : "opacity-1"
                         }`}
                       >
                         {categories?.map((category) => {
                           return (
                             <button
                               name="category_id"
-                              initialValue={articleById.category_id}
                               value={category.id}
                               onClick={(e) => {
                                 console.log(category.id);
-                                console.log(categoryId);
                                 setArticleForm({
                                   ...articleForm,
                                   category_id: e.target.value,
                                 });
                                 setCategoryId(category.id);
                                 getCategoryByid(category.id);
-                                setIsCategoryNoSelected(false);
                                 setIsCategorySelected(true);
+                                setIsCategoryNoSelected(false);
                                 setIsDropdownOpen(false);
                               }}
                               type="button"
@@ -444,7 +374,7 @@ function CmsArticleEditForm() {
                                     : category.color,
                                 border:
                                   categoryId === category.id
-                                    ? "2px solid #000"
+                                    ? "2px solid red"
                                     : "none",
 
                                 color:
@@ -462,7 +392,7 @@ function CmsArticleEditForm() {
                           !isDropdownOpen
                             ? "opacity-0"
                             : "opacity-1 duration-1000"
-                        } mt-10 justify-between flex`}
+                        } mt-20 justify-between flex`}
                       >
                         <button
                           type="button"
@@ -472,14 +402,14 @@ function CmsArticleEditForm() {
                           <img className="w-5" src={Plus} alt="" />
                           <p className="text-slate-700">Tambah Kategori</p>
                         </button>
-                        {/* <button
+                        <button
                           onClick={handleHideCategory}
                           type="button"
                           className="flex px-2 py-1 rounded-full bg-neutral-white shadow shadow-slate-400 gap-1 items-center"
                         >
                           <img className="w-5" src={Del} alt="" />
                           <p className="text-slate-700">Hapus Kategori</p>
-                        </button> */}
+                        </button>
                       </div>
                       {isDropdownAddOpen && (
                         <div className="mt-4 duration-1000 bg-background py-2 gap-3 flex px-3 rounded-2xl">
@@ -492,8 +422,8 @@ function CmsArticleEditForm() {
                               <span className="text-orange-400">*</span>
                             </label>
                             <input
-                              placeholder="Masukkan nama kategori"
                               onChange={(e) => setCategoryName(e.target.value)}
+                              placeholder="Masukkan nama kategori"
                               type="text"
                               className="w-full px-4 py-2 border-gray-300 border-2 rounded-lg outline-none"
                               required
@@ -531,8 +461,8 @@ function CmsArticleEditForm() {
                           <div className=" flex justify-center items-center w-10">
                             <div className="bg-primary-1 flex mt-7 items-center rounded-md px-2 py-2">
                               <button
-                                type="button"
                                 onClick={handleCategoryAdd}
+                                type="button"
                                 className="bg-primary-1 hover:bg-primary-2"
                               >
                                 <img className=" w-6" src={Add} alt="" />
@@ -549,37 +479,46 @@ function CmsArticleEditForm() {
                     </div>
                   </form>
                 </div>
-
                 <div className=" -z-50">
-                <Editor
-                  style={{ zIndex: -20 }}
-                  initialValue={articleById.content}
-                  value={articleForm.content}
-                  onEditorChange={(content) =>
-                    setArticleForm({ ...articleForm, content })
-                  }
-                  apiKey="6tl5tifchc48dqu40vcan97ogm0iavsuezuoygext3jeifqu"
-                  init={{
-                    menubar: false,
-                    plugins:
-                      "anchor autolink charmap emoticons image link lists media searchreplace table visualblocks wordcount",
-                    toolbar:
-                      "undo redo | formatselect | bold italic underline strikethrough | link image media table | alignleft aligncenter alignright alignjustify | bullist numlist | emoticons charmap | removeformat",
-                    tinycomments_mode: "embedded",
-                    tinycomments_author: "Author name",
-                    mentions_selector: ".mentions",
-                    mergetags_list: [
-                      { value: "First.Name", title: "First Name" },
-                      { value: "Email", title: "Email" },
-                    ],
-                    ai_request: (request, respondWith) =>
-                      respondWith.string(() =>
-                        Promise.reject("See docs to implement AI Assistant")
-                      ),
-                  }}
-                />
+                  {/* <ReactQuill
+                    style={{
+                      border: "2px solid #e6e6e6",
+                      borderRadius: "10px",
+                    }}
+                    ref={quillRef}
+                    value={value}
+                    onChange={setValue}
+                    modules={modules}
+                  /> */}
+                  <Editor
+                    style={{ zIndex: -20 }}
+                    value={articleForm.content}
+                    onEditorChange={(content) =>
+                      setArticleForm({ ...articleForm, content })
+                    }
+                    apiKey="6tl5tifchc48dqu40vcan97ogm0iavsuezuoygext3jeifqu"
+                    init={{
+                      menubar: false,
+                      resize: false,
+                      height: 400,
+                      plugins:
+                        "anchor autolink charmap emoticons image link lists media searchreplace table visualblocks wordcount",
+                      toolbar:
+                        "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+                      tinycomments_mode: "embedded",
+                      tinycomments_author: "Author name",
+                      mergetags_list: [
+                        { value: "First.Name", title: "First Name" },
+                        { value: "Email", title: "Email" },
+                      ],
+                      ai_request: (request, respondWith) =>
+                        respondWith.string(() =>
+                          Promise.reject("See docs to implement AI Assistant")
+                        ),
+                    }}
+                  />
                 </div>
-                <div className="mt-4">
+                {/* <div className="mt-4">
                   <label className="font-bold mb-1 flex gap-2" htmlFor="cta">
                     <img className="w-6" src={Chain} alt="" />
                     Link<span className="text-orange-400">*</span>
@@ -596,7 +535,7 @@ function CmsArticleEditForm() {
                     className="w-full px-4 py-2 border-gray-300 border-2 rounded-lg outline-none"
                     value={articleForm.link || ""}
                   />
-                </div>
+                </div> */}
                 <div className="mt-4 flex gap-5 justify-end">
                   <div className="w-56 py-2 flex">
                     <button
@@ -609,7 +548,10 @@ function CmsArticleEditForm() {
                   </div>
                   <div className="w-56 py-2 flex">
                     <button
-                      onClick={handleArticleData}
+                      onClick={(e) => {
+                        e.preventDefault(); // Prevent the default form submission
+                        handleArticleData();
+                      }}
                       type="submit"
                       className="bg-primary-1 w-full py-2 rounded-md hover:bg-primary-2 text-white font-bold"
                     >
@@ -624,7 +566,7 @@ function CmsArticleEditForm() {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+        <div className="fixed inset-0 z-10 bg-gray-600 bg-opacity-50 flex justify-center items-center">
           <div className="bg-white w-2/5 h-80 rounded-3xl p-6">
             <div className="flex justify-center">
               <img className=" w-40" src={Mascot} alt="" />
@@ -640,33 +582,7 @@ function CmsArticleEditForm() {
                 Batal
               </button>
               <button
-                onClick={confirmDelete}
-                className="bg-red-500 w-1/2 hover:bg-red-400 text-white px-4 py-2 rounded-lg"
-              >
-                Hapus
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-      {isModalOpenDelCategory && (
-        <div className="fixed inset-0 z-50 bg-gray-600 bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white w-2/5 h-80 rounded-3xl p-6">
-            <div className="flex justify-center">
-              <img className=" w-40" src={Mascot} alt="" />
-            </div>
-            <h3 className="mb-5 mt-5 headline-3 text-center">
-              {deleteMessage}
-            </h3>
-            <div className="flex justify-center gap-4">
-              <button
-                onClick={closeModal}
-                className="bg-gray-300 px-4 py-2 w-1/2 rounded-lg"
-              >
-                Batal
-              </button>
-              <button
-                onClick={confirmDeleteCategory}
+                onClick={deleteCategory}
                 className="bg-red-500 w-1/2 hover:bg-red-400 text-white px-4 py-2 rounded-lg"
               >
                 Hapus
@@ -677,7 +593,7 @@ function CmsArticleEditForm() {
       )}
 
       {isSaveModalOpen && (
-        <div className="fixed inset-0 z-50 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+        <div className="fixed inset-0 bg-gray-600 z-10 bg-opacity-50 flex justify-center items-center">
           <div className="bg-white rounded-3xl p-6 relative">
             <button onClick={closeSaveModal} className="absolute top-6 right-6">
               <img className="w-5" src={Xbutton} alt="" />
@@ -694,7 +610,7 @@ function CmsArticleEditForm() {
       )}
 
       {isCancelModalOpen && (
-        <div className="fixed inset-0 z-50 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+        <div className="fixed inset-0 z-10 bg-gray-600 bg-opacity-50 flex justify-center items-center">
           <div className="bg-white rounded-3xl p-6 relative">
             <button
               onClick={closeCancelModal}
@@ -713,7 +629,27 @@ function CmsArticleEditForm() {
         </div>
       )}
 
-      {isUploading && (
+      {isDeleteFailed && (
+        <div className="fixed inset-0 z-10 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white rounded-3xl p-6 relative">
+            <button
+              onClick={closeDeleteFailedModal}
+              className="absolute top-6 right-6"
+            >
+              <img className="w-5" src={Xbutton} alt="" />
+            </button>
+            <div className="flex justify-center">
+              <img className="w-40" src={Mascot2} alt="" />
+            </div>
+            <div className="flex gap-1 mt-5 items-center">
+              <img className="w-6 h-6" src={Coution} alt="" />
+              <h3 className="headline-3 ">Delete Failed, Category Used</h3>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isDeleting && (
         <div className="fixed z-10 inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
           <div className="flex flex-col items-center bg-white p-5 rounded-xl">
             <svg
@@ -740,28 +676,8 @@ function CmsArticleEditForm() {
           </div>
         </div>
       )}
-
-      {isErrorModal && (
-        <div className="fixed inset-0 bg-gray-600 z-10 bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white rounded-3xl p-6 w-80 relative">
-            <button
-              onClick={closeErrorModal}
-              className="absolute top-6 right-6"
-            >
-              <img className="w-5" src={Xbutton} alt="" />
-            </button>
-            <div className="flex justify-center">
-              <img className="w-40" src={Mascot2} alt="" />
-            </div>
-            <div className="flex gap-1 mt-5 items-center justify-center">
-              <img className="w-6 h-6" src={Coution} alt="" />
-              <h3 className="headline-3 text-center ">Update Article Failed</h3>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }
 
-export default CmsArticleEditForm;
+export default CmsArticleAddForm;

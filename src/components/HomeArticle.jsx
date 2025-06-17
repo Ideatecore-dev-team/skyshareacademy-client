@@ -2,24 +2,15 @@ import React from "react";
 import skyshareApi from "../utilities/skyshareApi";
 import { useState, useEffect } from "react";
 import "./HomeArticle.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
-import parse from "html-react-parser"; // Importing html-react-parser
-
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper dan SwiperSlide
+import "swiper/css"; // Import base Swiper styles
+import "swiper/css/pagination"; // Import Swiper pagination styles
+import { Pagination } from "swiper/modules"; // Import Pagination module
 
 function HomeArticle() {
   const [articles, setArticles] = useState([]);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 639);
-
-  
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 638);
 
   useEffect(() => {
     const getAllArticle = async function () {
@@ -33,41 +24,32 @@ function HomeArticle() {
     getAllArticle();
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 639);
+      setIsMobile(window.innerWidth <= 638);
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  // console.log(articles, "===>");
 
   const sortArticles = [...articles]
     .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
-    .slice(0, 3);
+    .slice(0, 3)
+
   const navigate = useNavigate();
 
-  const extractAndLimitContent = (htmlContent, limit) => {
-    // Replace <div> with <p>
-    htmlContent = htmlContent
-      .replace(/<div>/g, "<p>")
-      .replace(/<\/div>/g, "</p>");
-
-    const firstParagraphMatch = htmlContent.match(/<p>(.*?)<\/p>/s);
-    if (!firstParagraphMatch) return "";
-    let firstParagraph = firstParagraphMatch[1]; // Extract inner content of the first paragraph
-    if (firstParagraph.length > limit) {
-      firstParagraph = firstParagraph.substring(0, limit) + "...";
-    }
-    return `<p>${firstParagraph}</p>`; // Return as a paragraph
+  // Fungsi untuk scroll ke atas
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+  const extractAndLimitContent = (htmlContent, limit) => {
+    if (!htmlContent) return "";
+    let strippedContent = htmlContent.replace(/<[^>]*>/g, "");
+    strippedContent = strippedContent.replace(/&nbsp;/g, "");
+    strippedContent = strippedContent.trim();
+    if (strippedContent.length > limit) {
+      return strippedContent.substring(0, limit) + "...";
+    }
+    return strippedContent;
   };
 
   return (
@@ -78,7 +60,10 @@ function HomeArticle() {
             Artikel Terbaru
           </h2>
           <button
-            onClick={() => navigate("/article")}
+            onClick={() => {
+              navigate("/article");
+              scrollToTop();
+            }}
             className=" bg-primary-1 hover:bg-primary-2 px-4 py-3 rounded-lg lg:flex hidden"
           >
             <p className="text-white font-semibold">View More</p>
@@ -111,55 +96,60 @@ function HomeArticle() {
             </svg>
           </button>
         </div>
-        <div className="article max-w-6xl mx-auto pb-20 bg-red-20">
+        <div className="article max-w-6xl mx-auto xs:pb-[50px] xs:overflow-hidden">
           {isMobile ? (
-            <Slider {...settings}>
-              {sortArticles.slice(0, 6).map((article) => (
-                <div
-                  key={article.id}
-                  className="card-art bg-white rounded-2xl lg:gap-6 gap-4 flex flex-col overflow-hidden"
-                >
-                  <div
-                    className="card-img bg-cover h-[110px] self-stretch flex-shrink-0"
-                    style={{ backgroundImage: `url(${article.image_heading})` }}
-                  ></div>
-                  <div className="card-content flex flex-col px-6 gap-4">
-                    <p className="font-bold text-base">
-                      {parse(
-                        article.title.substring(0, 20) +
-                        (article.title.length > 20 ? "..." : "")
-                      )}
-                    </p>
-                    <div className="font-normal text-sm">
-                      {parse(
-                        article.content.substring(0, 90) +
-                        (article.content.length > 100 ? "..." : "")
-                      )}
-                    </div>
-                    <div className="card-cta mt-auto flex lg:flex-row xs:flex-col gap-4 items-center pb-[32px]">
-                      <p
-                        style={{ backgroundColor: `${article.category_color}` }}
-                        className="font-normal lg:text-sm xs:text-xs text-white flex px-4 py-1 content-center items-center gap-3 rounded-3xl"
-                      >
-                        {article.category_name}
+            <Swiper
+              spaceBetween={10}
+              slidesPerView={1}
+              pagination={{ clickable: true }}
+              modules={[Pagination]}
+              className="w-[260px] overflow-hidden xs:pb-[50px]"
+            >
+              {sortArticles.map((article) => (
+                <SwiperSlide key={article.id}>
+                  <a
+                    href={"/article/" + article.id}
+                    onClick={scrollToTop}
+                    className="card-art bg-white rounded-2xl lg:gap-6 gap-4 flex flex-col overflow-hidden relative border-[2px] border-neutral-600"
+                  >
+                    <div
+                      className="card-img bg-cover h-[110px] self-stretch flex-shrink-0"
+                      style={{ backgroundImage: `url(${article.image_heading})` }}
+                    ></div>
+                    <div className="card-content flex flex-col px-6 gap-4">
+                      <p className="font-bold text-base">
+                        {extractAndLimitContent(article.title, 20)}
                       </p>
-                      <a href={"/article/" + article.id} className="link-txt flex items-start gap-1">
-                        <span className="lg:text-base xs:text-sm">
-                          Baca Selengkapnya
-                        </span>
-                      </a>
+                      <div className="font-normal text-sm xs:h-[80px] xs:overflow-hidden">
+                        {extractAndLimitContent(article.content, 90)}
+                      </div>
+                      <div className="card-cta mt-auto flex lg:flex-row xs:flex-col gap-4 items-center pb-[32px]">
+                        <p
+                          style={{ backgroundColor: `${article.category_color}` }}
+                          className="font-normal lg:text-sm xs:text-xs text-white flex px-4 py-1 content-center items-center gap-3 rounded-3xl"
+                        >
+                          {article.category_name}
+                        </p>
+                        <p className="link-txt flex items-start gap-1">
+                          <span className="lg:text-base xs:text-sm">
+                            {" "}
+                            Baca Selengkapnya{" "}
+                          </span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </div>
-
+                  </a>
+                </SwiperSlide>
               ))}
-            </Slider>
+            </Swiper>
           ) : (
             <div className="flex flex-wrap justify-center gap-6">
-              {sortArticles.slice(0, 6).map((article) => (
-                <div
+              {sortArticles.map((article) => (
+                <a
+                  href={"/article/" + article.id}
                   key={article.id}
-                  className="card-art bg-white rounded-2xl lg:gap-6 xs:gap-4 flex flex-col overflow-hidden lg:pb-[32px]"
+                  onClick={scrollToTop}
+                  className="card-art bg-white rounded-2xl lg:gap-6 xs:gap-4 flex flex-col overflow-hidden lg:pb-[32px] relative border-[2px] border-neutral-600 shadow-none transition-all duration-300 ease-in-out hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[8px_8px_0px_0px_rgba(51,65,81,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
                 >
                   <div
                     className="card-img bg-cover"
@@ -167,43 +157,42 @@ function HomeArticle() {
                   ></div>
                   <div className="card-content flex px-6 flex-col gap-4">
                     <p className="font-bold text-base">
-                    {parse(
-                        article.title.substring(0, 20) +
-                          (article.title.length > 20 ? "..." : "")
-                      )}
-                      </p>
+                      {extractAndLimitContent(article.title, 20)}
+                    </p>
                     <div className="font-normal text-sm">
-                      {parse(
-                        article.content.substring(0, 160) +
-                          (article.content.length > 200 ? "..." : "")
-                      )}
+                      {extractAndLimitContent(article.content, 160)}
                     </div>
                     <div className="card-cta flex lg:flex-row xs:flex-col gap-4 items-center">
-                      <p 
-                      style={{ backgroundColor: `${article.category_color}` }}
-                      className="font-normal text-white lg:text-sm xs:text-xs flex px-4 py-1 content-center items-center gap-3 rounded-3xl">
+                      <p
+                        style={{ backgroundColor: `${article.category_color}` }}
+                        className="font-normal text-white lg:text-sm xs:text-xs flex px-4 py-1 content-center items-center gap-3 rounded-3xl"
+                      >
                         {article.category_name}
                       </p>
-                      <a href={"/article/" + article.id} className="link-txt flex items-start gap-1">
+                      <p className="link-txt flex items-start gap-1">
                         <span className="lg:text-base xs:text-sm">
-                          Baca Selengkapnya
+                          {" "}
+                          Baca Selengkapnya{" "}
                         </span>
-                      </a>
+                      </p>
                     </div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           )}
         </div>
-        
         <div className="flex justify-center w-full -mt-10">
           <button
-            onClick={() => navigate("/article")}
+            onClick={() => {
+              navigate("/article");
+              scrollToTop();
+            }}
             className=" bg-primary-1 hover:bg-primary-2 lg:px-4 lg:py-3 xs:px-3 xs:py-3 rounded-lg flex lg:hidden"
           >
             <p className="text-white lg:text-base xs:text-sm font-semibold">
-              View More
+              {" "}
+              View More{" "}
             </p>
             <svg
               width="19"

@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import skyshareApi from "../utilities/skyshareApi";
-import "./Hero.css";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import skyshareApi from "../../utilities/skyshareApi";
+import "./Hero2.css";
 import CmsNavCard from "./CmsNavCard";
-import Edit1 from "../../public/images/mascot-icons/Edit Square.png";
-import Delete from "../../public/images/mascot-icons/Delete.png";
-import Add from "../../public/images/mascot-icons/Plus.png";
-import Group from "../../public/images/mascot-icons/3 User.png";
-import Chain from "../../public/images/mascot-icons/Link.png";
-import ArrowLeft from "../../public/images/mascot-icons/Arrow - Down 3.png";
-import Xbutton from "../../public/images/mascot-icons/Fill 300.png";
-import Mascot2 from "../../public/images/mascot-icons/pose=1.png";
-import Coution from "../../public/images/mascot-icons/Info Square.png";
-import Mascot from "../../public/images/mascot-icons/pose=2.png";
-import Mascot1 from "../../public/images/mascot-icons/pose=8.png";
-import Ceklist from "../../public/images/mascot-icons/Tick Square.png";
+import Edit1 from "../../../public/images/mascot-icons/Edit Square.png";
+import Delete from "../../../public/images/mascot-icons/Delete.png";
+import Add from "../../../public/images/mascot-icons/Plus.png";
+import Group from "../../../public/images/mascot-icons/3 User.png";
+import Chain from "../../../public/images/mascot-icons/Link.png";
+import ArrowLeft from "../../../public/images/mascot-icons/Arrow - Down 3.png";
+import Xbutton from "../../../public/images/mascot-icons/Fill 300.png";
+import Mascot2 from "../../../public/images/mascot-icons/pose=1.png";
+import Coution from "../../../public/images/mascot-icons/Info Square.png";
+import Mascot from "../../../public/images/mascot-icons/pose=2.png";
+import Mascot1 from "../../../public/images/mascot-icons/pose=8.png";
+import Ceklist from "../../../public/images/mascot-icons/Tick Square.png";
 
-function CmsTalentAddSchoolForm() {
+function CmsTalentEditSchoolForm() {
   const [schoolForm, setSchoolForm] = useState({});
   const [isErrorModal, setIsErrorModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,10 +28,32 @@ function CmsTalentAddSchoolForm() {
   const [dataGroups, setDataGroups] = useState([]);
   const [isDeleting, setIsDeleting] = useState(false);
   const [groupById, setGroupById] = useState(null);
+  const [dataSchool, setDataSchool] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
   const Navigate = useNavigate();
-  console.log(schoolForm, "data");
+  const { id } = useParams();
 
-  const handleAddSchool = async function () {
+  useEffect(() => {
+    const getDataSchool = async () => {
+      try {
+        const getDataFromServer = await skyshareApi.get(`/school/${id}`);
+        const schools = getDataFromServer.data.data;
+        setDataSchool(schools);
+        setSchoolForm({
+          ...schoolForm,
+          nama_sekolah: schools.nama_sekolah,
+          alamat: schools.alamat,
+          embed_map: schools.embed_map,
+        });
+        setImagePreviewUrl(schools.gambar_logo_sekolah || "");
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getDataSchool();
+  }, []);
+
+  const handleEditSchool = async function () {
     const formData = new FormData();
     formData.append("gambar_logo_sekolah", schoolForm.gambar_logo_sekolah);
     formData.append("nama_sekolah", schoolForm.nama_sekolah);
@@ -40,8 +62,8 @@ function CmsTalentAddSchoolForm() {
     setIsUploading(true);
     try {
       const responseFromServer = await skyshareApi({
-        url: "/school/add",
-        method: "POST",
+        url: `/school/${id}`,
+        method: "PUT",
         data: formData,
       });
       setResponseStatus(responseFromServer.data);
@@ -49,6 +71,7 @@ function CmsTalentAddSchoolForm() {
         setIsSaveModalOpen(true);
       } else {
         setIsErrorModal(true);
+        setErrorMessage("Upload Filed");
       }
       console.log(responseStatus, "====> res");
     } catch (error) {
@@ -67,6 +90,7 @@ function CmsTalentAddSchoolForm() {
     } catch (error) {
       console.log();
       setIsErrorModal(true);
+      setErrorMessage("Delete Filed");
     } finally {
       setIsDeleting(false);
     }
@@ -78,7 +102,7 @@ function CmsTalentAddSchoolForm() {
         const response = await skyshareApi.get("/group");
         setDataGroups(response.data.data);
       } catch (error) {
-        onsole.log(error);
+        console.log(error);
       }
     };
 
@@ -133,7 +157,7 @@ function CmsTalentAddSchoolForm() {
           </div>
           <div className="w-full">
             <div>
-              <h1 className="headline-1">Add School</h1>
+              <h1 className="headline-1">Edit School</h1>
               <p className="paragraph">Masukkan data pada field yang tertera</p>
             </div>
             <div className="shadow-md bg-neutral-white mt-10 border-2 border-black rounded-xl pb-5 px-3 w-full">
@@ -166,6 +190,7 @@ function CmsTalentAddSchoolForm() {
                       type="file"
                       id="image_heading"
                       accept="image/*"
+                      defaultValue={dataSchool.gambar_logo_sekolah}
                       onChange={handleFileChange}
                       className="cursor-pointer z-10 opacity-0 ml-80 rounded-xl flex justify-center gap-2 py-4"
                     />
@@ -197,6 +222,7 @@ function CmsTalentAddSchoolForm() {
                     </label>
                     <input
                       placeholder="Masukkan nama sekolah"
+                      defaultValue={dataSchool.nama_sekolah}
                       type="text"
                       onChange={(e) =>
                         setSchoolForm({
@@ -213,6 +239,7 @@ function CmsTalentAddSchoolForm() {
                     </label>
                     <input
                       placeholder="Masukkan alamat sekolah"
+                      defaultValue={dataSchool.alamat}
                       type="text"
                       onChange={(e) =>
                         setSchoolForm({
@@ -229,6 +256,7 @@ function CmsTalentAddSchoolForm() {
                       </div>
                     </label>
                     <input
+                      defaultValue={dataSchool.embed_map}
                       placeholder="Example : https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.6197699153263!2d106.71407467533372!3d-6.3135771617850365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e55a184cee4d%3A0xc038909b2253775e!2sSMA%20Negeri%209%20Kota%20Tangerang%20Selatan!5e0!3m2!1sid!2sid!4v1714293197913!5m2!1sid!2sid"
                       type="text"
                       onChange={(e) =>
@@ -241,11 +269,11 @@ function CmsTalentAddSchoolForm() {
                     />
                   </form>
                 </div>
-                {/* <div className="daftar-sekolah mt-6">
+                <div className="daftar-sekolah mt-6">
                   <div className="bg-background flex justify-between rounded-xl mt-5 py-3 px-3">
                     <div className="flex items-center gap-5 ">
                       <img className=" w-6" src={Group} alt="" />
-                      <h4 className="headline-4">Group</h4>
+                      <h4 className="headline-4">List All Groups</h4>
                     </div>
                     <div className="bg-primary-1 flex items-center rounded-md px-2 py-2">
                       <Link
@@ -260,9 +288,10 @@ function CmsTalentAddSchoolForm() {
                     <table>
                       <thead>
                         <tr>
-                          <th className=" pr-8 pl-2 py-3">No.</th>
-                          <th className="pr-24 w-48 py-3">Nama Grup</th>
-                          <th className="pr-24 py-3">Link Instagram</th>
+                          <th className="pr-4 py-3">No.</th>
+                          <th className="pr-20 py-3">Nama Grup</th>
+                          <th className="pr-20 py-3">Link Instagram</th>
+                          <th className="pr-1 py-3">Nama Sekolah</th>
                           <th className="pl-16 py-3">Manage</th>
                         </tr>
                       </thead>
@@ -276,7 +305,7 @@ function CmsTalentAddSchoolForm() {
                               <td className="pl-1 py-4 text-left text-sm">
                                 {dataGroup.name}
                               </td>
-                              <td className="pl-10 py-4 text-left">
+                              <td className=" py-4 text-left">
                                 <div className="flex  items-center text-sm gap-1">
                                   <img
                                     className=" w-6 h-6"
@@ -285,6 +314,9 @@ function CmsTalentAddSchoolForm() {
                                   />
                                   {dataGroup.link}
                                 </div>
+                              </td>
+                              <td className="pl-1 py-4 text-center text-sm">
+                                {dataGroup.nama_sekolah}
                               </td>
                               <td className="pl-24 py-4 text-left flex gap-4">
                                 <div className="w-10 flex items-center justify-center rounded-md py-2">
@@ -313,7 +345,7 @@ function CmsTalentAddSchoolForm() {
                       </tbody>
                     </table>
                   </div>
-                </div> */}
+                </div>
                 <div className=" mt-4 flex gap-5 justify-end">
                   <div className=" w-56 py-2 flex">
                     <button
@@ -328,7 +360,7 @@ function CmsTalentAddSchoolForm() {
                     <button
                       onClick={(e) => {
                         e.preventDefault(); // Prevent the default form submission
-                        handleAddSchool();
+                        handleEditSchool();
                       }}
                       type="submit"
                       className="bg-primary-1 w-full py-2 rounded-md hover:bg-primary-2 text-white font-bold"
@@ -421,7 +453,7 @@ function CmsTalentAddSchoolForm() {
             </div>
             <div className="flex gap-1 mt-5 items-center">
               <img className="w-6 h-6" src={Coution} alt="" />
-              <h3 className="headline-3 ">Upload Failed</h3>
+              <h3 className="headline-3 ">{errorMessage}</h3>
             </div>
           </div>
         </div>
@@ -486,4 +518,4 @@ function CmsTalentAddSchoolForm() {
   );
 }
 
-export default CmsTalentAddSchoolForm;
+export default CmsTalentEditSchoolForm;

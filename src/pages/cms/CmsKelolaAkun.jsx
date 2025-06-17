@@ -1,6 +1,6 @@
 import React from "react";
-import CmsNavbar from "../../components/CmsNavbar";
-import CmsDashboardAkun from "../../components/CmsDashboardAkun";
+import CmsNavbar from "../../components/cms/CmsNavbar";
+import CmsDashboardAkun from "../../components/cms/CmsDashboardAkun";
 
 function CmsKelolaAkun() {
   return (

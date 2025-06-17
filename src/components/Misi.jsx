@@ -2,56 +2,70 @@ import React from "react";
 import Icon1 from "../../public/images/mascot-icons/circle-1.png";
 import Icon2 from "../../public/images/mascot-icons/circle-2.png";
 import Icon3 from "../../public/images/mascot-icons/circle.png";
-// import "./Misi.css";
+
+import Mascot1 from "../../public/images/mascot-icons/pose=5.png";
+
 
 function Misi() {
+  const cardContent = [
+    {
+      icon: Icon1,
+      title: "Mendorong pengembangan potensi diri remaja",
+      description:
+        "Mendorong pengembangan potensi diri remaja melalui program-program pendidikan dan pelatihan yang inovatif dan berkelanjutan. ",
+    },
+    {
+      icon: Icon2,
+      title: "Membangun kerja sama yang erat",
+      description:
+        "Membangun kerja sama yang erat dengan orang tua, pemerintah dan berbagai pihak terkait untuk menciptakan ekosistem pembinaan karakter yang holistik dan inklusif. ",
+    },
+    {
+      icon: Icon3,
+      title: "Memfasilitasi kegiatan yang menginspirasi kreativitas",
+      description:
+        "Memfasilitasi kegiatan yang menginspirasi kreativitas, terbangunnya integritas, kemandirian, dan leadership di kalangan remaja. ",
+    },
+  ];
+
   return (
     <>
-      <div className="misi py-14 lg:py-24 flex flex-col items-center self-stretch">
-        <div className="misi-content flex flex-col gap-10 lg:max-w-[1152px] xs:w-[312px]">
+      <div className="misi pt-14 lg:py-14 flex flex-col items-center self-stretch lg:w-[1152px] w-[312px] mx-auto lg:border-b-[1px] border-neutral-3 ">
+        <div className="misi-content flex flex-col gap-[24px] lg:w-[1152px] xs:w-[312px]">
           <h1 className="headline-1 text-center text-black font-bold">Misi</h1>
-          <div className="misi-point lg:w-[956px] lg:h-[109px] w-[312px] h-[100%] flex gap-6 items-center">
-            <img className="icon size-10 lg:size-16" src={Icon3} alt="icon" />
-            <div className="misi-paragraph flex flex-col items-start gap-2 lg:gap-4">
-              <h4 className=" text-base lg:text-lg font-semibold">
-                Personalized Mentorship
-              </h4>
-              <p className="text-sm lg:text-base font-normal">
-                Skyshare Academy menyediakan mentor yang sesuai dengan kebutuhan individu,
-                membantu mengatasi tantangan akademik, karier, dan pertumbuhan
-                pribadi.
-              </p>
-            </div>
+          <div className="mascot-container absolute">
+                <img
+                    className="relative size-24 lg:size-[300px] left-[852px] top-[128px] lg:block hidden hover:rotate-12 transition-transform" // ini kaya selancar
+                    // className="relative size-24 lg:size-[400px] left-[752px] top-[25px]" // ini gada kaki
+
+                    src={Mascot1}
+                    alt="mascot1"
+                />
           </div>
-          <div className="misi-point lg:w-[956px] lg:h-[109px] w-[312px] h-[100%] flex gap-6 items-center">
-            <img className="icon size-10 lg:size-16" src={Icon1} alt="icon" />
-            <div className="misi-paragraph flex flex-col items-start gap-2 lg:gap-4">
-              <h4 className=" text-base lg:text-lg font-semibold">
-                Integration of Islamic Spirituality
-              </h4>
-              <p className="text-sm lg:text-base font-normal">
-                Kami memadukan nilai-nilai Islam ke dalam pendekatan pembinaan,
-                menciptakan individu yang unggul dalam kehidupan pribadi dan
-                mengamalkan prinsip-prinsip kebaikan dan keadilan.
-              </p>
-            </div>
-          </div>
-          <div className="misi-point lg:w-[956px] lg:h-[109px] w-[312px] h-[100%] flex gap-6 items-center">
-            <img className="icon size-10 lg:size-16" src={Icon2} alt="icon" />
-            <div className="misi-paragraph flex flex-col items-start gap-2 lg:gap-4">
-              <h4 className=" text-base lg:text-lg font-semibold">
-                Empowerment for Success
-              </h4>
-              <p className="text-sm lg:text-base font-normal">
-                Skyshare Academy memberdayakan individu untuk meraih kesuksesan di dunia dan
-                akhirat, menyediakan keterampilan, pengetahuan, dan kedalaman
-                spiritual yang diperlukan.
-              </p>
-            </div>
-          </div>
+
+            {cardContent.map((item, index) => (
+              <div
+                className="misi-point lg:w-[800px] lg:h-full w-[312px] h-[100%] flex gap-6 items-center container p-5 "
+                key={index}
+              >
+                <img className="icon size-10 lg:size-[80px]" src={item.icon} alt="icon" />
+                <div className="misi-paragraph flex flex-col items-start gap-2 lg:gap-4 w-full">
+                  <h4 className=" text-base lg:text-lg font-semibold">
+                    {" "}
+                    {item.title}{" "}
+                  </h4>
+                  <p className="text-sm lg:text-base font-normal ">
+                    {" "}
+                    {item.description}{" "}
+                  </p>
+                </div>
+              </div>
+            ))}
+
         </div>
       </div>
     </>
   );
 }
+
 export default Misi;

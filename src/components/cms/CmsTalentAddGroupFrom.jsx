@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import skyshareApi from "../utilities/skyshareApi";
-import "./Hero.css";
+import skyshareApi from "../../utilities/skyshareApi";
+import "./Hero2.css";
 import CmsNavCard from "./CmsNavCard";
-import Ceklist from "../../public/images/mascot-icons/Tick Square.png";
-import Xbutton from "../../public/images/mascot-icons/Fill 300.png";
-import Mascot1 from "../../public/images/mascot-icons/pose=8.png";
-import Mascot2 from "../../public/images/mascot-icons/pose=1.png";
-import Coution from "../../public/images/mascot-icons/Info Square.png";
-import Mascot from "../../public/images/mascot-icons/pose=2.png";
-import Chain from "../../public/images/mascot-icons/Link.png";
+import Ceklist from "../../../public/images/mascot-icons/Tick Square.png";
+import Xbutton from "../../../public/images/mascot-icons/Fill 300.png";
+import Mascot1 from "../../../public/images/mascot-icons/pose=8.png";
+import Mascot2 from "../../../public/images/mascot-icons/pose=1.png";
+import Coution from "../../../public/images/mascot-icons/Info Square.png";
+import Mascot from "../../../public/images/mascot-icons/pose=2.png";
+import Chain from "../../../public/images/mascot-icons/Link.png";
 
 function CmsTalentAddGroupForm() {
   const [isModalOpen, setIsModalOpen] = useState(false);

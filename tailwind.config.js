@@ -10,6 +10,8 @@ export default {
           "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/bg.jpeg')",
         "talent-bg":
           "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/StudExAlt.jpeg')",
+          // "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/studex.png')",
+
         "mentor-bg":
           "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/Parent.jpeg')",
         "parent-bg":
@@ -22,6 +24,7 @@ export default {
           "linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.10)) ,url('/images/cardbg3.jpeg')",
         "orange-bg": "url('/images/background/Benefit Section.png')",
         "blue-bg": "url('/images/background/Biru Benefit Section.png')",
+        "orange-dunkler-bg": "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/background/Benefit Section.png')"
       },
       colors: {
         "primary-1": "#FEA02F",
