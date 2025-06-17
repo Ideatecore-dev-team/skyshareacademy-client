@@ -1,31 +1,31 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import TalentLogo from "../../../public/images/Talent-logo.png";
-import MentorLogo from "../../../public/images/Mentor-logo.png";
-import ParentsLogo from "../../../public/images/Parents-logo.png";
-import Button from "../../components/Button";
-import "../../components/OurProgram.css";
+import TalentLogo from "../../public/images/Talent-logo.png";
+import MentorLogo from "../../public/images/Mentor-logo.png";
+import ParentsLogo from "../../public/images/Parents-logo.png";
+import Button from "./Button";
+import "../components/OurProgram.css";
 
 function OurProgram() {
   const navigate = useNavigate();
+
   return (
     <>
-      <div className="our-program bg-background flex flex-col items-center px-6 py-14 lg:pt-52 lg:pb-24">
+      <div className="our-program bg-background flex flex-col items-center px-6 pb-14 lg:pt-0 lg:pb-24">
         <div className="title lg:flex lg:flex-col lg:items-center lg:gap-2 hidden">
-          <h1 className="headline-1 text-black">Explore Our Programs</h1>
-          <p className="paragraph">
+          <h1 className="headline-1 text-black">Program Kami</h1>
+          {/* <p className="paragraph">
             Pelajari lebih lanjut program di Skyshare Academy
-          </p>
+          </p> */}
         </div>
         <div className="all-program flex flex-col lg:flex-row items-start gap-28 lg:gap-6 lg:pt-0 pt-48 z-10">
-          <div className="program relative px-6 lg:px-0 flex flex-col items-center gap-4 lg:pb-6 pb-6 text-center">
+          <div className="program relative px-6 lg:px-0 flex flex-col items-center gap-4 lg:pb-6 pb-6 text-center lg:h-[358px] justify-between">
             <div className="image-container absolute flex items-center content-center size-44 lg:size-52 p-5">
               <img src={TalentLogo} alt="" className="image" />
             </div>
             <h2 className="headline-2">Talent Academy</h2>
             <p className="paragraph px-6">
-              Talent Academy merupakan program ekskul kelas karakter minat dan
-              bakat
+              Talents Academy berfokus pada pengembangan potensi dan karakter diri anggota, didasarkan pada pendekatan teman sebaya. 
             </p>
             <Button onClick={() => navigate("/ourprogram/talent")}>
               <div className="flex gap-2">
@@ -60,13 +60,13 @@ function OurProgram() {
               </div>
             </Button>
           </div>
-          <div className="program relative px-6 lg:px-0 flex flex-col items-center gap-4 lg:pb-6 pb-6 text-center">
+          <div className="program relative px-6 lg:px-0 flex flex-col items-center gap-4 lg:pb-6 pb-6 text-center lg:h-[358px] justify-between">
             <div className="image-container absolute flex items-center content-center size-44 lg:size-52 p-5">
               <img src={MentorLogo} alt="" className="image" />
             </div>
             <h2 className="headline-2">Mentor Academy</h2>
             <p className="paragraph px-6">
-              Mentor Academy merupakan program lanjutan dari Skyshare Academy
+              Mentor Academy bertujuan untuk meningkatkan kapabilitas pembimbing agar selaras dengan generasi Z, Alpha, & Beta. 
             </p>
             <Button onClick={() => navigate("/ourprogram/mentor")}>
               <div className="flex gap-2">
@@ -101,13 +101,13 @@ function OurProgram() {
               </div>
             </Button>
           </div>
-          <div className="program relative px-6 lg:px-0 flex flex-col items-center gap-4 lg:pb-6 pb-6 text-center">
+          <div className="program relative px-6 lg:px-0 flex flex-col items-center gap-4 lg:pb-6 pb-6 text-center lg:h-[358px] justify-between">
             <div className="image-container absolute flex items-center content-center size-44 lg:size-52 p-5">
               <img src={ParentsLogo} alt="" className="image" />
             </div>
             <h2 className="headline-2">Parents Academy</h2>
             <p className="paragraph px-6">
-              Program untuk menyelaraskan visi orang tua member Talents Academy dalam mendukung pembentukan karakter dan pengembangan potensi.
+              Parents Academy dirancang untuk orang tua anggota Talents Academy, memastikan kesamaan visi dalam pembentukan karakter dan pengembangan potensi. 
             </p>
             <Button onClick={() => navigate("/ourprogram/parents")}>
               <div className="flex gap-2">
@@ -147,4 +147,5 @@ function OurProgram() {
     </>
   );
 }
+
 export default OurProgram;

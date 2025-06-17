@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 /* Main URL */
 import Home from "./pages/client/Home";
 import AboutUs from "./pages/client/AboutUs";
-import OurProgram from "./pages/client/OurProgram";
+// import OurProgram from "./pages/client/OurProgram";
 import Talent from "./pages/client/Talent";
 import Mentor from "./pages/client/Mentor";
 import Parents from "./pages/client/Parents";
@@ -105,7 +105,7 @@ function App() {
 
         <Route path="/aboutus" element={<AboutUs />} />
 
-        <Route path="/ourprogram" element={<OurProgram />} />
+        {/* <Route path="/ourprogram" element={<OurProgram />} /> */}
 
 
         <Route path="/article" element={<Article />} />

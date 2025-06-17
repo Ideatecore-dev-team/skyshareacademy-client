@@ -37,8 +37,8 @@ function Navbar() {
             </Link>
             <div className="flex down  gap-2 Our-program">
               <Link
-                className=" text-slate-500 hover:text-black flex gap-2 "
-                to="/ourprogram"
+                className=" text-slate-500 flex gap-2 "
+                // to="/ourprogram"
               >
                 <p>Our Program</p>
                 <div className=" arrow duration-500">
@@ -167,8 +167,8 @@ function Navbar() {
               <p className="text-lg lg:text-xl">About Us</p>
             </Link>
             <Link
-              className="  text-slate-500 hover:text-black flex items-center gap-3"
-              to="/ourprogram"
+              className="  text-slate-500 flex items-center gap-3"
+              // to="/ourprogram"
             >
               <p className="text-lg lg:text-xl">Our Program</p>
             </Link>

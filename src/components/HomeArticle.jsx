@@ -110,7 +110,6 @@ function HomeArticle() {
                   <a
                     href={"/article/" + article.id}
                     onClick={scrollToTop}
-                    // Menghilangkan hover dan shadow saat mobile
                     className="card-art bg-white rounded-2xl lg:gap-6 gap-4 flex flex-col overflow-hidden relative border-[2px] border-neutral-600"
                   >
                     <div
