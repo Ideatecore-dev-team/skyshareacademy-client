@@ -1,32 +1,17 @@
-import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React from "react";
 import "./Partner.css";
 import Partner1 from "../../public/images/partner1.png";
 import Partner2 from "../../public/images/partner2.png";
-import Partner3 from "../../public/images/partner3.png";
+// import Partner3 from "../../public/images/partner3.png";
 
 function Partner() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 639);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 639);
-    };
+  const partners = [
+    { id: 1, src: Partner1 },
+    { id: 2, src: Partner2 },
+    // { id: 3, src: Partner3 }, 
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  ];
 
   return (
     <>
@@ -36,20 +21,19 @@ function Partner() {
             Our Partner
           </h2>
           <div className="frame205 flex items-start gap-14">
-                <div className="logoplaceholder flex w-120 h-120 content-center items-center">
-                  <img
-                    src={Partner1}
-                    alt="partnerlogo"
-                    className="w-120 h-120 flex-shrink-0"
-                  />
-                </div>
-                <div className="ogoplaceholder flex w-120 h-120 content-center items-center">
-                  <img
-                    src={Partner2}
-                    alt="partnerlogo"
-                    className="w-120 h-120 flex-shrink-0"
-                  />
-                </div>
+            {/* Render partner secara dinamis dari array partners */}
+            {partners.map((partner) => (
+              <div
+                key={partner.id} // Penting untuk kinerja React saat rendering list
+                className="logoplaceholder flex w-120 h-120 content-center items-center"
+              >
+                <img
+                  src={partner.src}
+                  alt="partnerlogo"
+                  className="w-120 h-120 flex-shrink-0"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
