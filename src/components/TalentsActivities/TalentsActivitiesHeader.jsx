@@ -15,12 +15,8 @@
 
     // Import Swiper React components
     import { Swiper, SwiperSlide } from "swiper/react";
-
-    // Import Swiper styles
     import "swiper/css";
     import "swiper/css/autoplay";
-
-    // Import required modules
     import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
     import Mascot1 from "../../../public/images/mascot-icons/pose=10.png";
