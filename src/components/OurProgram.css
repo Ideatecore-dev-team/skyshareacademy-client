@@ -1,6 +1,4 @@
-.our-program {
-  gap: 172px;
-}
+
 .container {
   border-radius: var(--radius-large, 16px);
   border: 1px solid var(--Neutral-1, #001125);

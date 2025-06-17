@@ -12,9 +12,15 @@ export const About = () => {
             src={aboutUsPhotos}
             className=" lg:w-[520px] lg:h-[260px] content-center items-center rounded-md"
           />
-          <img src={Mascot1} alt="" 
-          
-          className="absolute size-[200px] left-[900px] bottom-[80px] lg:block hidden hover:-translate-x-10 transition-transform"/>
+            <div className="mascot-container absolute">
+                <img
+                    className="relative size-24 lg:size-[200px] left-[-400px] top-[60px] lg:block hidden hover:-translate-x-10 transition-transform" // ini kaya selancar
+                    // className="relative size-24 lg:size-[400px] left-[752px] top-[25px]" // ini gada kaki
+
+                    src={Mascot1}
+                    alt="mascot1"
+                />
+            </div>
           <div className="heading-and-desc lg:w-[520px] flex flex-col items-start gap-4">
             {/* <h5 className="text-neutral-1 font-lato text-sm lg:text-base font-bold leading-normal">
             </h5> */}

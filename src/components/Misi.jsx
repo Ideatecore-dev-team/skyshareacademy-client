@@ -30,7 +30,7 @@ function Misi() {
 
   return (
     <>
-      <div className="misi pt-14 lg:py-14 flex flex-col items-center self-stretch">
+      <div className="misi pt-14 lg:py-14 flex flex-col items-center self-stretch lg:w-[1152px] w-[312px] mx-auto lg:border-b-[1px] border-neutral-3 ">
         <div className="misi-content flex flex-col gap-[24px] lg:w-[1152px] xs:w-[312px]">
           <h1 className="headline-1 text-center text-black font-bold">Misi</h1>
           <div className="mascot-container absolute">
