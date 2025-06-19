@@ -5,23 +5,23 @@ import { Link } from "react-router-dom";
 import SecondayButton from "./SecondayButton";
 import ButtonLink from "./ButtonLink";
 
-function AllActivitiesMentorAcademy({ mentor }) {
+function AllActivitiesMentor({ mentor }) {
   const data = mentor;
   return (
     <>
-      <div className="botton-section bg-background flex flex-col pt-14 lg:pt-24 items-center">
-        <div className="bottom-container flex flex-col lg:max-w-5xl max-w-80 gap-4">
-          <p className="paragraph text-center">
+      <div className="botton-section bg-background flex flex-col items-center ">
+        <div className="bottom-container flex flex-col lg:w-[1152px] w-[312px]">
+          {/* <p className="paragraph text-center">
             Kalian akan mengikuti beragam aktivitas untuk mengupgrade kecerdasan
-            majemuk yang dimiliki. Adapun aktivitas dalam program Skyshare
+            majemuk yang dimiliki. Adapun aktivitas dalam program mentAllActivitiesMentor
             Academy yang akan kalian lakukan di antaranya, circle time, home
             visit, fill your mind, training, student expedition, take a walk
             together, experiantial learning, dan lain-lain.
-          </p>
-          <div className="allact-btn w-44 mx-auto">
+          </p> */}
+          {/* <div className="allact-btn w-44 mx-auto">
             <SecondayButton
               caption="Seluruh Kegiatan"
-              to="/ourprogram/mentor/activities"
+              to="/ourprogram/talent/activities"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,8 +50,9 @@ function AllActivitiesMentorAcademy({ mentor }) {
                 />
               </svg>
             </SecondayButton>
-          </div>
-          <div className="join-btn mx-auto w-48 py-14 lg:py-24">
+          </div> */}
+          <div className="join-btn mx-auto w-auto py-7 lg:py-12">
+          {/* <div className="join-btn mx-auto w-48 py-14 lg:py-24"> */}
             <ButtonLink
               to={data.link_join_program}
               caption={data.link_cta}
@@ -92,4 +93,4 @@ function AllActivitiesMentorAcademy({ mentor }) {
     </>
   );
 }
-export default AllActivitiesMentorAcademy;
+export default AllActivitiesMentor;

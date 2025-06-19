@@ -1,12 +1,12 @@
 import React from "react";
-import MentorActivitiesHero from "../../components/ActivitiesHeroMentor";
-import MentorActivitiesCarousel from "../../components/ActivitiesCarouselMentor";
+import { MentorActivitiesHeader } from "../../components/MentorActivities/MentorActivitiesHeader"
+import { MentorActivitiesWhat } from "../../components/MentorActivities/MentorActivitiesWhat"
 
 function MentorActivity() {
   return (
     <>
-      <MentorActivitiesHero />
-      <MentorActivitiesCarousel />
+        <MentorActivitiesHeader />
+        <MentorActivitiesWhat />
     </>
   );
 }

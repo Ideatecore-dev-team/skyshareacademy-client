@@ -4,7 +4,7 @@ import skyshareApi from "../../utilities/skyshareApi";
 import { useEffect, useState } from "react";
 import MentorCta from "../../components/CtaMentor";
 import Mentorabout from "../../components/AboutMentor";
-import BenefitMentor from "../../components/BenefitMentor";
+
 import AllActivitiesMentorAcademy from "../../components/AllActivitiesMentor";
 import TimelineSkyshare from "../../components/TimelineSkyshare";
 import AlurAcara from "../../components/AlurAcara";
@@ -27,7 +27,7 @@ function Mentor() {
       <div>
         <MentorCta mentor={mentor} />
         <Mentorabout />
-        <BenefitMentor />
+
         <AlurAcara mentor={mentor} />
         <TimelineSkyshare mentor={mentor}/>
         <AllActivitiesMentorAcademy mentor={mentor} />

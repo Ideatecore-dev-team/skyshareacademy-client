@@ -6,7 +6,7 @@ import AlurAcara from "../../components/AlurAcara";
 import TimelineSkyshare from "../../components/TimelineSkyshare";
 import CurrentGroupTalent from "../../components/CurrentGroupTalent";
 import AllActivitiesSkyShare from "../../components/AllActivitiesTalent";
-import SkyshareAbout from "../../components/SkyshareAbout";
+import SkyshareAbout from "../../components/AboutTalent";
 
 function Skyshare() {
   const [talent, setTalent] = useState([]);
