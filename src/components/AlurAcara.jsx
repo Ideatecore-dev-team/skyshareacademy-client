@@ -21,7 +21,7 @@ function AlurAcara({ parents, talent, mentor }) {
           <div className="timeline-content-wrapper flex items-center gap-4 lg:gap-0 lg:w-[1152px]">
             <div className="timeline-img-container flex-grow">
               <img
-                className="timeline-img w-full rounded-2xl"
+                className="timeline-img w-full lg:rounded-2xl rounded-md"
                 src={timelineImageSrc}
                 alt="timeline-acara"
               />
