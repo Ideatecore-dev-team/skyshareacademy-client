@@ -51,7 +51,7 @@ export const MentorActivitiesHeader = () => {
                     {OurProgramData.map((programData, index) => (
                         <div key={index} className="lg:w-[350px] flex flex-col items-start gap-2 lg:gap-3 self-stretch pt-[20px]">
                             <div className="program-name flex gap-3 self-stretch items-center">
-                                <div className="icon flex p-3 items-center justify-center rounded-lg bg-primary-1">
+                                <div className="icon flex p-3 items-center justify-center rounded-lg bg-primary-1 border border-neutral-900">
                                     {programData.icon}
                                 </div>
                                 <h4 className="text-xl font-bold text-primary">{programData.program}</h4>
