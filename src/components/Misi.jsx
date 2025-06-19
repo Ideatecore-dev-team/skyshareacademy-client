@@ -53,8 +53,8 @@ function Misi() {
               key={index} 
             > 
               {/* Render langsung komponen ikon */}
-              <div className="icon size-10 lg:size-[64px] flex items-center justify-center rounded-lg bg-primary-1 p-3">
-                 {item.icon} 
+              <div className="icon size-[64px] flex items-center justify-center rounded-lg bg-primary-1 p-3">
+                  {item.icon} 
               </div>
               
               <div className="misi-paragraph flex flex-col items-start gap-2 lg:gap-4 w-full"> 
