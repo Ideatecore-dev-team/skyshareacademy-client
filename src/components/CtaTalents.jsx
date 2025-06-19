@@ -13,7 +13,7 @@ function SkyshareCta({ talent }) {
             <div className="logo-title flex flex-col items-center">
               <img src={SkyshareLogo} alt="logo" />
               <h1 className="text-white headline-1 text-center">
-                Talent Academy
+                Talents Academy
               </h1>
             </div>
             <p className="regist paragraph text-center mb-3">

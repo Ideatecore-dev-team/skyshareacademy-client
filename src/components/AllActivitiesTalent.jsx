@@ -9,16 +9,16 @@ function AllActivitiesSkyShare({ talent }) {
   const data = talent;
   return (
     <>
-      <div className="botton-section bg-background flex flex-col pt-14 lg:pt-24 items-center">
-        <div className="bottom-container flex flex-col lg:max-w-5xl max-w-80 gap-4">
-          <p className="paragraph text-center">
+      <div className="botton-section bg-background flex flex-col items-center ">
+        <div className="bottom-container flex flex-col lg:w-[1152px] w-[312px]">
+          {/* <p className="paragraph text-center">
             Kalian akan mengikuti beragam aktivitas untuk mengupgrade kecerdasan
             majemuk yang dimiliki. Adapun aktivitas dalam program Skyshare
             Academy yang akan kalian lakukan di antaranya, circle time, home
             visit, fill your mind, training, student expedition, take a walk
             together, experiantial learning, dan lain-lain.
-          </p>
-          <div className="allact-btn w-44 mx-auto">
+          </p> */}
+          {/* <div className="allact-btn w-44 mx-auto">
             <SecondayButton
               caption="Seluruh Kegiatan"
               to="/ourprogram/talent/activities"
@@ -50,8 +50,8 @@ function AllActivitiesSkyShare({ talent }) {
                 />
               </svg>
             </SecondayButton>
-          </div>
-          <div className="join-btn mx-auto w-auto py-14 lg:py-24">
+          </div> */}
+          <div className="join-btn mx-auto w-auto pb-7 lg:pb-12">
           {/* <div className="join-btn mx-auto w-48 py-14 lg:py-24"> */}
             <ButtonLink
               to={data.link_join_program}

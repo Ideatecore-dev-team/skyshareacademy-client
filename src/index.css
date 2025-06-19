@@ -34,11 +34,6 @@ input {
   background: #feb359;
 }
 
-
-.swiper-wrapper {
-transition-timing-function: linear !important;
-}
-
 .sec-btn {
   border-radius: 16px;
   border: 1px solid black;
@@ -303,6 +298,12 @@ h1 {
 
 .slider-container {
   width: 100%;
+}
+
+/* swiper-custom.css */
+
+.swiper-wrapper { /* biar continous */
+transition-timing-function: linear !important;
 }
 
 /* Tampilan mobile */
