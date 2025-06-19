@@ -55,7 +55,7 @@ export const TalentsActivitiesWhat = () => {
 
   return (
     <div className="what-we-do-section flex justify-center items-start self-stretch bg-background">
-      <div className="what-we-do-container flex lg:w-[1152px] w-full xs:px-6 py-12 flex-col items-start">
+      <div className="what-we-do-container flex lg:w-[1152px] w-[312px] py-12 flex-col items-start">
         <div className="title flex lg:w-[550px] flex-col items-start gap-4 xs:self-stretch">
           <div className="title-desc flex flex-col gap-3 items-start self-stretch lg:w-[550px] w-full">
             <h2 className="text-2xl lg:text-[32px] font-bold">What We Do?</h2>
