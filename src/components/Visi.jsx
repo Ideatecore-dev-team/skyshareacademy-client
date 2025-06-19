@@ -1,5 +1,14 @@
 import React from "react";
-import { MdSportsSoccer, MdOutlineAccessTime, MdSchool, MdHome, MdOutlineLightbulb, MdEmojiEvents, MdPeople, MdFamilyRestroom, MdStars, MdNature, MdSelfImprovement, MdOutlineConnectWithoutContact, MdHandshake, MdBuild } from "react-icons/md";
+
+import { 
+  GiInjustice,
+  GiSmart,
+  GiProgression,
+} from "react-icons/gi";
+
+import { HiOutlineLightBulb } from "react-icons/hi";
+import { FaHandshake } from "react-icons/fa";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -8,29 +17,24 @@ import { Autoplay } from "swiper/modules";
 function Visi() {
   const OurValueData = [
     {
-      program: "Pengembangan Potensi Diri",
-      desc: "Mendorong pengembangan potensi diri remaja melalui program-program pendidikan dan pelatihan yang inovatif dan berkelanjutan.",
-      icon: <MdSelfImprovement size={32} className="text-white" />,
+      program: "Integritas",
+      icon: <GiInjustice size={32} className="text-white" />,
     },
     {
-      program: "Pembentukan Karakter Positif",
-      desc: "Skyshare Academy bertujuan untuk membentuk citra diri positif, attitude, knowledge, dan spiritual pada remaja dan pemuda.",
-      icon: <MdStars size={32} className="text-white" />,
+      program: "Berdaya Saing Tinggi",
+      icon: <GiSmart size={32} className="text-white" />,
     },
     {
-      program: "Integritas dan Daya Saing Tinggi",
-      desc: "Menciptakan generasi penerus bangsa yang berintegritas dan berdaya saing tinggi.",
-      icon: <MdBuild size={32} className="text-white" />,
+      program: "Progresif",
+      icon: <GiProgression size={32} className="text-white" />,
     },
     {
-      program: "Kerja Sama dan Dukungan",
-      desc: "Mengandalkan motivasi diri peserta, keaktifan, dan kerja sama orang tua sebagai sistem pendukung yang krusial.",
-      icon: <MdHandshake size={32} className="text-white" />,
+      program: "Inovatif",
+      icon: <HiOutlineLightBulb size={32} className="text-white" />,
     },
     {
-      program: "Berbagi Ilmu dan Manfaat",
-      desc: "Menekankan pentingnya berbagi ilmu dan memberikan manfaat bagi banyak orang, khususnya dalam pembentukan akhlak.",
-      icon: <MdOutlineConnectWithoutContact size={32} className="text-white" />,
+      program: "Kolaborasi",
+      icon: <FaHandshake size={32} className="text-white" />,
     },
   ];
 
@@ -40,10 +44,13 @@ function Visi() {
         <div className="visi-content lg:w-[1152px] w-[312px] flex flex-col items-center gap-7 lg:gap-10">
           <h1 className="headline-1 text-center text-black">Visi</h1>
           <p className=" text-sm lg:text-base font-normal text-center">
-            Menjadi lembaga pengembangan diri dan karakter remaja yang progresif, inovatif, bersinergi mendukung pemerintah untuk menciptakan generasi penerus bangsa yang berintegritas dan berdaya saing tinggi.
+          Menjadi lembaga pengembangan diri dan karakter remaja yang <strong> progresif, inovatif </strong>, bersinergi mendukung pemerintah untuk menciptakan generasi penerus bangsa yang <strong> berintegritas</strong> dan <strong>berdaya saing tinggi</strong>.
           </p>
         </div>
         <div className="programs lg:w-[1152px] w-[312px] overflow-hidden lg:pt-[52px] pt-[40px]">
+
+
+          
           <Swiper
             spaceBetween={30}
             autoplay={{
@@ -70,7 +77,7 @@ function Visi() {
               },
               1024: {
                 slidesPerView: 4,
-                spaceBetween: 10,
+                spaceBetween: 0,
               },
             }}
           >
@@ -90,6 +97,7 @@ function Visi() {
               </SwiperSlide>
             ))}
           </Swiper>
+
         </div>
       </div>
     </>
