@@ -1,13 +1,15 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // Impor motion dan AnimatePresence
-import aboutUsPhotos1 from "../../public/images/Walk-Together.png";
+import aboutUsPhotos1 from "../../public/images/take-a-walk-mentor.jpg";
 import aboutUsPhotos2 from "../../public/images/Home-Visit.jpeg";
 import aboutUsPhotos3 from "../../public/images/Sport-Time.jpeg";
+import aboutUsPhotos4 from "../../public/images/Walk-Together.png";
+
 import Mascot1 from "../../public/images/mascot-icons/pose=8.png";
 
 export const About = () => {
-  const photos = [aboutUsPhotos1, aboutUsPhotos2, aboutUsPhotos3];
+  const photos = [aboutUsPhotos1, aboutUsPhotos2, aboutUsPhotos3, aboutUsPhotos4];
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   useEffect(() => {
