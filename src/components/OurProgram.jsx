@@ -13,7 +13,7 @@ function OurProgram() {
     {
       id: "talent",
       logo: TalentLogo,
-      title: "Talent Academy",
+      title: "Talents Academy",
       description:
         "Talents Academy berfokus pada pengembangan potensi dan karakter diri anggota, didasarkan pada pendekatan teman sebaya.",
       path: "/ourprogram/talent",
@@ -32,7 +32,8 @@ function OurProgram() {
       title: "Parents Academy",
       description:
         "Parents Academy dirancang untuk orang tua anggota Talents Academy, memastikan kesamaan visi dalam pembentukan karakter dan pengembangan potensi.",
-      path: "/ourprogram/parents",
+      // path: "/ourprogram/parents",
+      button: "Coming soon"
     },
   ];
 
@@ -91,7 +92,7 @@ function OurProgram() {
 
                 }}>
                 <div className="flex gap-2">
-                  <p className="font-bold text-neutral-white">Learn more</p>
+                  <p className="font-bold text-neutral-white">{program.button || "Learn more"}</p>
                   <RightArrowIcon />
                 </div>
               </Button>

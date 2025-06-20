@@ -78,7 +78,7 @@ function Navbar() {
                     className="text-slate-500 hover:text-black"
                     to="/ourprogram/talent"
                   >
-                    <p>Talent Academy</p>
+                    <p>Talents Academy</p>
                   </Link>
                 </div>
                 <div className=" w-full h-14 flex justify-center items-center border-gray-400 border-t">
@@ -203,7 +203,7 @@ function Navbar() {
                   fill="#64748b"
                 />
               </svg>
-              <p className="text-lg lg:text-xl">Talent Academy</p>
+              <p className="text-lg lg:text-xl">Talents Academy</p>
             </Link>
 
             <Link

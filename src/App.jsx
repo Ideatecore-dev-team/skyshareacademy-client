@@ -80,7 +80,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/ourprogram/talent" element={<Talent />} />
         <Route path="/ourprogram/mentor" element={<Mentor />} />
-        <Route path="/ourprogram/parents" element={<Parents />} />
+
+        {/* <Route path="/ourprogram/parents" element={<Parents />} /> */}
+
         <Route path="/article/:id" element={<ArticleOpennedPage />} />
 
         {/* <Route
@@ -99,7 +101,7 @@ function App() {
           element={<MentorActivity />}
         />
         <Route
-          path="/ourprogram/parents/activities"
+          // path="/ourprogram/parents/activities"
           element={<ParentsActivity />}
         />
 
