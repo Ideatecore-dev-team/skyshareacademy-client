@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useTransition } from "react";
 import { useNavigate } from "react-router-dom";
 import TalentLogo from "../../public/images/Talent-logo.png";
 import MentorLogo from "../../public/images/Mentor-logo.png";
 import ParentsLogo from "../../public/images/Parents-logo.png";
 import Button from "./Button";
-import "../components/OurProgram.css"; // Pastikan file CSS ini ada jika Anda menambahkan custom CSS
+import "../components/OurProgram.css"; 
 
 function OurProgram() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function OurProgram() {
     {
       id: "talent",
       logo: TalentLogo,
-      title: "Talent Academy",
+      title: "Talents Academy",
       description:
         "Talents Academy berfokus pada pengembangan potensi dan karakter diri anggota, didasarkan pada pendekatan teman sebaya.",
       path: "/ourprogram/talent",
@@ -32,7 +32,8 @@ function OurProgram() {
       title: "Parents Academy",
       description:
         "Parents Academy dirancang untuk orang tua anggota Talents Academy, memastikan kesamaan visi dalam pembentukan karakter dan pengembangan potensi.",
-      path: "/ourprogram/parents",
+      // path: "/ourprogram/parents",
+      button: "Coming soon"
     },
   ];
 
@@ -85,9 +86,13 @@ function OurProgram() {
               </div>
               <h2 className="headline-2">{program.title}</h2>
               <p className="paragraph px-6">{program.description}</p>
-              <Button onClick={() => navigate(program.path)}>
+              <Button onClick={() => {
+                navigate(program.path)
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+
+                }}>
                 <div className="flex gap-2">
-                  <p className="font-bold text-neutral-white">Learn more</p>
+                  <p className="font-bold text-neutral-white">{program.button || "Learn more"}</p>
                   <RightArrowIcon />
                 </div>
               </Button>

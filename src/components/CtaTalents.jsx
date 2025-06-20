@@ -7,13 +7,13 @@ function SkyshareCta({ talent }) {
   const data = talent;
   return (
     <>
-      <div className="cta-title bg-talent-bg bg-cover flex flex-col self-stretch items-center px-6 py-14 lg:py-24 lg:px-0">
+      <div className="cta-title bg-talent-bg bg-cover flex flex-col self-stretch items-center px-6  xs:pt-24 xs:pb-14 lg:py-24 lg:px-0">
         <div className="cta-padding flex flex-col justify-end items-center flex-wrap">
           <div className="cta-hero-content flex px-6 flex-col items-center gap-2 self-stretch lg:px-0 lg:gap-4">
             <div className="logo-title flex flex-col items-center">
               <img src={SkyshareLogo} alt="logo" />
               <h1 className="text-white headline-1 text-center">
-                Talent Academy
+                Talents Academy
               </h1>
             </div>
             <p className="regist paragraph text-center mb-3">

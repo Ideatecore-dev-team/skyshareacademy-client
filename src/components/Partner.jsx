@@ -15,7 +15,7 @@ function Partner() {
 
   return (
     <>
-      <div className="partner flex flex-col mx-auto lg:pb-24 lg:px-0 xs:pb-9 xs:px-6 gap-gap10 ">
+      <div className="partner flex flex-col mx-auto lg:py-24 lg:px-0 xs:py-9 xs:px-6 gap-gap10 ">
         <div className="partner-container flex flex-col items-center lg:gap-12 xs:gap-7 overflow-hidden">
           <h2 className=" font-bold lg:text-3xl xs:text-2xl text-center">
             Our Partner

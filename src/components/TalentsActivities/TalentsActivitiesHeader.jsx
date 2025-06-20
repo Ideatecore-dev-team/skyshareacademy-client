@@ -93,7 +93,7 @@
 
     return (
         <div className="our-program-section flex items-start justify-center lg:pt-[120px] pt-[60px] bg-background">
-        <div className="our-program-container w-[327px] xs:mx-6 lg:w-[1152px] flex flex-col items-center border-b-[1px] border-neutral-3 ">
+        <div className="our-program-container w-[312px] xs:mx-6 lg:w-[1152px] flex flex-col items-center border-b-[1px] border-neutral-3 ">
             <div className="desc flex lg:w-[550px] pt-12 flex-col items-start gap-4 self-stretch">
             <h5 className="text-sm lg:text-base font-bold">TALENTS ACTIVITIES</h5>
             <div className="heading-desc flex flex-col items-start gap-3 self-stretch">
