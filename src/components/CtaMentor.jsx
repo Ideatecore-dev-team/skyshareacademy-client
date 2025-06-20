@@ -7,7 +7,7 @@ function MentorCta({ mentor }) {
   const data = mentor;
   return (
     <>
-      <div className="cta-title bg-mentor-bg bg-cover flex flex-col self-stretch items-center px-6 xs:pt-24 xs:pb-14 lg:py-24 lg:px-0">
+      <div className="cta-title bg-mentor-bg bg-bottom bg-cover flex flex-col self-stretch items-center px-6 xs:pt-24 xs:pb-14 lg:py-24 lg:px-0">
         <div className="cta-padding flex flex-col justify-end items-center flex-wrap">
           <div className="cta-hero-content flex px-6 flex-col items-center gap-2 self-stretch lg:px-0 lg:gap-4">
             <div className="logo-title flex flex-col items-center">
