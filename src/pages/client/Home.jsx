@@ -4,6 +4,7 @@ import Testimoni from "../../components/Testimoni";
 import HomeArticle from "../../components/HomeArticle";
 
 import BecomeMentor from "../../components/BecomeMentor";
+import OurImpact from "../../components/OurImpact";
 
 import Partner from "../../components/Partner";
 
@@ -16,6 +17,7 @@ function Home() {
         <HomeArticle />
         
         <BecomeMentor />
+        <OurImpact />
 
         <Partner />
       </div>
