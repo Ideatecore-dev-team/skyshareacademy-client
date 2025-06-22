@@ -35,7 +35,7 @@ function ArticlePageOpenned() {
         {/* Open Graph Meta Tags (for social media sharing) */}
         <meta property="og:title" content={article.title || "Skyshare Article"} />
         <meta property="og:description" content={article.description || "Baca artikel menarik dari Skyshare."} />
-        <meta property="og:image" content={article.image_heading || "https://skyshareacademy.id/default-og-image.jpg"} /> {/* Ganti dengan default OG image */}
+        <meta property="og:image" content={article.image_heading} /> {/* Ganti dengan default OG image */}
         <meta property="og:url" content={`https://skyshareacademy.id/article/${id}`} /> {/* Ganti dengan domain kamu */}
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Skyshare" />
@@ -44,7 +44,7 @@ function ArticlePageOpenned() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title || "Skyshare Article"} />
         <meta name="twitter:description" content={article.description || "Baca artikel menarik dari Skyshare."} />
-        <meta name="twitter:image" content={article.image_heading || "https://skyshareacademy.id/default-og-image.jpg"} /> {/* Ganti dengan default OG image */}
+        <meta name="twitter:image" content={article.image_heading} /> {/* Ganti dengan default OG image */}
       </Helmet>
 
       <div className="hero flex background flex-col items-center self-stretch">

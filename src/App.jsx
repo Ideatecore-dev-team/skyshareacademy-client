@@ -73,7 +73,7 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>Skyshare Academy</title>
+        <title>Skyshare Academy Indonesia</title>
       </Helmet>
       {!shouldHideNavbarAndFooter && <Navbar />}
       <Routes>
