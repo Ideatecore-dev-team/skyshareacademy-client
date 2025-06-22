@@ -58,7 +58,7 @@ function OurImpact() {
                                                 )}
                                             </h1>
                                         </div>
-                                        <h2 className="lg:text-[16px] text-[14px] font-[400] text-neutral-2">{programData.program} di seluruh Indonesia</h2>
+                                        <h2 className="lg:text-[16px] text-[14px]  font-[400] text-neutral-2">{programData.program} di seluruh Indonesia</h2>
                                     </div>
                                 );
                             })}
