@@ -109,9 +109,9 @@
                 </p>
             </div>
             
-            <div className="mascot-container absolute">
+            <div className="mascot-container absolute right-[194px] top-[px]">
                 <img
-                    className="relative size-24 lg:size-[300px] left-[752px] top-[-25px] lg:block hidden hover:rotate-12 transition-transform" // ini kaya selancar
+                    className="relative size-24 lg:size-[300px] lg:block hidden hover:rotate-12 transition-transform" // ini kaya selancar
                     // className="relative size-24 lg:size-[400px] left-[752px] top-[25px]" // ini gada kaki
 
                     src={Mascot1}

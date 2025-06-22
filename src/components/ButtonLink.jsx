@@ -15,7 +15,7 @@ function ButtonLink({ children, to, caption, backgroundColor, textColor }) {
   return (
     <Link
       to={to}
-      className={`btn-link flex p-3 justify-center items-center gap-2 ${backgroundColor} ${textColor}`}
+      className={`btn-link flex p-3 justify-center items-center gap-2 ${backgroundColor} ${textColor} font-bold`}
       onClick={scrollToTop}
     >
       <p>{caption}</p>

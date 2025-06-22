@@ -1,12 +1,10 @@
 import React from "react";
-import { MdOutlineAccessTime, MdSchool, MdLightbulb, MdBook, MdPeople, MdHealthAndSafety } from "react-icons/md";
-import { GiUpgrade, GiTeacher } from "react-icons/gi"; // Menggunakan GiUpgrade dan GiTeacher
+import { MdHealthAndSafety } from "react-icons/md";
+import { GiUpgrade, GiTeacher } from "react-icons/gi"; 
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import Mascot1 from "../../../public/images/mascot-icons/pose=6.png";
 
@@ -39,9 +37,9 @@ export const MentorActivitiesHeader = () => {
                             Mentor Academy merupakan rangkaian kegiatan yang dilakukan untuk meningkatkan kapabilitas (capacity and ability) mentor baik soft skill maupun hard skill agar memilliki kemampuan 3K+1P (Komitmen, Konsisten, Kreatif dan ber-Pengalaman).
                         </p>
                     </div>
-                    <div className="mascot-container absolute">
+                    <div className="mascot-container absolute right-[194px] top-[px] ">
                         <img
-                            className="relative size-24 lg:size-[300px] left-[752px] top-[-25px] lg:block hidden hover:animate-ping transition-transform"
+                            className="relative size-24 lg:size-[300px] lg:block hidden hover:animate-ping transition-transform"
                             src={Mascot1}
                             alt="mascot1"
                         />
