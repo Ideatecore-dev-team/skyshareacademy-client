@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
-import mascot1 from "/images/mascot-icons/pose=11.png";
+import mascot1 from "/images/mascot-icons/pose=5.png";
 import SearchbarArticle from "./SearcbarArticle";
 import FilterIcon from "/images/mascot-icons/Filter.png";
 import "./ArticleHero.css";
