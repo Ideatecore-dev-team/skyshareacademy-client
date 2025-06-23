@@ -12,9 +12,21 @@ import map from "../assets/idmap.svg";
 function OurImpact() {
     const navigate = useNavigate();
     const OurProgramData = [
-        { program: "provinsi", number: 21, icon: <FaMapMarkerAlt size={32} className="text-white" />, },
-        { program: "Kabupaten/Kota", number: 55, icon: <BsBuildingFill size={32} className="text-white" />, },
-        { program: "Sekolah", number: 2, icon: <IoMdSchool size={32} className="text-white" />, },
+        { 
+            program: "provinsi", 
+            number: 21, 
+            icon: <FaMapMarkerAlt size={32} className="text-white" />, 
+        },
+        { 
+            program: "Kabupaten/Kota", 
+            number: 55, 
+            icon: <BsBuildingFill size={32} className="text-white" />, 
+        },
+        { 
+            program: "Sekolah", 
+            number: 3, 
+            icon: <IoMdSchool size={32} className="text-white" />, 
+        },
     ];
 
     const mascotDescription = <span><strong>Sejak 2006</strong> bekerja, berkontribusi pada bangsa indonesia</span>;
