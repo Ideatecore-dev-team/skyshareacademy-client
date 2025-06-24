@@ -12,9 +12,21 @@ import map from "../assets/idmap.svg";
 function OurImpact() {
     const navigate = useNavigate();
     const OurProgramData = [
-        { program: "provinsi", number: 21, icon: <FaMapMarkerAlt size={32} className="text-white" />, },
-        { program: "Kabupaten/Kota", number: 55, icon: <BsBuildingFill size={32} className="text-white" />, },
-        { program: "Sekolah", number: 2, icon: <IoMdSchool size={32} className="text-white" />, },
+        { 
+            program: "provinsi", 
+            number: 21, 
+            icon: <FaMapMarkerAlt size={32} className="text-white" />, 
+        },
+        { 
+            program: "Kabupaten/Kota", 
+            number: 55, 
+            icon: <BsBuildingFill size={32} className="text-white" />, 
+        },
+        { 
+            program: "Sekolah", 
+            number: 3, 
+            icon: <IoMdSchool size={32} className="text-white" />, 
+        },
     ];
 
     const mascotDescription = <span><strong>Sejak 2006</strong> bekerja, berkontribusi pada bangsa indonesia</span>;
@@ -64,7 +76,7 @@ function OurImpact() {
                             })}
                         </div>
                         <div className=" flex justify-center items-center mx-auto">
-                            <ButtonLink caption="Pelajari lebih lanjut" to="/aboutus" backgroundColor="bg-primary-1" textColor="text-white" className=" hover:bg-primary-2 bg-primary-1 " >
+                            <ButtonLink caption="Pelajari lebih lanjut" to="/aboutus" backgroundColor="bg-primary-1 hover:bg-primary-2" textColor="text-white"  >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
                                     <path fillRule="evenodd" clipRule="evenodd" d="M20.749 12.75L3.24926 12.75L3.24926 11.25L20.749 11.25L20.749 12.75Z" fill="white" />
                                     <path fillRule="evenodd" clipRule="evenodd" d="M19.9994 11.25C16.4718 11.25 13.5894 14.3521 13.5894 17.66L13.5894 18.41L15.0894 18.41L15.0894 17.66C15.0894 15.1485 17.332 12.75 19.9994 12.75L20.7494 12.75L20.7494 11.25L19.9994 11.25Z" fill="white" />

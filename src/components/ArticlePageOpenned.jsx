@@ -28,23 +28,23 @@ function ArticlePageOpenned() {
     <>
       <Helmet>
         {/* Basic SEO Meta Tags */}
-        <title>{article.title || "Skyshare Article"}</title>
-        <meta name="description" content={article.description || "Baca artikel menarik dari Skyshare."} />
-        <link rel="canonical" href={`https://skyshareacademy.id/article/${id}`} /> {/* Ganti dengan domain kamu */}
+        <title>{article.title}</title>
+        <meta name="description" content={article.description} />
+        <link rel="canonical" href={`https://skyshareacademy.id/article/${id}`} /> /
 
         {/* Open Graph Meta Tags (for social media sharing) */}
-        <meta property="og:title" content={article.title || "Skyshare Article"} />
-        <meta property="og:description" content={article.description || "Baca artikel menarik dari Skyshare."} />
-        <meta property="og:image" content={article.image_heading || "https://skyshareacademy.id/default-og-image.jpg"} /> {/* Ganti dengan default OG image */}
-        <meta property="og:url" content={`https://skyshareacademy.id/article/${id}`} /> {/* Ganti dengan domain kamu */}
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.description} />
+        <meta property="og:image" content={article.image_heading} />
+        <meta property="og:url" content={`https://skyshareacademy.id/article/${id}`} /> /
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Skyshare" />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={article.title || "Skyshare Article"} />
-        <meta name="twitter:description" content={article.description || "Baca artikel menarik dari Skyshare."} />
-        <meta name="twitter:image" content={article.image_heading || "https://skyshareacademy.id/default-og-image.jpg"} /> {/* Ganti dengan default OG image */}
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={article.description} />
+        <meta name="twitter:image" content={article.image_heading} />
       </Helmet>
 
       <div className="hero flex background flex-col items-center self-stretch">
