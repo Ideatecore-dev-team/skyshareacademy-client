@@ -220,13 +220,13 @@ export const MentorTeams = () => {
                                     {currentStaffMembers.map((staff) => (
                                         <div
                                             key={staff.id}
-                                            className="staff-card flex w-[270px] h-auto flex-col items-start gap-[12px]"
+                                            className="staff-card flex w-[270px] flex-col items-start gap-[12px]"
                                         >
                                             <Link to={staff.link} target={"_blank"}>
                                                 <img
                                                     src={staff.image}
                                                     alt={staff.name}
-                                                    className="w-[270px] h-full object-cover rounded-[18px] shadow-lg border border-neutral-900"
+                                                    className="w-[270px] h-[448.99px] object-cover rounded-[18px] shadow-lg border border-neutral-900"
                                                 />
                                             </Link>
                                             {/* <div className="title-and-detail flex flex-col items-start gap-[4px] self-stretch">
