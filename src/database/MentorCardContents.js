@@ -1,10 +1,45 @@
+import kaMaliqueImage from '../../public/images/id-card/ka malique.png';
+import fauzanImage from '../../public/images/id-card/fauzan.png';
+import alfiSyahriImage from '../../public/images/id-card/alfi syahri.png';
+import andiniImage from '../../public/images/id-card/andini.png';
+import maulanaImage from '../../public/images/id-card/maulana.png';
+import nuniImage from '../../public/images/id-card/nuni.png';
+import tsabitImage from '../../public/images/id-card/tsabit.png';
+import adeOktasariImage from '../../public/images/id-card/ade oktasari.png';
+import akhmadFakhruddinImage from '../../public/images/id-card/akhmad fakhruddin.png';
+import bilqisMuthiaSetiadiImage from '../../public/images/id-card/bilqis muthia setiadi.png';
+import deviOktarizaImage from '../../public/images/id-card/devi oktariza.png';
+import dwiFitriyaniImage from '../../public/images/id-card/dwi fitriyani.png';
+import etiDwiRianiImage from '../../public/images/id-card/eti dwi riani.png';
+import fajarRamadhanImage from '../../public/images/id-card/fajar ramadhan.png';
+import faridamiatyImage from '../../public/images/id-card/faridamiaty.png';
+import fathiAhmadImage from '../../public/images/id-card/fathi ahmad.png';
+import fatimahKAImage from '../../public/images/id-card/fatimah KA.png';
+import feniOktoraImage from '../../public/images/id-card/feni oktora.png';
+import haritsAlfiImage from '../../public/images/id-card/harits alfi.png';
+import jerrySelviaImage from '../../public/images/id-card/jerry selvia.png';
+import jumriahImage from '../../public/images/id-card/jumriah.png';
+import kakJumsImage from '../../public/images/id-card/kak jums.png';
+import naziahImage from '../../public/images/id-card/naziah.png';
+import nurAfiahImage from '../../public/images/id-card/nur afiah.png';
+import romawatiImage from '../../public/images/id-card/romawati.png';
+import saniyyahImage from '../../public/images/id-card/saniyyah.png';
+import susiSalamahImage from '../../public/images/id-card/susi salamah.png';
+import syahidanAriefImage from '../../public/images/id-card/syahidan arief.png';
+import teguhJatiPurnamaImage from '../../public/images/id-card/teguh jati purnama.png';
+import usamahAbdulHakimImage from '../../public/images/id-card/usamah abdul hakim.png';
+import vidianditoImage from '../../public/images/id-card/vidiandito.png';
+import wahidahImage from '../../public/images/id-card/wahidah.png';
+import wahyuRamadhanImage from '../../public/images/id-card/wahyu ramadhan.png';
+
+
 const MentorCardContents = [
     // Organizer
     {
         id: 1,
         name: "Kak Malique",
         position: "Participants",
-        image: "../../public/images/id-card/ka malique.png",
+        image: kaMaliqueImage, 
         link: "https://www.instagram.com/kamalique/?hl=en",
         CategoryTeam: { name: "Chairman" },
     },
@@ -12,7 +47,7 @@ const MentorCardContents = [
         id: 2,
         name: "Fauzan",
         position: "Participants",
-        image: "../../public/images/id-card/fauzan.png",
+        image: fauzanImage, 
         link: "#",
         CategoryTeam: { name: "Quality Control" },
     },
@@ -20,7 +55,7 @@ const MentorCardContents = [
         id: 3,
         name: "Alfi Syahri",
         position: "Participants",
-        image: "../../public/images/id-card/alfi syahri.png",
+        image: alfiSyahriImage, 
         link: "#",
         CategoryTeam: { name: "Organizer" },
     },
@@ -28,7 +63,7 @@ const MentorCardContents = [
         id: 4,
         name: "Andini",
         position: "Participants",
-        image: "../../public/images/id-card/andini.png",
+        image: andiniImage, 
         link: "#",
         CategoryTeam: { name: "Organizer" },
     },
@@ -36,7 +71,7 @@ const MentorCardContents = [
         id: 5,
         name: "Maulana",
         position: "Participants",
-        image: "../../public/images/id-card/maulana.png",
+        image: maulanaImage, 
         link: "https://www.linkedin.com/in/maulanasykari",
         CategoryTeam: { name: "Organizer" },
     },
@@ -44,7 +79,7 @@ const MentorCardContents = [
         id: 6,
         name: "Nuni",
         position: "Participants",
-        image: "../../public/images/id-card/nuni.png",
+        image: nuniImage, 
         link: "#",
         CategoryTeam: { name: "Organizer" },
     },
@@ -52,7 +87,7 @@ const MentorCardContents = [
         id: 7,
         name: "Tsabit",
         position: "Participants",
-        image: "../../public/images/id-card/tsabit.png",
+        image: tsabitImage, 
         link: "#",
         CategoryTeam: { name: "Organizer" },
     },
@@ -61,7 +96,7 @@ const MentorCardContents = [
         id: 8,
         name: "Ade Oktasari",
         position: "Participants",
-        image: "../../public/images/id-card/ade oktasari.png",
+        image: adeOktasariImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -69,7 +104,7 @@ const MentorCardContents = [
         id: 9,
         name: "Akhmad Fakhruddin",
         position: "Participants",
-        image: "../../public/images/id-card/akhmad fakhruddin.png",
+        image: akhmadFakhruddinImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -77,7 +112,7 @@ const MentorCardContents = [
         id: 10,
         name: "Bilqis Muthia Setiadi",
         position: "Participants",
-        image: "../../public/images/id-card/bilqis muthia setiadi.png",
+        image: bilqisMuthiaSetiadiImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -85,7 +120,7 @@ const MentorCardContents = [
         id: 11,
         name: "Devi Oktariza",
         position: "Participants",
-        image: "../../public/images/id-card/devi oktariza.png",
+        image: deviOktarizaImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -93,7 +128,7 @@ const MentorCardContents = [
         id: 12,
         name: "Dwi Fitriyani",
         position: "Participants",
-        image: "../../public/images/id-card/dwi fitriyani.png",
+        image: dwiFitriyaniImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -101,7 +136,7 @@ const MentorCardContents = [
         id: 13,
         name: "Eti Dwi Riani",
         position: "Participants",
-        image: "../../public/images/id-card/eti dwi riani.png",
+        image: etiDwiRianiImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -109,7 +144,7 @@ const MentorCardContents = [
         id: 14,
         name: "Fajar Ramadhan",
         position: "Participants",
-        image: "../../public/images/id-card/fajar ramadhan.png",
+        image: fajarRamadhanImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -117,7 +152,7 @@ const MentorCardContents = [
         id: 15,
         name: "Faridamiaty",
         position: "Participants",
-        image: "../../public/images/id-card/faridamiaty.png",
+        image: faridamiatyImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -125,7 +160,7 @@ const MentorCardContents = [
         id: 16,
         name: "Fathi Ahmad",
         position: "Participants",
-        image: "../../public/images/id-card/fathi ahmad.png",
+        image: fathiAhmadImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -133,7 +168,7 @@ const MentorCardContents = [
         id: 17,
         name: "Fatimah KA",
         position: "Participants",
-        image: "../../public/images/id-card/fatimah KA.png",
+        image: fatimahKAImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -141,7 +176,7 @@ const MentorCardContents = [
         id: 18,
         name: "Feni Oktora",
         position: "Participants",
-        image: "../../public/images/id-card/feni oktora.png",
+        image: feniOktoraImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -149,7 +184,7 @@ const MentorCardContents = [
         id: 19,
         name: "Harits Alfi",
         position: "Participants",
-        image: "../../public/images/id-card/harits alfi.png",
+        image: haritsAlfiImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -157,7 +192,7 @@ const MentorCardContents = [
         id: 20,
         name: "Jerry Selvia",
         position: "Participants",
-        image: "../../public/images/id-card/jerry selvia.png",
+        image: jerrySelviaImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -165,7 +200,7 @@ const MentorCardContents = [
         id: 21,
         name: "Jumriah",
         position: "Participants",
-        image: "../../public/images/id-card/jumriah.png",
+        image: jumriahImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -173,7 +208,7 @@ const MentorCardContents = [
         id: 22,
         name: "Kak Jums",
         position: "Participants",
-        image: "../../public/images/id-card/kak jums.png",
+        image: kakJumsImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -181,7 +216,7 @@ const MentorCardContents = [
         id: 23,
         name: "Naziah",
         position: "Participants",
-        image: "../../public/images/id-card/naziah.png",
+        image: naziahImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -189,7 +224,7 @@ const MentorCardContents = [
         id: 24,
         name: "Nur Afiah",
         position: "Participants",
-        image: "../../public/images/id-card/nur afiah.png",
+        image: nurAfiahImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -197,7 +232,7 @@ const MentorCardContents = [
         id: 25,
         name: "Romawati",
         position: "Participants",
-        image: "../../public/images/id-card/romawati.png",
+        image: romawatiImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -205,7 +240,7 @@ const MentorCardContents = [
         id: 26,
         name: "Saniyyah",
         position: "Participants",
-        image: "../../public/images/id-card/saniyyah.png",
+        image: saniyyahImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -213,7 +248,7 @@ const MentorCardContents = [
         id: 27,
         name: "Susi Salamah",
         position: "Participants",
-        image: "../../public/images/id-card/susi salamah.png",
+        image: susiSalamahImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -221,7 +256,7 @@ const MentorCardContents = [
         id: 28,
         name: "Syahidan Arief",
         position: "Participants",
-        image: "../../public/images/id-card/syahidan arief.png",
+        image: syahidanAriefImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -229,7 +264,7 @@ const MentorCardContents = [
         id: 29,
         name: "Teguh Jati Purnama",
         position: "Participants",
-        image: "../../public/images/id-card/teguh jati purnama.png",
+        image: teguhJatiPurnamaImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -237,7 +272,7 @@ const MentorCardContents = [
         id: 30,
         name: "Usamah Abdul Hakim",
         position: "Participants",
-        image: "../../public/images/id-card/usamah abdul hakim.png",
+        image: usamahAbdulHakimImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -245,7 +280,7 @@ const MentorCardContents = [
         id: 31,
         name: "Vidiandito",
         position: "Participants",
-        image: "../../public/images/id-card/vidiandito.png",
+        image: vidianditoImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -253,7 +288,7 @@ const MentorCardContents = [
         id: 32,
         name: "Wahidah",
         position: "Participants",
-        image: "../../public/images/id-card/wahidah.png",
+        image: wahidahImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
@@ -261,7 +296,7 @@ const MentorCardContents = [
         id: 33,
         name: "Wahyu Ramadhan",
         position: "Participants",
-        image: "../../public/images/id-card/wahyu ramadhan.png",
+        image: wahyuRamadhanImage, 
         link: "#",
         CategoryTeam: { name: "Participants" },
     },
