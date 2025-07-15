@@ -226,7 +226,12 @@ export const MentorTeams = () => {
                                                 <img
                                                     src={staff.image}
                                                     alt={staff.name}
-                                                    className="w-[270px] h-[448.99px] object-cover rounded-[18px] shadow-lg border border-neutral-900"
+                                                    className="
+                                                    w-[270px] h-[448.99px] object-cover rounded-[18px] shadow-lg border border-neutral-900                                                   
+                                                    
+                                                    lg:transition-all lg:duration-300 lg:ease-in-out
+                                                    lg:hover:scale-105 lg:hover:shadow-xl lg:hover:translate-y-[-5px]
+                                                    "
                                                 />
                                             </Link>
                                             {/* <div className="title-and-detail flex flex-col items-start gap-[4px] self-stretch">

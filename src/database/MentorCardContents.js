@@ -16,7 +16,7 @@ const MentorCardContents = [
         name: "Fauzan",
         position: "Participants",
         image: "/images/id-card/fauzan.png",
-        link: "#",
+        link: "https://www.instagram.com/fuzaihkm?igsh=MTI4Ym56MjU2d2RneQ==",
         CategoryTeam: {
             name: "Quality Control"
         },
@@ -270,7 +270,7 @@ const MentorCardContents = [
         image: "/images/id-card/Syahidan arief.png",
         link: "#",
         CategoryTeam: {
-            name: "Participants"
+            name: "Organizer"
         },
     },
     {
