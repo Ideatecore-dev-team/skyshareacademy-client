@@ -1,8 +1,14 @@
 import React from "react";
 // import "./Partner.css";
-import Partner1 from "../../public/images/partner1.png";
-import Partner2 from "../../public/images/partner2.png";
-import Partner3 from "../../public/images/partner3.png";
+import Partner1 from "../../public/images/partner/partner1.png";
+import Partner2 from "../../public/images/partner/partner2.png";
+import Partner3 from "../../public/images/partner/partner3.png";
+import Partner4 from "../../public/images/partner/partner4.png";
+import Partner5 from "../../public/images/partner/partner5.png";
+// import Partner6 from "../../public/images/partner/partner6.png";
+
+
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -13,8 +19,8 @@ function Partner() {
     { id: 1, src: Partner1 },
     { id: 2, src: Partner2 },
     { id: 3, src: Partner3 },
-    { id: 4, src: Partner1 },
-    { id: 5, src: Partner2 },
+    { id: 4, src: Partner4 },
+    { id: 5, src: Partner5 },
     { id: 6, src: Partner3 },
   ];
 

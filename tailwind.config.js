@@ -36,7 +36,7 @@ export default {
         "primary-2": "#FEB359",
         "primary-3": "#FEC682",
         "primary-4": "#FFD9AC",
-        "secondary-1": "#34BCEE",
+        "secondary-1": "#34BCEE",//biru
         "secondary-2": "#FEB359",
         "secondary-3": "#FEC682",
         "secondary-4": "#FFD9AC",
@@ -46,7 +46,7 @@ export default {
         "neutral-4": "#99A0A8",
         "neutral-5": "#CCCFD3",
         "neutral-white": "#FFFFFF",
-        benefitMentor: "#85D7F5",
+        benefitMentor: "#85D7F5",//biru juga
         background: "#EFEFEF",
       },
       width: {
