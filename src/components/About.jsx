@@ -17,7 +17,7 @@ export const About = () => {
       setCurrentPhotoIndex((prevIndex) =>
         prevIndex === photos.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [photos.length]);
