@@ -1,7 +1,6 @@
 import React from "react";
 import WorkIcon from "../../public/images/mascot-icons/Work.png";
 import TimeLine from "../../public/images/Alur Acara Ex.png";
-import "./AlurAcara.css";
 import mascot from "../../public/images/mascot-icons/pose=5.png";
 
 function AlurAcara({ parents, talent, mentor }) {
