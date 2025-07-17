@@ -67,7 +67,7 @@ const CurrentGroupSkyshare = () => {
                   disableOnInteraction: false,
                   reverseDirection: false,
                 }}
-                speed={3000}
+                speed={5000}
                 className="mySwiper w-[312px] lg:w-[1152px]"
                 breakpoints={{
                   320: {
