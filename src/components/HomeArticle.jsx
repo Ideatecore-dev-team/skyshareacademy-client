@@ -55,7 +55,7 @@ function HomeArticle() {
   return (
     <>
       <div className=" home-art lg:py-20 xs:py-14 lg:px-0 xs:px-6">
-        <div className="art-header lg:pb-12 xs:pb-7 flex max-w-6xl mx-auto justify-around items-center">
+        <div className="art-header lg:pb-12 xs:pb-7 flex xs:w-[312px] lg:max-w-6xl mx-auto justify-around items-center">
           <h2 className="text-right lg:w-1/2 lg:ml-20 font-bold lg:text-3xl xs:text-2xl">
             Artikel Terbaru
           </h2>
@@ -96,7 +96,7 @@ function HomeArticle() {
             </svg>
           </button>
         </div>
-        <div className="article max-w-6xl mx-auto xs:pb-[50px] xs:overflow-hidden">
+        <div className="article max-w-6xl xs:w-[312px] mx-auto xs:pb-[50px] xs:overflow-hidden">
           {isMobile ? (
             <Swiper
               spaceBetween={10}
@@ -182,7 +182,7 @@ function HomeArticle() {
             </div>
           )}
         </div>
-        <div className="flex justify-center w-full -mt-10">
+        <div className="flex justify-center w-[312px] mx-auto lg:w-full -mt-10">
           <button
             onClick={() => {
               navigate("/article");

@@ -33,11 +33,11 @@ function SkyshareAbout() {
             <div className="kelebihan-section flex py-12 lg:py-24 lg:flex-col lg:items-center justify-center items-start gap-gap10 bg-orange-bg bg-cover">
                 <div className="kelebihan-container flex w-[312px] lg:w-[1152px] lg:justify-between xs:flex-col items-center lg:gap-12 gap-[46px] xsflex-shrink-0">
                     <div className="kelebihan-title flex lg:w-[536px] w-[310px] flex-col lg:items-start items-center gap-4">
-                        <div className="lg:flex lg:flex-row lg:items-center lg:gap-4">
-                            <div className="mascot-container lg:flex size-[120px] justify-center items-center hover:opacity-40 transition-transform hidden">
+                        <div className="flex flex-row lg:items-center lg:gap-4 gap-1">
+                            <div className="mascot-container flex lg:size-[120px] xs:h-auto size-[100px] justify-center items-center hover:opacity-40 transition-transform">
                                 <img src={mascot} alt="Mascot" />
                             </div>
-                            <h2 className=" lg:w-[400px] text-2xl lg:text-4xl xs:text-center text-primary font-semibold tracking-[-0.48px] lg:tracking-[-0.72px]">
+                            <h2 className=" lg:w-[400px] text-2xl lg:text-4xl xs:text-left text-primary font-semibold tracking-[-0.48px] lg:tracking-[-0.72px]">
                                 Jadi apa sih Talents Academy itu?
                             </h2>
                         </div>
