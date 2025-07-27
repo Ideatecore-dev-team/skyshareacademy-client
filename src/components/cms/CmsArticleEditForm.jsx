@@ -563,10 +563,11 @@ function CmsArticleEditForm() {
                   init={{
                     menubar: false,
                     plugins:
-                      "anchor autolink charmap emoticons image link lists media searchreplace table visualblocks wordcount",
+                      "anchor autolink charmap emoticons image link lists media searchreplace table visualblocks wordcount code",
                     toolbar:
-                      "undo redo | formatselect | bold italic underline strikethrough | link image media table | alignleft aligncenter alignright alignjustify | bullist numlist | emoticons charmap | removeformat",
+                      "undo redo | formatselect | bold italic underline strikethrough | link image media table | alignleft aligncenter alignright alignjustify | bullist numlist | emoticons charmap | removeformat | code",
                     tinycomments_mode: "embedded",
+                    extended_valid_elements: 'script[src|async|defer|type|charset]',
                     tinycomments_author: "Author name",
                     mentions_selector: ".mentions",
                     mergetags_list: [

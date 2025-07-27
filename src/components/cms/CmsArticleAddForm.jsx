@@ -502,10 +502,11 @@ function CmsArticleAddForm() {
                       resize: false,
                       height: 400,
                       plugins:
-                        "anchor autolink charmap emoticons image link lists media searchreplace table visualblocks wordcount",
+                        "anchor autolink charmap emoticons image link lists media searchreplace table visualblocks wordcount code",
                       toolbar:
-                        "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+                        "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat | code",
                       tinycomments_mode: "embedded",
+                      extended_valid_elements: 'script[src|async|defer|type|charset]',
                       tinycomments_author: "Author name",
                       mergetags_list: [
                         { value: "First.Name", title: "First Name" },
