@@ -1,6 +1,6 @@
 import React from "react";
-import { TalentsActivitiesHeader } from "../../components/TalentsActivities/TalentsActivitiesHeader"
-import { TalentsActivitiesWhat } from "../../components/TalentsActivities/TalentsActivitiesWhat"
+import { TalentsActivitiesHeader } from "../../components/client/TalentsActivities/TalentsActivitiesHeader"
+import { TalentsActivitiesWhat } from "../../components/client/TalentsActivities/TalentsActivitiesWhat"
 
 
 function TalentActivities() {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ArticleHero from "../../components/ArticleHero";
-import ArticleList from "../../components/ArticleList";
+import ArticleHero from "../../components/client/ArticleHero";
+import ArticleList from "../../components/client/ArticleList";
 import skyshareApi from "../../utilities/skyshareApi";
 
 function Article() {

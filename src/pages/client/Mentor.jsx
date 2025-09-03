@@ -2,13 +2,13 @@ import React from "react";
 // import axios from "axios";
 import skyshareApi from "../../utilities/skyshareApi";
 import { useEffect, useState } from "react";
-import MentorCta from "../../components/CtaMentor";
-import Mentorabout from "../../components/AboutMentor";
-import MentorTeams from "../../components/MentorTeams";
+import MentorCta from "../../components/client/CtaMentor";
+import Mentorabout from "../../components/client/AboutMentor";
+import MentorTeams from "../../components/client/MentorTeams";
 
-import AllActivitiesMentorAcademy from "../../components/AllActivitiesMentor";
-import TimelineSkyshare from "../../components/TimelineSkyshare";
-import AlurAcara from "../../components/AlurAcara";
+import AllActivitiesMentorAcademy from "../../components/client/AllActivitiesMentor";
+import TimelineSkyshare from "../../components/client/TimelineSkyshare";
+import AlurAcara from "../../components/client/AlurAcara";
 
 function Mentor() {
   const [mentor, setMentor] = useState([]);

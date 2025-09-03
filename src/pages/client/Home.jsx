@@ -1,12 +1,12 @@
 import React from "react";
-import Hero from "../../components/Hero";
-import Testimoni from "../../components/Testimoni";
-import HomeArticle from "../../components/HomeArticle";
+import Hero from "../../components/client/Hero";
+import Testimoni from "../../components/client/Testimoni";
+import HomeArticle from "../../components/client/HomeArticle";
 
-import BecomeMentor from "../../components/BecomeMentor";
-import OurImpact from "../../components/OurImpact";
+import BecomeMentor from "../../components/client/BecomeMentor";
+import OurImpact from "../../components/client/OurImpact";
 
-import Partner from "../../components/Partner";
+import Partner from "../../components/client/Partner";
 
 function Home() {
   return (

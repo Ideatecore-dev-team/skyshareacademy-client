@@ -1,9 +1,9 @@
 import React from "react";
-import TagLine from "../../components/TagLine";
-import Visi from "../../components/Visi";
-import Misi from "../../components/Misi";
-import { About } from "../../components/About";
-import OurProgram from "../../components/OurProgram";
+import TagLine from "../../components/client/TagLine";
+import Visi from "../../components/client/Visi";
+import Misi from "../../components/client/Misi";
+import { About } from "../../components/client/About";
+import OurProgram from "../../components/client/OurProgram";
 
 function AboutUs() {
   return (
