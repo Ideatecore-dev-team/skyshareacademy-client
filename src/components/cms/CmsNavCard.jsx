@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import skyshareApi from "../../utilities/skyshareApi";
 import { Link } from "react-router-dom";
-import Edit from "../../../public/images/mascot-icons/Edit.png";
-import ArrowRight from "../../../public/images/mascot-icons/Arrow - Right 3.png";
-import IconAddUser from "../../../public/images/mascot-icons/Add User.png";
+import Edit from "@public/images/mascot-icons/Edit.png";
+import ArrowRight from "@public/images/mascot-icons/Arrow - Right 3.png";
+import IconAddUser from "@public/images/mascot-icons/Add User.png";
+import { MdOutlinePeople } from "react-icons/md";
 
 function CmsNavCard() {
   const [dataAdmin, setDataAdmin] = useState(null);
@@ -28,41 +29,79 @@ function CmsNavCard() {
     return <div>Loading...</div>;
   }
 
+  const menuItems = [
+    {
+      id: "kelola-akun",
+      label: "Kelola Akun",
+      to: "/cms/kelolaakun",
+      icon: IconAddUser,
+      condition: dataAdmin && dataAdmin.role !== "admin",
+    },
+    {
+      id: "talent-academy",
+      label: "Talent Academy",
+      to: "/cms/talentacademy",
+      icon: ArrowRight,
+      condition: true,
+    },
+    {
+      id: "mentor-academy",
+      label: "Mentor Academy",
+      to: "/cms/mentoracademy",
+      icon: ArrowRight,
+      condition: true,
+    },
+    {
+      id: "parents-academy",
+      label: "Parents Academy",
+      to: "/cms/parentsacademy",
+      icon: ArrowRight,
+      condition: true,
+    },
+    {
+      id: "article",
+      label: "Article",
+      to: "/cms/article",
+      icon: Edit,
+      condition: true,
+    },
+    {
+      id: "participants-management",
+      label: "Participants",
+      to: "/cms/participants",
+      icon: <MdOutlinePeople size={24} />,
+      condition: true,
+    },
+  ];
+
   return (
-    <div className="py-4 px-3 w-72 h-auto flex justify-center items-center rounded-xl bg-neutral-white ">
+    <div className="py-4 px-3 w-72 h-auto flex justify-center items-center rounded-xl bg-neutral-white">
       <ul>
-        {dataAdmin && dataAdmin.role !== "admin" && (
-          <li className="py-4 w-64 px-4 hover:bg-background rounded-xl">
-            <Link className="flex gap-4" to="/cms/kelolaakun">
-              <img className="w-6" src={IconAddUser} alt="Kelola Akun" />
-              <p className="text-base">Kelola Akun</p>
-            </Link>
-          </li>
-        )}
-        <li className="py-4 w-64 px-4 hover:bg-background rounded-xl">
-          <Link className="flex gap-4" to="/cms/talentacademy">
-            <img className="w-6" src={ArrowRight} alt="Talent Academy" />
-            <p className="text-base">Talent Academy</p>
-          </Link>
-        </li>
-        <li className="py-4 w-64 px-4 hover:bg-background rounded-xl">
-          <Link className="flex gap-4" to="/cms/mentoracademy">
-            <img className="w-6" src={ArrowRight} alt="Mentor Academy" />
-            <p className="text-base">Mentor Academy</p>
-          </Link>
-        </li>
-        <li className="py-4 w-64 px-4 hover:bg-background rounded-xl">
-          <Link className="flex gap-4" to="/cms/parentsacademy">
-            <img className="w-6" src={ArrowRight} alt="Parents Academy" />
-            <p className="text-base">Parents Academy</p>
-          </Link>
-        </li>
-        <li className="py-4 w-64 px-4 hover:bg-background rounded-xl">
-          <Link className="flex gap-4" to="/cms/article">
-            <img className="w-6" src={Edit} alt="Article" />
-            <p className="text-base">Article</p>
-          </Link>
-        </li>
+        {menuItems.map((menu) => {
+          if (menu.condition) {
+            // Cek apakah icon adalah komponen React atau string (URL gambar)
+            const isReactIcon = React.isValidElement(menu.icon);
+            
+            const iconComponent = isReactIcon ? (
+              menu.icon
+            ) : (
+              <img className="w-6" src={menu.icon} alt={menu.label} />
+            );
+
+            return (
+              <li
+                key={menu.id}
+                className="py-4 w-64 px-4 hover:bg-background rounded-xl"
+              >
+                <Link className="flex gap-4 items-center" to={menu.to}>
+                  {iconComponent}
+                  <p className="text-base">{menu.label}</p>
+                </Link>
+              </li>
+            );
+          }
+          return null;
+        })}
       </ul>
     </div>
   );

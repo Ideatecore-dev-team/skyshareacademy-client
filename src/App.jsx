@@ -40,6 +40,9 @@ import CmsArticleAdd from "./pages/cms/CmsArticleAdd";
 import CmsTalentAddSchool from "./pages/cms/CmsTalentAddSchool";
 import CmsTalentAddGroups from "./pages/cms/CmsTalentAddGroups";
 
+import CmsParticipants from "./pages/cms/CmsParticipants";
+
+
 import { Helmet } from "react-helmet";
 
 function App() {
@@ -60,6 +63,8 @@ function App() {
     "/cms/article",
     "/cms/article/edit/:id",
     "/cms/article/add",
+    "/cms/participants",
+
   ];
 
   const shouldHideNavbarAndFooter = hideNavbarAndFooterPaths.some((path) => {
@@ -115,6 +120,7 @@ function App() {
         <Route path="/cms" element={<CmsLoginRoute />}>
           <Route path="/cms" element={<CmsLogin />} />
         </Route>
+
         <Route element={<CmsPrivateRoute />}>
           <Route path="/cms/kelolaakun" element={<CmsKelolaAkun />} />
           <Route path="/cms/add/admin" element={<CmsAddAdmin />} />
@@ -138,6 +144,7 @@ function App() {
             element={<CmsTalentEditGroup />}
           />
           <Route path="/cms/talent/addgroup" element={<CmsTalentAddGroups />} />
+          <Route path="/cms/participants" element={<CmsParticipants />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
