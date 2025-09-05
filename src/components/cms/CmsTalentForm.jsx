@@ -503,7 +503,7 @@ function CmsTalentForm() {
               </div>
 
               <div className=" join-button mt-6">
-                <div className="bg-background py-4 gap-4 flex items-center rounded-xl">
+                <div className="bg-background p-4 gap-4 flex items-center rounded-xl">
                   <img className="w-6" src={Chain} alt="" />
                   <h4 className="headline-4">Join Button</h4>
                 </div>
