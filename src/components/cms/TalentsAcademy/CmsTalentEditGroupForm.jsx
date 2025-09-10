@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import skyshareApi from "../../utilities/skyshareApi";
-import "./Hero2.css";
-import CmsNavCard from "./CmsNavCard";
-import Ceklist from "../../../public/images/mascot-icons/Tick Square.png";
-import Xbutton from "../../../public/images/mascot-icons/Fill 300.png";
-import Mascot1 from "../../../public/images/mascot-icons/pose=8.png";
-import Mascot2 from "../../../public/images/mascot-icons/pose=1.png";
-import Coution from "../../../public/images/mascot-icons/Info Square.png";
-import Mascot from "../../../public/images/mascot-icons/pose=2.png";
-import Chain from "../../../public/images/mascot-icons/Link.png";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import skyshareApi from "../../../utilities/skyshareApi";
+import "../Hero2.css";
+import CmsNavCard from "../CmsNavCard";
+import Ceklist from "../../../../public/images/mascot-icons/Tick Square.png";
+import Xbutton from "../../../../public/images/mascot-icons/Fill 300.png";
+import Mascot1 from "../../../../public/images/mascot-icons/pose=8.png";
+import Mascot2 from "../../../../public/images/mascot-icons/pose=1.png";
+import Coution from "../../../../public/images/mascot-icons/Info Square.png";
+import Mascot from "../../../../public/images/mascot-icons/pose=2.png";
+import Chain from "../../../../public/images/mascot-icons/Link.png";
 
-function CmsTalentAddGroupForm() {
+function CmsTalentEditGroupForm() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isErrorModal, setIsErrorModal] = useState(false);
   const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
@@ -20,12 +20,13 @@ function CmsTalentAddGroupForm() {
   const [groupName, setGroupName] = useState("");
   const [groupLink, setGroupLink] = useState("");
   const [schoolId, setSchoolId] = useState(null);
+  const [dataGroups, setDataGroups] = useState({});
   const [schools, setSchools] = useState([]);
+  const { id } = useParams();
 
   const Navigate = useNavigate();
-  console.log(schoolId, "id");
 
-  const handleAddGroups = async (e) => {
+  const handleEditGroups = async (e) => {
     const inputData = {
       name: groupName,
       link: groupLink,
@@ -34,8 +35,8 @@ function CmsTalentAddGroupForm() {
     setIsUploading(true);
     try {
       const response = await skyshareApi({
-        url: "/group/add",
-        method: "POST",
+        url: `/group/${id}`,
+        method: "PUT",
         data: inputData,
       });
       if (response.data.status === "success") {
@@ -50,6 +51,22 @@ function CmsTalentAddGroupForm() {
       setIsUploading(false);
     }
   };
+
+  useEffect(() => {
+    const getDataGroup = async () => {
+      try {
+        const response = await skyshareApi.get(`/group/${id}`);
+        const groupData = response.data.data;
+        setDataGroups(groupData);
+        setGroupName(groupData.name);
+        setGroupLink(groupData.link);
+        setSchoolId(groupData.school_id);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getDataGroup();
+  }, [id]);
 
   useEffect(() => {
     const getSchool = async function () {
@@ -77,12 +94,12 @@ function CmsTalentAddGroupForm() {
 
   const closeSaveModal = () => {
     setIsSaveModalOpen(false);
-    Navigate("/cms/talent/addschool");
+    Navigate(`/cms/talentacademy`);
   };
 
   const closeCancelModal = () => {
     setIsCancelModalOpen(false);
-    Navigate("/cms/talent/addschool");
+    Navigate(`/cms/talentacademy`);
   };
   return (
     <>
@@ -94,18 +111,19 @@ function CmsTalentAddGroupForm() {
           <div className="w-full">
             <div>
               <div className="flex items-center gap-4">
-                <h1 className="headline-1">Add Group</h1>
+                <h1 className="headline-1">Edit Group</h1>
               </div>
               <p className="paragraph">Masukkan data pada field yang tertera</p>
             </div>
             <div className="shadow-md bg-neutral-white mt-10 border-2 border-black rounded-xl pb-5 px-3 w-full">
               <div className="join-button mt-6">
                 <div className="bg-neutral-white p-4 gap-4 flex items-center">
-                  <form className="w-full" onSubmit={handleAddGroups}>
+                  <form className="w-full" onSubmit={handleEditGroups}>
                     <label className="block font-bold mb-1" htmlFor="cta">
                       Nama Grup <span className="text-red-500">*</span>
                     </label>
                     <input
+                      defaultValue={dataGroups.name}
                       onChange={(e) => setGroupName(e.target.value)}
                       placeholder="Masukkan nama grup"
                       type="text"
@@ -120,6 +138,7 @@ function CmsTalentAddGroupForm() {
                       </div>
                     </label>
                     <input
+                      defaultValue={dataGroups.link}
                       onChange={(e) => setGroupLink(e.target.value)}
                       placeholder="https://"
                       type="text"
@@ -177,7 +196,7 @@ function CmsTalentAddGroupForm() {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
-                          handleAddGroups();
+                          handleEditGroups();
                         }}
                         type="button"
                         className="bg-primary-1 w-56 py-2 rounded-md hover:bg-primary-2 text-white font-bold"
@@ -271,7 +290,7 @@ function CmsTalentAddGroupForm() {
             </div>
             <div className="flex gap-1 mt-5 items-center">
               <img className="w-6 h-6" src={Coution} alt="" />
-              <h3 className="headline-3 ">Upload Failed</h3>
+              <h3 className="headline-3 ">Edit Failed</h3>
             </div>
           </div>
         </div>
@@ -308,4 +327,4 @@ function CmsTalentAddGroupForm() {
   );
 }
 
-export default CmsTalentAddGroupForm;
+export default CmsTalentEditGroupForm;

@@ -1,81 +1,82 @@
 import React, { useEffect, useState } from "react";
-
-
-import skyshareApi from "../../utilities/skyshareApi";
-
+import skyshareApi from "../../../utilities/skyshareApi";
 import { Link, useNavigate } from "react-router-dom";
-import Character from "../../../public/images/mascot-icons/Char.png";
-import Edit1 from "../../../public/images/mascot-icons/Edit Square.png";
-import Delete from "../../../public/images/mascot-icons/Delete.png";
-import Add from "../../../public/images/mascot-icons/Plus.png";
-import CmsNavCard from "./CmsNavCard";
-import Mascot from "../../../public/images/mascot-icons/pose=2.png";
+import Mascot from "../../../../public/images/mascot-icons/pose=2.png";
+import Edit1 from "../../../../public/images/mascot-icons/Edit Square.png";
+import Delete from "../../../../public/images/mascot-icons/Delete.png";
+import Add from "../../../../public/images/mascot-icons/Plus.png";
+import CmsNavCard from "../CmsNavCard";
+import Edit from "../../../../public/images/mascot-icons/Edit.png";
 
-function CmsDashboardAkun() {
+function CmsArticleDashboardTable() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [dataAdmins, setDataAdmins] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const [dataArticles, setDataarticles] = useState([]);
+  const [deleteArticle, setDeleteArticle] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const getDataAdmin = async function () {
-      setIsLoading(true);
+    const getDataArticles = async function () {
+      setIsDeleting(true);
       try {
-        const dataAdminFromServer = await skyshareApi.get("/admin/admins");
-        setDataAdmins(dataAdminFromServer.data.data);
+        const responseFromServer = await skyshareApi.get("/article");
+        setDataarticles(responseFromServer.data.data);
       } catch (error) {
         console.log(error);
       } finally {
-        setIsLoading(false);
+        setIsDeleting(false);
       }
     };
-    getDataAdmin();
+    getDataArticles();
   }, []);
-
-  function handleDelete(user) {
-    setSelectedUser(user);
-    setIsModalOpen(true);
-  }
 
   function closeModal() {
     setIsModalOpen(false);
-    setSelectedUser(null);
+  }
+
+  function deletArticle(article) {
+    setDeleteArticle(article);
+    setIsModalOpen(true);
   }
 
   async function confirmDelete() {
-    if (!selectedUser) return;
+    closeModal();
+    if (!deleteArticle) return;
+    setIsDeleting(true);
     try {
-      await skyshareApi.delete(`/admin/admin/${selectedUser.id}`);
-      setDataAdmins(dataAdmins.filter((admin) => admin.id !== selectedUser.id));
-      closeModal();
+      await skyshareApi.delete(`/article/${deleteArticle.id}`);
+      setDataarticles(
+        dataArticles.filter((article) => article.id !== deleteArticle.id)
+      );
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsDeleting(false);
     }
   }
 
   return (
     <>
       <div className="bg-background flex flex-col pb-44 pt-12 items-center self-stretch h-auto">
-        <div className=" flex gap-4 ">
-          <div className="">{/* <CmsNavCard /> */}</div>
+        <div className="content-1 flex gap-4 ">
+          <div className="">
+            <CmsNavCard />
+          </div>
           <div className=" w-full">
             <div className=" ">
-              <h1 className="headline-1">Kelola akun</h1>
+              <h1 className="headline-1">Article</h1>
               <p className="paragraph">
-                Kelola akun admin kamu disini (hanya berlaku untuk role{" "}
-                <span className=" font-bold">“Super Admin”</span>).
+                Kelola artikel untuk website Skyshare Academy disini.
               </p>
             </div>
             <div className=" shadow-md mt-10 border-2 border-black rounded-xl px-3 bg-neutral-white w-full">
               <div className="bg-background flex justify-between rounded-xl mt-5 py-3 px-3">
                 <div className="flex items-center gap-5 ">
-                  <img className=" w-10" src={Character} alt="" />
-                  <h4 className="headline-4">Akun Admin</h4>
+                  <img className=" w-10" src={Edit} alt="" />
+                  <h4 className="headline-4">Daftar Article</h4>
                 </div>
                 <div className="bg-primary-1 flex items-center rounded-md px-2 py-2">
                   <Link
-                    to="/cms/add/admin"
+                    to="/cms/article/add"
                     className="bg-primary-1 hover:bg-primary-2"
                   >
                     <img className=" w-6" src={Add} alt="" />
@@ -87,28 +88,39 @@ function CmsDashboardAkun() {
                   <thead>
                     <tr>
                       <th className=" pr-8 pl-2 py-3">No.</th>
-                      <th className="pr-16 py-3">Name</th>
-                      <th className="px-16 py-3">Email</th>
-                      <th className="px-16 py-3">Role</th>
+                      <th className="pr-16 py-3">Tanggal</th>
+                      <th className="px-16 py-3">Title</th>
+                      <th className="px-16 py-3">Category</th>
                       <th className="px-16 py-3">Manage</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {dataAdmins.map((admin, index) => {
+                    {dataArticles?.map((article, index) => {
                       return (
-                        <tr key={admin.id}>
+                        <tr key={article.id}>
                           <td className="pl-3 py-4 text-left font-semibold">
                             {index + 1}
                           </td>
-                          <td className="pl-1 py-4 text-left">{admin.name}</td>
-                          <td className="pl-20 py-4 text-left">
-                            {admin.email}
+                          <td className="pl-1 py-4 text-left">
+                            {new Date(article.createdAt).toLocaleDateString()}
                           </td>
-                          <td className="px-16 py-4 text-left">{admin.role}</td>
+                          <td className="px-16 py-4 text-left">
+                            {article.title.substring(0, 15)}
+                          </td>
+                          <td className="px-16 py-4 text-left">
+                            <p
+                              style={{
+                                backgroundColor: `${article?.category_color}`,
+                              }}
+                              className={`px-2 pb-1 text-center font-bold text-white rounded-full`}
+                            >
+                              {article.category_name}
+                            </p>
+                          </td>
                           <td className="px-16 py-4 text-left flex gap-4">
                             <div className="w-10 flex items-center justify-center rounded-md py-2">
                               <Link
-                                to={`/cms/edit/admin/${admin.id}`}
+                                to={`/cms/article/edit/${article.id}`}
                                 className="bg-primary-1 hover:bg-primary-2 px-2 py-2 rounded-lg flex justify-center items-center"
                               >
                                 <img className="w-5" src={Edit1} alt="" />
@@ -116,7 +128,7 @@ function CmsDashboardAkun() {
                             </div>
                             <div className="w-10 flex items-center justify-center rounded-md py-2">
                               <button
-                                onClick={() => handleDelete(admin)}
+                                onClick={() => deletArticle(article)}
                                 className="bg-red-500 hover:bg-red-400 px-2 py-2 rounded-lg flex justify-center items-center"
                               >
                                 <img className="w-5" src={Delete} alt="" />
@@ -161,8 +173,8 @@ function CmsDashboardAkun() {
         </div>
       )}
 
-      {isLoading && (
-        <div className="fixed z-10 inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+      {isDeleting && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
           <div className="flex flex-col items-center bg-white p-5 rounded-xl">
             <svg
               className="animate-spin h-8 w-8 text-primary-1 mb-4"
@@ -184,7 +196,7 @@ function CmsDashboardAkun() {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
               ></path>
             </svg>
-            <p className="text-primary-1">Uploading article...</p>
+            <p className="text-primary-1">Deleting article...</p>
           </div>
         </div>
       )}
@@ -192,4 +204,4 @@ function CmsDashboardAkun() {
   );
 }
 
-export default CmsDashboardAkun;
+export default CmsArticleDashboardTable;

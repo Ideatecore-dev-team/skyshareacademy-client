@@ -65,13 +65,6 @@ function CmsNavCard() {
       icon: Edit,
       condition: true,
     },
-    {
-      id: "participants-management",
-      label: "Participants",
-      to: "/cms/participants",
-      icon: <MdOutlinePeople size={24} />,
-      condition: true,
-    },
   ];
 
   return (

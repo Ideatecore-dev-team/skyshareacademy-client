@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "./Hero2.css";
-import skyshareApi from "../../utilities/skyshareApi";
-import CmsNavCard from "./CmsNavCard";
-import Arrow from "../../../public/images/mascot-icons/Arrow - Down 3.png";
-import File from "../../../public/images/mascot-icons/Fill 337.png";
-import Book from "../../../public/images/mascot-icons/Document.png";
-import Work from "../../../public/images/mascot-icons/Work.png";
-import Time from "../../../public/images/mascot-icons/Time Circle.png";
-import Edit1 from "../../../public/images/mascot-icons/Edit Square.png";
-import Delete from "../../../public/images/mascot-icons/Delete.png";
-import Location from "../../../public/images/mascot-icons/Location.png";
-import Show from "../../../public/images/mascot-icons/Show.png";
-import Close from "../../../public/images/mascot-icons/Close Square.png";
-import Ceklist from "../../../public/images/mascot-icons/Tick Square.png";
-import Add from "../../../public/images/mascot-icons/Plus.png";
-import Chain from "../../../public/images/mascot-icons/Link.png";
-import Xbutton from "../../../public/images/mascot-icons/Fill 300.png";
-import Mascot1 from "../../../public/images/mascot-icons/pose=8.png";
-import Mascot2 from "../../../public/images/mascot-icons/pose=1.png";
-import Coution from "../../../public/images/mascot-icons/Info Square.png";
-import Mascot from "../../../public/images/mascot-icons/pose=2.png";
-import ArrowLeft from "../../../public/images/mascot-icons/Arrow - Down 3.png";
+import "../Hero2.css";
+import skyshareApi from "../../../utilities/skyshareApi";
+import CmsNavCard from "../CmsNavCard";
+// import Arrow from "../../../public/images/mascot-icons/Arrow - Down 3.png";
+// import File from "../../../public/images/mascot-icons/Fill 337.png";
+import Book from "../../../../public/images/mascot-icons/Document.png";
+import Work from "../../../../public/images/mascot-icons/Work.png";
+import Time from "../../../../public/images/mascot-icons/Time Circle.png";
+import Edit1 from "../../../../public/images/mascot-icons/Edit Square.png";
+import Delete from "../../../../public/images/mascot-icons/Delete.png";
+import Location from "../../../../public/images/mascot-icons/Location.png";
+import Show from "../../../../public/images/mascot-icons/Show.png";
+// import Close from "../../../../public/images/mascot-icons/Close Square.png";
+import Ceklist from "../../../../public/images/mascot-icons/Tick Square.png";
+import Add from "../../../../public/images/mascot-icons/Plus.png";
+import Chain from "../../../../public/images/mascot-icons/Link.png";
+import Xbutton from "../../../../public/images/mascot-icons/Fill 300.png";
+import Mascot1 from "../../../../public/images/mascot-icons/pose=8.png";
+import Mascot2 from "../../../../public/images/mascot-icons/pose=1.png";
+import Coution from "../../../../public/images/mascot-icons/Info Square.png";
+import Mascot from "../../../../public/images/mascot-icons/pose=2.png";
+import ArrowLeft from "../../../../public/images/mascot-icons/Arrow - Down 3.png";
 
 function CmsTalentForm() {
   const [talentForm, setTalentForm] = useState({ school_ids: [] });
@@ -119,18 +119,6 @@ function CmsTalentForm() {
       onsole.log(error);
     }
   };
-
-  // const handleCheckboxChange = (id) => {
-  //   setTalentForm((prevForm) => {
-  //     const newSchoolIds = prevForm.school_ids.includes(id)
-  //       ? prevForm.school_ids.filter((schoolId) => schoolId !== id)
-  //       : [...prevForm.school_ids, id];
-  //     return {
-  //       ...prevForm,
-  //       school_ids: newSchoolIds,
-  //     };
-  //   });
-  // };
 
   const Navigate = useNavigate();
   function handleNavigate(id) {
@@ -402,8 +390,7 @@ function CmsTalentForm() {
                 <div className="bg-neutral-white p-4 gap-4 flex items-center">
                   <table>
                     <thead>
-                      <tr>
-                        <th className=" pr-8 pl-2 py-3"></th>
+                      <tr className="border-b-2 border-gray-200">
                         <th className=" pr-8 pl-2 py-3">No.</th>
                         <th className="pr-16 w-48 py-3">Nama Sekolah</th>
                         <th className="pr-20 py-3">Alamat</th>
@@ -415,16 +402,6 @@ function CmsTalentForm() {
                       {schools.map((school, index) => {
                         return (
                           <tr key={school.id}>
-                            <td className="mt-3">
-                              {/* <input
-                                value={school.id}
-                                checked={talentForm.school_ids.includes(
-                                  school.id
-                                )}
-                                onChange={() => handleCheckboxChange(school.id)}
-                                type="checkbox"
-                              /> */}
-                            </td>
                             <td className="pl-3 py-4 text-left font-semibold text-sm">
                               {index + 1}
                             </td>
