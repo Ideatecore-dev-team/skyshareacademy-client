@@ -14,10 +14,12 @@ import Ceklist from "../../../../public/images/mascot-icons/Tick Square.png";
 import Add from "../../../../public/images/mascot-icons/Plus.png";
 import Group from "../../../../public/images/mascot-icons/3 User.png";
 import Delete from "../../../../public/images/mascot-icons/Delete.png";
-import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import {
+    MdOutlineKeyboardArrowDown,
+    MdOutlineKeyboardArrowUp,
+} from "react-icons/md";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
-// [PERUBAHAN] Mengubah struktur course menjadi 6 episode dengan 2 tugas spesifik
 const COURSE_STRUCTURE = [
     { id: 1, name: "Episode 1", tasks: ["Tugas Rangkuman", "Tugas Video"] },
     { id: 2, name: "Episode 2", tasks: ["Tugas Rangkuman", "Tugas Video"] },
@@ -30,22 +32,115 @@ const COURSE_STRUCTURE = [
 const DUMMY_PARTICIPANTS = [
     {
         id: 1,
-        nama: "Alex Santoso",
-        asal: "Jakarta",
+        nama: "Saiful Bahri",
+        asal: "Pontianak, Kalimantan Barat",
+        email: "saiful.bahri@email.com",
+        telepon: "081234567890",
+        instansi: "Universitas Harapan Bangsa",
         episodes: COURSE_STRUCTURE.map((episode) => ({
             id: episode.id,
-            isCompleted: false,
-            tasks: episode.tasks.map((taskName) => ({ name: taskName, isCompleted: false })),
+            isCompleted: true,
+            tasks: episode.tasks.map((taskName) => ({
+                name: taskName,
+                isCompleted: true,
+            })),
         })),
     },
     {
         id: 2,
-        nama: "Budi Cahyono",
-        asal: "Surabaya",
+        nama: "Ayu Lestari",
+        asal: "Bandung, Jawa Barat",
+        email: "ayu.lestari88@email.com",
+        telepon: "085712345678",
+        instansi: "Institut Teknologi Kreatif",
+        episodes: COURSE_STRUCTURE.map((episode, index) => ({
+            id: episode.id,
+            isCompleted: index < 1,
+            tasks: episode.tasks.map((taskName) => ({
+                name: taskName,
+                isCompleted: index < 1,
+            })),
+        })),
+    },
+    {
+        id: 3,
+        nama: "Dewi Anggraini",
+        asal: "Surabaya, Jawa Timur",
+        email: "dewi.anggraini@corp.com",
+        telepon: "089876543210",
+        instansi: "PT. Maju Jaya",
+        episodes: COURSE_STRUCTURE.map((episode, index) => ({
+            id: episode.id,
+            isCompleted: index < 2,
+            tasks: episode.tasks.map((taskName, taskIndex) => ({
+                name: taskName,
+                isCompleted: index < 2 || (index === 2 && taskIndex < 1),
+            })),
+        })),
+    },
+    {
+        id: 4,
+        nama: "Rizky Pratama",
+        asal: "Medan, Sumatera Utara",
+        email: "rizky.pratama@email.com",
+        telepon: "082198765432",
+        instansi: "Universitas Negeri Medan",
         episodes: COURSE_STRUCTURE.map((episode) => ({
             id: episode.id,
             isCompleted: false,
-            tasks: episode.tasks.map((taskName) => ({ name: taskName, isCompleted: false })),
+            tasks: episode.tasks.map((taskName) => ({
+                name: taskName,
+                isCompleted: false,
+            })),
+        })),
+    },
+    {
+        id: 5,
+        nama: "Eka Wijayanti",
+        asal: "Makassar, Sulawesi Selatan",
+        email: "eka.wijayanti@email.co.id",
+        telepon: "087711223344",
+        instansi: "Politeknik Negeri Ujung Pandang",
+        episodes: COURSE_STRUCTURE.map((episode) => ({
+            id: episode.id,
+            // DIUBAH: Membandingkan id episode dengan angka
+            isCompleted: episode.id === 1 || episode.id === 3,
+            tasks: episode.tasks.map((taskName) => ({
+                name: taskName,
+                isCompleted: episode.id === 1 || episode.id === 3,
+            })),
+        })),
+    },
+    {
+        id: 6,
+        nama: "Agus Santoso",
+        asal: "Yogyakarta, DIY",
+        email: "agus.s@startup.id",
+        telepon: "081322334455",
+        instansi: "Startup Cipta Karya",
+        episodes: COURSE_STRUCTURE.map((episode, index) => ({
+            id: episode.id,
+            isCompleted: index === 0,
+            tasks: episode.tasks.map((taskName, taskIndex) => ({
+                name: taskName,
+                isCompleted: index === 0 || (index === 1 && taskIndex === 0),
+            })),
+        })),
+    },
+    {
+        id: 7,
+        nama: "Siti Nurhaliza",
+        asal: "Denpasar, Bali",
+        email: "siti.nurhaliza@email.com",
+        telepon: "085299887766",
+        instansi: "Universitas Udayana",
+        episodes: COURSE_STRUCTURE.map((episode, index) => ({
+            id: episode.id,
+            isCompleted: true,
+            tasks: episode.tasks.map((taskName) => ({
+                name: taskName,
+                isCompleted: true,
+            })),
         })),
     },
 ];
@@ -182,14 +277,26 @@ function CmsMentorEditEventForm() {
                                 }
                                 return task;
                             });
-                            const isEpisodeCompleted = updatedTasks.every((task) => task.isCompleted);
-                            return { ...episode, isCompleted: isEpisodeCompleted, tasks: updatedTasks };
+                            const isEpisodeCompleted = updatedTasks.every(
+                                (task) => task.isCompleted
+                            );
+                            return {
+                                ...episode,
+                                isCompleted: isEpisodeCompleted,
+                                tasks: updatedTasks,
+                            };
                         }
                         return episode;
                     });
-                    const isAllEpisodesCompleted = updatedEpisodes.every((episode) => episode.isCompleted);
+                    const isAllEpisodesCompleted = updatedEpisodes.every(
+                        (episode) => episode.isCompleted
+                    );
                     const newStatus = isAllEpisodesCompleted ? "lulus" : "belum lulus";
-                    return { ...participant, episodes: updatedEpisodes, status: newStatus };
+                    return {
+                        ...participant,
+                        episodes: updatedEpisodes,
+                        status: newStatus,
+                    };
                 }
                 return participant;
             });
@@ -203,14 +310,27 @@ function CmsMentorEditEventForm() {
                     const updatedEpisodes = participant.episodes.map((episode) => {
                         if (episode.id === episodeId) {
                             const newIsCompleted = !episode.isCompleted;
-                            const updatedTasks = episode.tasks.map((task) => ({ ...task, isCompleted: newIsCompleted }));
-                            return { ...episode, isCompleted: newIsCompleted, tasks: updatedTasks };
+                            const updatedTasks = episode.tasks.map((task) => ({
+                                ...task,
+                                isCompleted: newIsCompleted,
+                            }));
+                            return {
+                                ...episode,
+                                isCompleted: newIsCompleted,
+                                tasks: updatedTasks,
+                            };
                         }
                         return episode;
                     });
-                    const isAllEpisodesCompleted = updatedEpisodes.every((episode) => episode.isCompleted);
+                    const isAllEpisodesCompleted = updatedEpisodes.every(
+                        (episode) => episode.isCompleted
+                    );
                     const newStatus = isAllEpisodesCompleted ? "lulus" : "belum lulus";
-                    return { ...participant, episodes: updatedEpisodes, status: newStatus };
+                    return {
+                        ...participant,
+                        episodes: updatedEpisodes,
+                        status: newStatus,
+                    };
                 }
                 return participant;
             });
@@ -236,7 +356,9 @@ function CmsMentorEditEventForm() {
             // Simulasi pemanggilan API
             // await skyshareApi.delete(`/event/${id}/participant/${deletingParticipantId}`);
             // Update state secara lokal
-            setParticipants(participants.filter((p) => p.id !== deletingParticipantId));
+            setParticipants(
+                participants.filter((p) => p.id !== deletingParticipantId)
+            );
         } catch (error) {
             console.error("Gagal menghapus peserta:", error);
             setErrorMessage("Gagal menghapus peserta.");
@@ -251,12 +373,12 @@ function CmsMentorEditEventForm() {
     const handleCancel = () => setIsCancelModalOpen(true);
     const closeSaveModal = () => {
         setIsSaveModalOpen(false);
-        navigate("/cms/mentor");
+        navigate("/cms/mentoracademy");
     };
     const closeCancelModal = () => setIsCancelModalOpen(false);
     const confirmCancel = () => {
         setIsCancelModalOpen(false);
-        navigate("/cms/mentor");
+        navigate("/cms/mentoracademy");
     };
 
     return (
@@ -269,10 +391,11 @@ function CmsMentorEditEventForm() {
                     <div className="w-[848px] overflow-hidden">
                         <div>
                             <h1 className="headline-1">Edit Event</h1>
-                            <p className="paragraph">Perbarui data event dan kelola peserta pada field yang tertera</p>
+                            <p className="paragraph">
+                                Perbarui data event dan kelola peserta pada field yang tertera
+                            </p>
                         </div>
                         <div className="shadow-md bg-neutral-white mt-10 border-2 border-black rounded-xl pb-5 px-3 w-full">
-                            {/* === Bagian Form Edit Event (tidak berubah) === */}
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 <div className="md:col-span-1">
                                     <div className="poster-event mt-6">
@@ -296,12 +419,18 @@ function CmsMentorEditEventForm() {
                                                 />
                                                 <div className="flex gap-2 items-center py-3 px-5 pointer-events-none">
                                                     <p className="text-white font-bold">Ubah</p>
-                                                    <img className="w-6 -rotate-90" src={ArrowLeft} alt="" />
+                                                    <img
+                                                        className="w-6 -rotate-90"
+                                                        src={ArrowLeft}
+                                                        alt=""
+                                                    />
                                                 </div>
                                             </div>
                                             <div className="flex justify-center mb-1">
                                                 <h4 className="text-base">
-                                                    Ukuran Ideal <span className="font-bold">(1080 x 1350)</span>
+                                                    {" "}
+                                                    Ukuran Ideal{" "}
+                                                    <span className="font-bold">(1080 x 1350)</span>{" "}
                                                 </h4>
                                             </div>
                                         </div>
@@ -313,49 +442,91 @@ function CmsMentorEditEventForm() {
                                             <form className="w-full space-y-4">
                                                 {/* Form inputs */}
                                                 <div>
-                                                    <label className="block font-bold mb-1" htmlFor="nama_event">
-                                                        Nama Event <span className="text-red-500">*</span>
+                                                    <label
+                                                        className="block font-bold mb-1"
+                                                        htmlFor="nama_event"
+                                                    >
+                                                        {" "}
+                                                        Nama Event <span className="text-red-500">
+                                                            *
+                                                        </span>{" "}
                                                     </label>
                                                     <input
                                                         id="nama_event"
                                                         type="text"
                                                         value={eventForm.nama_event}
-                                                        onChange={(e) => setEventForm({ ...eventForm, nama_event: e.target.value })}
+                                                        onChange={(e) =>
+                                                            setEventForm({
+                                                                ...eventForm,
+                                                                nama_event: e.target.value,
+                                                            })
+                                                        }
                                                         className="w-full px-4 py-2 border-gray-300 border-2 rounded-lg outline-none"
                                                     />
                                                 </div>
                                                 <div>
-                                                    <label className="block font-bold mb-1" htmlFor="deskripsi_event">
-                                                        Deskripsi Event <span className="text-red-500">*</span>
+                                                    <label
+                                                        className="block font-bold mb-1"
+                                                        htmlFor="deskripsi_event"
+                                                    >
+                                                        {" "}
+                                                        Deskripsi Event{" "}
+                                                        <span className="text-red-500">*</span>{" "}
                                                     </label>
                                                     <textarea
                                                         id="deskripsi_event"
                                                         value={eventForm.deskripsi_event}
-                                                        onChange={(e) => setEventForm({ ...eventForm, deskripsi_event: e.target.value })}
+                                                        onChange={(e) =>
+                                                            setEventForm({
+                                                                ...eventForm,
+                                                                deskripsi_event: e.target.value,
+                                                            })
+                                                        }
                                                         className="w-full px-4 py-2 border-gray-300 border-2 rounded-lg outline-none"
                                                         rows="4"
                                                     ></textarea>
                                                 </div>
                                                 <div>
-                                                    <label className="block font-bold mb-1" htmlFor="total_peserta">
-                                                        Total Peserta <span className="text-red-500">*</span>
+                                                    <label
+                                                        className="block font-bold mb-1"
+                                                        htmlFor="total_peserta"
+                                                    >
+                                                        {" "}
+                                                        Total Peserta{" "}
+                                                        <span className="text-red-500">*</span>{" "}
                                                     </label>
                                                     <input
                                                         id="total_peserta"
                                                         type="number"
                                                         value={eventForm.total_peserta}
-                                                        onChange={(e) => setEventForm({ ...eventForm, total_peserta: e.target.value })}
+                                                        onChange={(e) =>
+                                                            setEventForm({
+                                                                ...eventForm,
+                                                                total_peserta: e.target.value,
+                                                            })
+                                                        }
                                                         className="w-full px-4 py-2 border-gray-300 border-2 rounded-lg outline-none"
                                                     />
                                                 </div>
                                                 <div>
-                                                    <label className="block font-bold mb-1" htmlFor="kategori">
-                                                        Kategori <span className="text-red-500">*</span>
+                                                    <label
+                                                        className="block font-bold mb-1"
+                                                        htmlFor="kategori"
+                                                    >
+                                                        {" "}
+                                                        Kategori <span className="text-red-500">
+                                                            *
+                                                        </span>{" "}
                                                     </label>
                                                     <select
                                                         id="kategori"
                                                         value={eventForm.kategori}
-                                                        onChange={(e) => setEventForm({ ...eventForm, kategori: e.target.value })}
+                                                        onChange={(e) =>
+                                                            setEventForm({
+                                                                ...eventForm,
+                                                                kategori: e.target.value,
+                                                            })
+                                                        }
                                                         className="w-full px-4 py-2 border-gray-300 border-2 rounded-lg outline-none bg-white"
                                                     >
                                                         <option value="online">Online</option>
@@ -368,7 +539,7 @@ function CmsMentorEditEventForm() {
                                     </div>
                                 </div>
                             </div>
-                            {/* === Bagian Tabel Peserta (Sudah Diubah) === */}
+
                             <div className="daftar-peserta mt-10">
                                 <div className="bg-background flex justify-between items-center rounded-xl mt-5 py-3 px-3">
                                     <div className="flex items-center gap-5">
@@ -376,12 +547,15 @@ function CmsMentorEditEventForm() {
                                         <h4 className="headline-4">Daftar Peserta</h4>
                                     </div>
                                     <div className="bg-primary-1 flex items-center rounded-md px-2 py-2">
-                                        <Link to={`/cms/mentor/editevent/${id}/participants/add`} className="bg-primary-1 hover:bg-primary-2">
+                                        <Link
+                                            to={`/cms/mentor/editevent/${id}/participants/add`}
+                                            className="bg-primary-1 hover:bg-primary-2"
+                                        >
                                             <img className="w-6" src={Add} alt="Tambah Peserta" />
                                         </Link>
                                     </div>
                                 </div>
-                                {/* [INFO] div ini sudah memiliki overflow-x-auto, sehingga tabel akan otomatis scrollable saat kolom bertambah */}
+
                                 <div className="table-content mt-5 overflow-x-auto">
                                     <table className="min-w-full table-auto border-collapse">
                                         <thead className="sticky top-0 bg-neutral-white z-10">
@@ -391,7 +565,10 @@ function CmsMentorEditEventForm() {
                                                 <th className="pr-4 py-3 text-left">Asal</th>
                                                 <th className="px-4 py-3 text-left">Status</th>
                                                 {courseStructure.map((episode) => (
-                                                    <th key={episode.id} className="px-4 py-3 text-center min-w-[100px]">
+                                                    <th
+                                                        key={episode.id}
+                                                        className="px-4 py-3 text-center min-w-[100px]"
+                                                    >
                                                         {episode.name}
                                                     </th>
                                                 ))}
@@ -403,7 +580,10 @@ function CmsMentorEditEventForm() {
                                                 <React.Fragment key={participant.id}>
                                                     <tr className="border-b border-gray-200">
                                                         <td className="pl-3 py-4 text-left font-semibold">
-                                                            <button onClick={() => toggleRow(participant.id)} className="mr-2">
+                                                            <button
+                                                                onClick={() => toggleRow(participant.id)}
+                                                                className="mr-2"
+                                                            >
                                                                 {expandedRows.includes(participant.id) ? (
                                                                     <MdOutlineKeyboardArrowUp />
                                                                 ) : (
@@ -412,20 +592,34 @@ function CmsMentorEditEventForm() {
                                                             </button>
                                                             {index + 1}
                                                         </td>
-                                                        <td className="pr-4 py-4 text-left">{participant.nama}</td>
-                                                        <td className="pr-4 py-4 text-left">{participant.asal}</td>
+                                                        <td className="pr-4 py-4 text-left">
+                                                            {participant.nama}
+                                                        </td>
+                                                        <td className="pr-4 py-4 text-left">
+                                                            {participant.asal}
+                                                        </td>
                                                         <td className="px-4 py-4 text-left min-w-[140px]">
                                                             <p
-                                                                className={`py-1 text-center font-bold text-white rounded-full ${episodeColors[participant.status.toLowerCase()]
+                                                                className={`py-1 text-center font-bold text-white rounded-full ${episodeColors[
+                                                                    participant.status.toLowerCase()
+                                                                    ]
                                                                     }`}
                                                             >
                                                                 {participant.status}
                                                             </p>
                                                         </td>
                                                         {participant.episodes.map((episode) => (
-                                                            <td key={episode.id} className="px-4 py-4 text-center">
+                                                            <td
+                                                                key={episode.id}
+                                                                className="px-4 py-4 text-center"
+                                                            >
                                                                 <button
-                                                                    onClick={() => handleEpisodeManualCheck(participant.id, episode.id)}
+                                                                    onClick={() =>
+                                                                        handleEpisodeManualCheck(
+                                                                            participant.id,
+                                                                            episode.id
+                                                                        )
+                                                                    }
                                                                     className="flex items-center justify-center gap-1 mx-auto"
                                                                 >
                                                                     {episode.isCompleted ? (
@@ -438,16 +632,28 @@ function CmsMentorEditEventForm() {
                                                         ))}
                                                         <td className="px-4 py-4 text-center">
                                                             <button
-                                                                onClick={() => handleDeleteParticipant(participant.id)}
+                                                                onClick={() =>
+                                                                    handleDeleteParticipant(participant.id)
+                                                                }
                                                                 className="bg-red-500 hover:bg-red-400 p-2 rounded-lg"
                                                             >
-                                                                <img className="w-5" src={Delete} alt="Delete" />
+                                                                <img
+                                                                    className="w-5"
+                                                                    src={Delete}
+                                                                    alt="Delete"
+                                                                />
                                                             </button>
                                                         </td>
                                                     </tr>
                                                     {expandedRows.includes(participant.id) && (
                                                         <tr>
-                                                            <td colSpan={5 + courseStructure.length} className="p-4 bg-gray-50">
+                                                            <td
+                                                                colSpan={5 + courseStructure.length}
+                                                                className="p-4 bg-gray-50"
+                                                            >
+                                                                <h5 className="font-bold text-lg mb-2">
+                                                                    Progress Tugas
+                                                                </h5>
                                                                 <div
                                                                     className={`grid gap-4`}
                                                                     style={{
@@ -455,30 +661,68 @@ function CmsMentorEditEventForm() {
                                                                     }}
                                                                 >
                                                                     {participant.episodes.map((episode) => (
-                                                                        <div key={episode.id} className="bg-white p-4 rounded-lg shadow-inner">
+                                                                        <div
+                                                                            key={episode.id}
+                                                                            className="bg-white p-4 rounded-lg shadow-inner"
+                                                                        >
                                                                             <h5 className="font-bold">
-                                                                                {courseStructure.find((e) => e.id === episode.id).name}
+                                                                                {
+                                                                                    courseStructure.find(
+                                                                                        (e) => e.id === episode.id
+                                                                                    ).name
+                                                                                }
                                                                             </h5>
                                                                             <div className="flex flex-col gap-2 mt-2">
-                                                                                {episode.tasks.map((task, taskIndex) => (
-                                                                                    <div key={taskIndex} className="flex items-center gap-2">
-                                                                                        <input
-                                                                                            type="checkbox"
-                                                                                            id={`task-${participant.id}-${episode.id}-${taskIndex}`}
-                                                                                            checked={task.isCompleted}
-                                                                                            onChange={() =>
-                                                                                                handleTaskChange(participant.id, episode.id, task.name)
-                                                                                            }
-                                                                                            className="form-checkbox text-blue-600"
-                                                                                        />
-                                                                                        <label htmlFor={`task-${participant.id}-${episode.id}-${taskIndex}`}>
-                                                                                            {task.name}
-                                                                                        </label>
-                                                                                    </div>
-                                                                                ))}
+                                                                                {episode.tasks.map(
+                                                                                    (task, taskIndex) => (
+                                                                                        <div
+                                                                                            key={taskIndex}
+                                                                                            className="flex items-center gap-2"
+                                                                                        >
+                                                                                            <input
+                                                                                                type="checkbox"
+                                                                                                id={`task-${participant.id}-${episode.id}-${taskIndex}`}
+                                                                                                checked={task.isCompleted}
+                                                                                                onChange={() =>
+                                                                                                    handleTaskChange(
+                                                                                                        participant.id,
+                                                                                                        episode.id,
+                                                                                                        task.name
+                                                                                                    )
+                                                                                                }
+                                                                                                className="form-checkbox text-blue-600"
+                                                                                            />
+                                                                                            <label
+                                                                                                htmlFor={`task-${participant.id}-${episode.id}-${taskIndex}`}
+                                                                                            >
+                                                                                                {task.name}
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    )
+                                                                                )}
                                                                             </div>
                                                                         </div>
                                                                     ))}
+                                                                </div>
+                                                                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-sm pt-4">
+                                                                    <p>
+                                                                        <span className="font-semibold">
+                                                                            Email:
+                                                                        </span>{" "}
+                                                                        {participant.email}
+                                                                    </p>
+                                                                    <p>
+                                                                        <span className="font-semibold">
+                                                                            No. Telepon:
+                                                                        </span>{" "}
+                                                                        {participant.telepon}
+                                                                    </p>
+                                                                    <p>
+                                                                        <span className="font-semibold">
+                                                                            Asal Instansi:
+                                                                        </span>{" "}
+                                                                        {participant.instansi}
+                                                                    </p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -489,6 +733,7 @@ function CmsMentorEditEventForm() {
                                     </table>
                                 </div>
                             </div>
+
                             {/* Tombol Aksi Utama */}
                             <div className="flex gap-5 justify-end  pt-5">
                                 <div className="w-56 py-2 flex">
@@ -514,6 +759,7 @@ function CmsMentorEditEventForm() {
                     </div>
                 </div>
             </div>
+
             {/* --- MODALS --- */}
             <Modal isOpen={isSaveModalOpen} onClose={closeSaveModal}>
                 <div className="flex justify-center">
@@ -538,12 +784,20 @@ function CmsMentorEditEventForm() {
                 <div className="flex justify-center">
                     <img className="w-40" src={Mascot2} alt="Cancel Mascot" />
                 </div>
-                <h3 className="mb-5 mt-5 headline-3 text-center">Yakin untuk batal? Progress tidak akan tersimpan</h3>
+                <h3 className="mb-5 mt-5 headline-3 text-center">
+                    Yakin untuk batal? Progress tidak akan tersimpan
+                </h3>
                 <div className="flex justify-center gap-4">
-                    <button onClick={closeCancelModal} className="bg-gray-300 px-4 py-2 w-1/2 rounded-lg">
+                    <button
+                        onClick={closeCancelModal}
+                        className="bg-gray-300 px-4 py-2 w-1/2 rounded-lg"
+                    >
                         Tidak
                     </button>
-                    <button onClick={confirmCancel} className="bg-red-500 w-1/2 hover:bg-red-400 text-white px-4 py-2 rounded-lg">
+                    <button
+                        onClick={confirmCancel}
+                        className="bg-red-500 w-1/2 hover:bg-red-400 text-white px-4 py-2 rounded-lg"
+                    >
                         Ya, Batal
                     </button>
                 </div>
@@ -577,9 +831,14 @@ function CmsMentorEditEventForm() {
                 <div className="flex justify-center">
                     <img className="w-40" src={Mascot} alt="Delete Confirmation" />
                 </div>
-                <h3 className="mb-5 mt-5 headline-3 text-center">Yakin untuk menghapus peserta ini?</h3>
+                <h3 className="mb-5 mt-5 headline-3 text-center">
+                    Yakin untuk menghapus peserta ini?
+                </h3>
                 <div className="flex justify-center gap-4">
-                    <button onClick={closeDeleteModal} className="bg-gray-300 px-4 py-2 w-1/2 rounded-lg">
+                    <button
+                        onClick={closeDeleteModal}
+                        className="bg-gray-300 px-4 py-2 w-1/2 rounded-lg"
+                    >
                         Batal
                     </button>
                     <button

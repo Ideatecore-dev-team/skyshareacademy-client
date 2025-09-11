@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import skyshareApi from "../../../utilities/skyshareApi";
 import "../Hero2.css";
 import CmsNavCard from "../CmsNavCard";
-
-import Modal from "../../modals/modals"
-
+import Modal from "../../modals/modals"; // Pastikan path ini benar
 import Ceklist from "../../../../public/images/mascot-icons/Tick Square.png";
 import Mascot1 from "../../../../public/images/mascot-icons/pose=8.png";
 import Mascot2 from "../../../../public/images/mascot-icons/pose=1.png";
@@ -19,6 +17,8 @@ function CmsMentorAddParticipantForm() {
     const [namaLengkap, setNamaLengkap] = useState("");
     const [asalDaerah, setAsalDaerah] = useState("");
     const [instansi, setInstansi] = useState("");
+    const [email, setEmail] = useState(""); // State baru
+    const [nomorTelepon, setNomorTelepon] = useState(""); // State baru
 
     // State untuk modals dan UI
     const [isErrorModal, setIsErrorModal] = useState(false);
@@ -32,6 +32,8 @@ function CmsMentorAddParticipantForm() {
             nama_lengkap: namaLengkap,
             asal_daerah: asalDaerah,
             instansi: instansi,
+            email: email, // Data baru
+            nomor_telepon: nomorTelepon, // Data baru
         };
 
         setIsUploading(true);
@@ -52,15 +54,14 @@ function CmsMentorAddParticipantForm() {
 
     const closeErrorModal = () => setIsErrorModal(false);
     const handleCancel = () => setIsCancelModalOpen(true);
-
     const closeSaveModal = () => {
         setIsSaveModalOpen(false);
-        navigate(-1);
+        navigate(-1); // Kembali ke halaman sebelumnya
     };
     const closeCancelModal = () => setIsCancelModalOpen(false);
     const confirmCancel = () => {
         setIsCancelModalOpen(false);
-        navigate(-1);
+        navigate(-1); // Kembali ke halaman sebelumnya
     };
 
     return (
@@ -80,10 +81,16 @@ function CmsMentorAddParticipantForm() {
                         <div className="shadow-md bg-neutral-white mt-10 border-2 border-black rounded-xl pb-5 px-3 w-full">
                             <div className="form-container mt-6">
                                 <div className="bg-neutral-white p-4 gap-4 flex items-center">
-                                    <form className="w-full space-y-4" onSubmit={handleAddParticipant}>
+                                    <form
+                                        className="w-full space-y-4"
+                                        onSubmit={handleAddParticipant}
+                                    >
                                         {/* Field Nama Lengkap */}
                                         <div>
-                                            <label className="block font-bold mb-1" htmlFor="nama_lengkap">
+                                            <label
+                                                className="block font-bold mb-1"
+                                                htmlFor="nama_lengkap"
+                                            >
                                                 Nama Lengkap <span className="text-red-500">*</span>
                                             </label>
                                             <input
@@ -96,9 +103,13 @@ function CmsMentorAddParticipantForm() {
                                                 required
                                             />
                                         </div>
+
                                         {/* Field Asal Daerah */}
                                         <div>
-                                            <label className="block font-bold mb-1" htmlFor="asal_daerah">
+                                            <label
+                                                className="block font-bold mb-1"
+                                                htmlFor="asal_daerah"
+                                            >
                                                 Asal Daerah <span className="text-red-500">*</span>
                                             </label>
                                             <input
@@ -111,9 +122,48 @@ function CmsMentorAddParticipantForm() {
                                                 required
                                             />
                                         </div>
+
+                                        {/* === [PENAMBAHAN] Field Email === */}
+                                        <div>
+                                            <label className="block font-bold mb-1" htmlFor="email">
+                                                Email <span className="text-red-500">*</span>
+                                            </label>
+                                            <input
+                                                id="email"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                placeholder="Contoh: user@example.com"
+                                                type="email"
+                                                className="w-full px-4 py-2 border-gray-300 border-2 rounded-lg outline-none"
+                                                required
+                                            />
+                                        </div>
+
+                                        {/* === [PENAMBAHAN] Field Nomor Telepon === */}
+                                        <div>
+                                            <label
+                                                className="block font-bold mb-1"
+                                                htmlFor="nomor_telepon"
+                                            >
+                                                Nomor Telepon <span className="text-red-500">*</span>
+                                            </label>
+                                            <input
+                                                id="nomor_telepon"
+                                                value={nomorTelepon}
+                                                onChange={(e) => setNomorTelepon(e.target.value)}
+                                                placeholder="Contoh: 081234567890"
+                                                type="tel"
+                                                className="w-full px-4 py-2 border-gray-300 border-2 rounded-lg outline-none"
+                                                required
+                                            />
+                                        </div>
+
                                         {/* Field Instansi */}
                                         <div>
-                                            <label className="block font-bold mb-1" htmlFor="instansi">
+                                            <label
+                                                className="block font-bold mb-1"
+                                                htmlFor="instansi"
+                                            >
                                                 Instansi <span className="text-red-500">*</span>
                                             </label>
                                             <input
@@ -126,6 +176,7 @@ function CmsMentorAddParticipantForm() {
                                                 required
                                             />
                                         </div>
+
                                         {/* Tombol Aksi */}
                                         <div className="mt-8 pt-4 flex gap-5 justify-end">
                                             <button
@@ -150,8 +201,7 @@ function CmsMentorAddParticipantForm() {
                 </div>
             </div>
 
-            {/* --- [PERUBAHAN] MODALS MENGGUNAKAN KOMPONEN REUSABLE --- */}
-
+            {/* --- MODALS MENGGUNAKAN KOMPONEN REUSABLE --- */}
             {/* Modal Sukses */}
             <Modal isOpen={isSaveModalOpen} onClose={closeSaveModal}>
                 <div className="flex justify-center">
@@ -164,7 +214,11 @@ function CmsMentorAddParticipantForm() {
             </Modal>
 
             {/* Modal Konfirmasi Batal */}
-            <Modal isOpen={isCancelModalOpen} onClose={closeCancelModal} showCloseButton={false}>
+            <Modal
+                isOpen={isCancelModalOpen}
+                onClose={closeCancelModal}
+                showCloseButton={false}
+            >
                 <div className="flex justify-center">
                     <img className=" w-40" src={Mascot} alt="Cancel Mascot" />
                 </div>
@@ -172,10 +226,16 @@ function CmsMentorAddParticipantForm() {
                     Yakin untuk batal? Progress tidak akan tersimpan
                 </h3>
                 <div className="flex justify-center gap-4">
-                    <button onClick={closeCancelModal} className="bg-gray-300 px-4 py-2 w-1/2 rounded-lg">
+                    <button
+                        onClick={closeCancelModal}
+                        className="bg-gray-300 px-4 py-2 w-1/2 rounded-lg"
+                    >
                         Tidak
                     </button>
-                    <button onClick={confirmCancel} className="bg-red-500 w-1/2 hover:bg-red-400 text-white px-4 py-2 rounded-lg">
+                    <button
+                        onClick={confirmCancel}
+                        className="bg-red-500 w-1/2 hover:bg-red-400 text-white px-4 py-2 rounded-lg"
+                    >
                         Ya, Batal
                     </button>
                 </div>
