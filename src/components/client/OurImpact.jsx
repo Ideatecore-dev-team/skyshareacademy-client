@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import mascot from "@public/images/mascot-icons/pose=5.png";
+import mascot from "@public/images/mascot-icons/pose=5.webp";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { BsBuildingFill } from "react-icons/bs";
 import { IoMdSchool } from "react-icons/io";

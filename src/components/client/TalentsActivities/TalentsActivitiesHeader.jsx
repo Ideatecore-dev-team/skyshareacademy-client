@@ -19,7 +19,7 @@
     import "swiper/css/autoplay";
     import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-    import Mascot1 from "@public/images/mascot-icons/pose=10.png";
+    import Mascot1 from "@public/images/mascot-icons/pose=10.webp";
 
 
     export const TalentsActivitiesHeader = () => {

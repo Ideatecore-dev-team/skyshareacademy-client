@@ -5,9 +5,9 @@ import "../Hero2.css";
 import CmsNavCard from "../CmsNavCard";
 import ArrowLeft from "../../../../public/images/mascot-icons/Arrow - Down 3.png";
 import Xbutton from "../../../../public/images/mascot-icons/Fill 300.png";
-import Mascot2 from "../../../../public/images/mascot-icons/pose=1.png";
+import Mascot2 from "../../../../public/images/mascot-icons/pose=1.webp";
+import Mascot1 from "../../../../public/images/mascot-icons/pose=8.webp";
 import Coution from "../../../../public/images/mascot-icons/Info Square.png";
-import Mascot1 from "../../../../public/images/mascot-icons/pose=8.png";
 import Ceklist from "../../../../public/images/mascot-icons/Tick Square.png";
 
 function CmsMentorAddEventForm() {

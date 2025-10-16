@@ -8,8 +8,8 @@ import Caution from "../../../../public/images/mascot-icons/Info Square.png";
 import Xbutton from "../../../../public/images/mascot-icons/Fill 300.png";
 import Ceklist from "../../../../public/images/mascot-icons/Tick Square.png";
 import Coution from "../../../../public/images/mascot-icons/Info Square.png";
-import Mascot1 from "../../../../public/images/mascot-icons/pose=8.png";
-import Mascot2 from "../../../../public/images/mascot-icons/pose=1.png";
+import Mascot1 from "../../../../public/images/mascot-icons/pose=8.webp";
+import Mascot2 from "../../../../public/images/mascot-icons/pose=1.webp";
 
 function CmsEditAdminForm() {
   const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);

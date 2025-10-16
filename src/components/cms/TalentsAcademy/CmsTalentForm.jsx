@@ -18,10 +18,10 @@ import Ceklist from "../../../../public/images/mascot-icons/Tick Square.png";
 import Add from "../../../../public/images/mascot-icons/Plus.png";
 import Chain from "../../../../public/images/mascot-icons/Link.png";
 import Xbutton from "../../../../public/images/mascot-icons/Fill 300.png";
-import Mascot1 from "../../../../public/images/mascot-icons/pose=8.png";
-import Mascot2 from "../../../../public/images/mascot-icons/pose=1.png";
+import Mascot1 from "../../../../public/images/mascot-icons/pose=8.webp";
+import Mascot2 from "../../../../public/images/mascot-icons/pose=1.webp";
 import Coution from "../../../../public/images/mascot-icons/Info Square.png";
-import Mascot from "../../../../public/images/mascot-icons/pose=2.png";
+import Mascot from "../../../../public/images/mascot-icons/pose=2.webp";
 import ArrowLeft from "../../../../public/images/mascot-icons/Arrow - Down 3.png";
 
 function CmsTalentForm() {

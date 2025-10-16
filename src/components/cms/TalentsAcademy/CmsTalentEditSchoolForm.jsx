@@ -12,9 +12,9 @@ import Add from "../../../../public/images/mascot-icons/Plus.png";
 import Group from "../../../../public/images/mascot-icons/3 User.png";
 import Chain from "../../../../public/images/mascot-icons/Link.png";
 import ArrowLeft from "../../../../public/images/mascot-icons/Arrow - Down 3.png";
-import Mascot from "../../../../public/images/mascot-icons/pose=2.png";
-import Mascot1 from "../../../../public/images/mascot-icons/pose=8.png";
-import Mascot2 from "../../../../public/images/mascot-icons/pose=1.png";
+import Mascot from "../../../../public/images/mascot-icons/pose=2.webp";
+import Mascot1 from "../../../../public/images/mascot-icons/pose=8.webp";
+import Mascot2 from "../../../../public/images/mascot-icons/pose=1.webp";
 import Ceklist from "../../../../public/images/mascot-icons/Tick Square.png";
 import Coution from "../../../../public/images/mascot-icons/Info Square.png";
 

@@ -2,7 +2,7 @@ import React from "react";
 
 import { FaHandshake, FaBookOpen, FaRocket } from "react-icons/fa";
 
-import mascot from "@public/images/mascot-icons/pose=3.png";
+import mascot from "@public/images/mascot-icons/pose=3.webp";
 import SecondayButton from "./SecondayButton";
 
 

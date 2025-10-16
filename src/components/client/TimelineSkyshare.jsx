@@ -1,7 +1,7 @@
 import React from "react";
 import TimeIcon from "@public/images/mascot-icons/Time Circle.png";
 import "./TimelineSkyshare.css";
-import mascot from "@public/images/mascot-icons/pose=1.png"; // Import maskot
+import mascot from "@public/images/mascot-icons/pose=1.webp";
 
 function TimelineSkyshare({ parents, talent, mentor }) {
   const timelineImageSrc = parents?.gambar_timeline || talent?.gambar_timeline || mentor?.gambar_timeline;

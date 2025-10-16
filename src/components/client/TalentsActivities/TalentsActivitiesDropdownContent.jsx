@@ -1,19 +1,19 @@
 import React from "react";
-import ProgramImage1 from "@public/images/banner/circle-time.png";
-import ProgramImage2 from "@public/images/banner/sport-time.png";
-import ProgramImage3 from "@public/images/banner/training.png";
-import ProgramImage4 from "@public/images/banner/fum.png";
-import ProgramImage5 from "@public/images/banner/homvis.png";
+import ProgramImage1 from "@public/images/banner/circle-time.webp";
+import ProgramImage2 from "@public/images/banner/sport-time.webp";
+import ProgramImage3 from "@public/images/banner/training.webp";
+import ProgramImage4 from "@public/images/banner/fum.webp";
+import ProgramImage5 from "@public/images/banner/homvis.webp";
 
-import ProgramImage6 from "@public/images/banner/studex.png";
-import ProgramImage7 from "@public/images/banner/take-a-walk-together.png";
-import ProgramImage8 from "@public/images/banner/soul-of-charge.png";
-import ProgramImage9 from "@public/images/banner/experential-learning.png";
-import ProgramImage10 from "@public/images/banner/personal-approach.png";
+import ProgramImage6 from "@public/images/banner/studex.webp";
+import ProgramImage7 from "@public/images/banner/take-a-walk-together.webp";
+import ProgramImage8 from "@public/images/banner/soul-of-charge.webp";
+import ProgramImage9 from "@public/images/banner/experential-learning.webp";
+import ProgramImage10 from "@public/images/banner/personal-approach.webp";
 
-import ProgramImage11 from "@public/images/banner/catch-wisdom.png";
-import ProgramImage12 from "@public/images/banner/sharing-elevate.png";
-import ProgramImage13 from "@public/images/banner/mentor-and-parents-conference.png";
+import ProgramImage11 from "@public/images/banner/catch-wisdom.webp";
+import ProgramImage12 from "@public/images/banner/sharing-elevate.webp";
+import ProgramImage13 from "@public/images/banner/mentor-and-parents-conference.webp";
 
 
 import { motion } from "framer-motion";

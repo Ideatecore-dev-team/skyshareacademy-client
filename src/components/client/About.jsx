@@ -6,7 +6,7 @@ import aboutUsPhotos2 from "@public/images/Home-Visit.jpeg";
 import aboutUsPhotos3 from "@public/images/Sport-Time.jpeg";
 import aboutUsPhotos4 from "@public/images/Walk-Together.png";
 
-import Mascot1 from "@public/images/mascot-icons/pose=8.png";
+import Mascot1 from "@public/images/mascot-icons/pose=8.webp";
 
 export const About = () => {
   const photos = [aboutUsPhotos1, aboutUsPhotos2, aboutUsPhotos3, aboutUsPhotos4];

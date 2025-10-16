@@ -2,7 +2,7 @@ import React from "react";
 import { FaGraduationCap } from "react-icons/fa";
 import { MdOutlineManageAccounts, MdHealthAndSafety } from "react-icons/md";
 import { GiOpenBook } from "react-icons/gi";
-import mascot from "@public/images/mascot-icons/pose=10.png";
+import mascot from "@public/images/mascot-icons/pose=10.webp";
 import SecondayButton from "./SecondayButton";
 
 function MentorAbout() {

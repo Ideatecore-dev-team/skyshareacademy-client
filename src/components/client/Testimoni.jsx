@@ -1,5 +1,5 @@
 import React from "react";
-import Mascot1 from "@public/images/mascot-icons/pose=4.png";
+import Mascot1 from "@public/images/mascot-icons/pose=4.webp";
 import Carousel from "./Carousel";
 
 import "./Testimoni.css";

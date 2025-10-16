@@ -6,8 +6,8 @@ import Caution from "../../../../public/images/mascot-icons/Info Square.png";
 import Xbutton from "../../../../public/images/mascot-icons/Fill 300.png";
 import Ceklist from "../../../../public/images/mascot-icons/Tick Square.png";
 import Danger from "../../../../public/images/mascot-icons/Danger Triangle.png";
-import Mascot1 from "../../../../public/images/mascot-icons/pose=9.png";
-import Mascot2 from "../../../../public/images/mascot-icons/pose=8.png";
+import Mascot1 from "../../../../public/images/mascot-icons/pose=9.webp";
+import Mascot2 from "../../../../public/images/mascot-icons/pose=8.webp";
 import Coution from "../../../../public/images/mascot-icons/Info Square.png";
 
 function CmsAddAdminForm() {

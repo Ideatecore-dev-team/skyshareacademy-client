@@ -5,10 +5,10 @@ import "../Hero2.css";
 import CmsNavCard from "../CmsNavCard";
 import Modal from "../../modals/modals"; // Pastikan path ini benar
 import Ceklist from "../../../../public/images/mascot-icons/Tick Square.png";
-import Mascot1 from "../../../../public/images/mascot-icons/pose=8.png";
-import Mascot2 from "../../../../public/images/mascot-icons/pose=1.png";
+import Mascot1 from "../../../../public/images/mascot-icons/pose=8.webp";
+import Mascot2 from "../../../../public/images/mascot-icons/pose=1.webp";
+import Mascot from "../../../../public/images/mascot-icons/pose=2.webp";
 import Coution from "../../../../public/images/mascot-icons/Info Square.png";
-import Mascot from "../../../../public/images/mascot-icons/pose=2.png";
 
 function CmsMentorAddParticipantForm() {
     const navigate = useNavigate();

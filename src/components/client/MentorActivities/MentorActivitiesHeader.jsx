@@ -6,7 +6,7 @@ import { GiUpgrade, GiTeacher } from "react-icons/gi";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-import Mascot1 from "@public/images/mascot-icons/pose=6.png";
+import Mascot1 from "@public/images/mascot-icons/pose=6.webp";
 
 export const MentorActivitiesHeader = () => {
     const OurProgramData = [

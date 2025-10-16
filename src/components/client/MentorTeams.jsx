@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import MentorCardContents from '../../database/MentorCardContents';
 
-import mascot1 from "@public/images/mascot-icons/pose=3.png";
-import mascot2 from "@public/images/mascot-icons/pose=4.png";
+import mascot1 from "@public/images/mascot-icons/pose=3.webp";
+import mascot2 from "@public/images/mascot-icons/pose=4.webp";
 
 
 

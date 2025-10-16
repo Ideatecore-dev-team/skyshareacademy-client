@@ -1,7 +1,7 @@
 import React from "react";
 import WorkIcon from "@public/images/mascot-icons/Work.png";
 import TimeLine from "@public/images/Alur Acara Ex.png";
-import mascot from "@public/images/mascot-icons/pose=5.png";
+import mascot from "@public/images/mascot-icons/pose=5.webp";
 
 function AlurAcara({ parents, talent, mentor }) {
   const timelineImageSrc =

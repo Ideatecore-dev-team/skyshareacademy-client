@@ -8,7 +8,7 @@ import React from "react";
 import { FaGraduationCap, FaHandshake, FaLightbulb, FaBookOpen } from "react-icons/fa"; 
 // Anda bisa mencari dan memilih ikon lain di situs React Icons: https://react-icons.github.io/react-icons/
 
-import Mascot1 from "@public/images/mascot-icons/pose=5.png"; 
+import Mascot1 from "@public/images/mascot-icons/pose=5.webp"; 
 
 function Misi() { 
   const cardContent = [ 

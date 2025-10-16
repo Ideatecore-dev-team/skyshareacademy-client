@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useNavigate } from "react-router-dom";
-import mascot from "@public/images/mascot-icons/pose=1.png";
+import mascot from "@public/images/mascot-icons/pose=1.webp";
 import Button from "./Button";
 
 

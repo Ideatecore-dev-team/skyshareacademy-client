@@ -3,9 +3,9 @@ import React from "react";
 // import ProgramImage2 from "../../../public/images/banner/teachme-series.png"; 
 // import ProgramImage3 from "../../../public/images/banner/coachme-series.png"; 
 
-import ProgramImage1 from "@public/images/banner/circle-time.png";
-import ProgramImage2 from "@public/images/banner/sport-time.png";
-import ProgramImage3 from "@public/images/banner/training.png";
+import ProgramImage1 from "@public/images/banner/circle-time.webp";
+import ProgramImage2 from "@public/images/banner/sport-time.webp";
+import ProgramImage3 from "@public/images/banner/training.webp";
 
 import { motion } from "framer-motion";
 

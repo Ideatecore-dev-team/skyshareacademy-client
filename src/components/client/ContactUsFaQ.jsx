@@ -1,7 +1,7 @@
     import React, { useState } from "react";
     import { motion, AnimatePresence } from "framer-motion";
     // import mascot from "../../public/images/mascot-icons/mascot-contact.png";
-    import mascot from "@public/images/mascot-icons/pose=1.png";
+    import mascot from "@public/images/mascot-icons/pose=1.webp";
 
     import "./ContacUsHero.css";
 
