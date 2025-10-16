@@ -110,10 +110,6 @@ export const MentorTeams = () => {
             setCurrentPage(currentPage - 1);
         }
     };
-
-    // ====================================================================
-    // 2. FUNGSI HANDLE DIUBAH UNTUK MENERIMA VALUE LANGSUNG
-    // ====================================================================
     const handleCategoryChange = (category) => {
         setSelectedCategory(category);
         setCurrentPage(1);
