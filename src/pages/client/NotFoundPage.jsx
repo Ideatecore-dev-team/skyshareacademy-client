@@ -1,5 +1,5 @@
 import React from "react";
-import Mascot from "../../../public/images/mascot-icons/pose=2.png";
+import Mascot from "../../../public/images/mascot-icons/pose=2.webp";
 import Caution from "../../../public/images/mascot-icons/Danger Triangle.png";
 
 function NotFoundPage() {

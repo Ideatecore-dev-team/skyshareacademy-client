@@ -1,6 +1,6 @@
 import React from "react";
 import CmsNavbar from "../../components/cms/CmsNavbar";
-import CmsArticleAddForm from "../../components/cms/CmsArticleAddForm";
+import CmsArticleAddForm from "../../components/cms/ArticlesManagement/CmsArticleAddForm";
 
 function CmsArticleAdd() {
   return (
