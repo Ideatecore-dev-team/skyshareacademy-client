@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion"; // Impor motion dan AnimatePresence
-import aboutUsPhotos1 from "@public/images/take-a-walk-mentor.jpg";
-import aboutUsPhotos2 from "@public/images/Home-Visit.jpeg";
-import aboutUsPhotos3 from "@public/images/Sport-Time.jpeg";
-import aboutUsPhotos4 from "@public/images/Walk-Together.png";
+import { motion, AnimatePresence } from "framer-motion"; 
+import aboutUsPhotos1 from "@public/images/background/take-a-walk-mentor.webp";
+import aboutUsPhotos2 from "@public/images/background/Home-Visit.webp";
+import aboutUsPhotos3 from "@public/images/background/Sport-Time.webp";
+import aboutUsPhotos4 from "@public/images/background/Walk-Together.webp";
 
 import Mascot1 from "@public/images/mascot-icons/pose=8.webp";
 

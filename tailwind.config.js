@@ -7,29 +7,24 @@ export default {
       },
       backgroundImage: {
         "hero-bg":
-          "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/bg.jpeg')",
+          "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/background/Bg.webp')",
         "talent-bg":
-          // "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/StudExAlt.jpeg')",
-          "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/Home-Visit.jpeg')",
-          // "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/studex.png')",
-
+          "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/background/Home-Visit.webp')",
         "mentor-bg":
-          // "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/Parent.jpeg')",
-          // "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55)) ,url('/images/Walk-Together.png')",
-          "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55)) ,url('/images/mentor-bg.png')",
-
-
+          "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55)) ,url('/images/background/Mentor-bg.webp')",
         "parent-bg":
-          "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/ParentsConference.jpeg')",
+          "linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)) ,url('/images/background/ParentsConference.webp')",
+
         "card-bg-1":
           "linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.10)) ,url('/images/cardbg1.jpeg')",
         "card-bg-2":
           "linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.10)) ,url('/images/cardbg2.jpeg')",
         "card-bg-3":
           "linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.10)) ,url('/images/cardbg3.jpeg')",
-        "orange-bg": "url('/images/background/Benefit Section.png')",
-        "blue-bg": "url('/images/background/Biru Benefit Section.png')",
-        "orange-dunkler-bg": "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/background/Benefit Section.png')"
+
+        "orange-bg": "url('/images/background/Benefit Section.webp')",
+        "blue-bg": "url('/images/background/Biru Benefit Section.webp')",
+        "orange-dunkler-bg": "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/background/Benefit Section.webp')"
       },
       colors: {
         "primary-1": "#FEA02F",

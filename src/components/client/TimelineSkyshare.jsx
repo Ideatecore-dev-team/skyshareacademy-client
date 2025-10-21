@@ -33,7 +33,7 @@ function TimelineSkyshare({ parents, talent, mentor }) {
             {/* Timeline berada di sebelah kanan */}
             <div className="timeline-img-container flex-grow">
               <img
-                className="timeline-img w-full lg:rounded-2xl rounded-md lg:pl-[8px]"
+                className="timeline-img w-full lg:rounded-2xl rounded-md "
                 src={timelineImageSrc}
                 alt="timeline-acara"
               />

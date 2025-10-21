@@ -1,11 +1,10 @@
 import React from "react";
 // import "./Partner.css";
-import Partner1 from "@public/images/partner/partner1.png";
-import Partner2 from "@public/images/partner/partner2.png";
-import Partner3 from "@public/images/partner/partner3.png";
-import Partner4 from "@public/images/partner/partner4.png";
-import Partner5 from "@public/images/partner/partner5.png";
-// import Partner6 from "../../public/images/partner/partner6.png";
+import Partner1 from "@public/images/partner/partner1.webp";
+import Partner2 from "@public/images/partner/partner2.webp";
+import Partner3 from "@public/images/partner/partner3.webp";
+import Partner4 from "@public/images/partner/partner4.webp";
+import Partner5 from "@public/images/partner/partner5.webp";
 
 
 
