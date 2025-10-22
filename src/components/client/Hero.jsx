@@ -7,7 +7,7 @@ function Hero() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="hero bg-hero-bg bg-cover bg-center flex flex-col pb-24 pt-48 items-center self-stretch h-auto">
+      <div className="hero bg-hero-bg bg-cover bg-center flex flex-col pb-24 pt-48 items-center self-stretch h-screen">
         <div className="content text-white flex flex-row content-end items-start flex-wrap">
           <div className="tagline flex flex-col content-end items-start lg:gap-4 xs:gap-2">
             <h1 className=" text-white font-bold">

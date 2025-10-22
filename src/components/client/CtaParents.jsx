@@ -8,7 +8,7 @@ function ParentsCta({ parents }) {
 
   return (
     <>
-      <div className="cta-title bg-parent-bg bg-cover flex flex-col self-stretch items-center px-6 py-14 lg:py-24 lg:px-0">
+      <div className="cta-title bg-parent-bg bg-cover flex flex-col self-stretch items-center px-6 py-14 lg:py-24 lg:px-0 h-screen">
         <div className="cta-padding flex flex-col justify-end items-center flex-wrap">
           <div className="cta-hero-content flex px-6 flex-col items-center gap-2 self-stretch lg:px-0 lg:gap-4">
             <div className="logo-title flex flex-col items-center">
